@@ -367,7 +367,7 @@ public class ConsistencyManager {
         let garbageCollectionInterval = self.garbageCollectionInterval
         // If garbageCollectionInterval is 0, this means it's disabled.
         if garbageCollectionInterval > 0 {
-            // Weak here is necessay, otherwise, we'd have a retain cycle.
+            // Weak here is necessary, otherwise, we'd have a retain cycle.
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(UInt64(garbageCollectionInterval) * NSEC_PER_SEC)), dispatchQueue) { [weak self] in
                 self?.cleanMemory()
                 dispatch_async(dispatch_get_main_queue()) {
