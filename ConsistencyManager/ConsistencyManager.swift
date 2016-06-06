@@ -57,6 +57,11 @@ public class ConsistencyManager {
      Periodically, the consistency manager cleans up after itself.
      This is a relatively quick process, and since the memory footprint of the library in general is small, it's not an important thing to worry about.
      Default is 5 mins. It will also clean up automatically on any memory warnings.
+
+     If you set this to zero, then garbage collection is considered disabled.
+     The ConsistencyManager will still attempt to clean up memory if the application receives a memory warning.
+
+     This variable is not thread-safe. You should only access this on the main thread.
      */
     public var garbageCollectionInterval: NSTimeInterval = 300
 
@@ -96,7 +101,10 @@ public class ConsistencyManager {
      */
     public init() {
         memoryWarningListener.delegate = self
-        startGarbageCollection()
+        // Doing this in the next tick to give the caller a chance to set garbageCollectionInterval
+        dispatch_async(dispatch_get_main_queue()) { 
+            self.startGarbageCollection()
+        }
     }
 
     // MARK: - Public Functions
@@ -355,10 +363,17 @@ public class ConsistencyManager {
      It is called once on initialization to start the process. This will cause a cleanMemory call, but that's ok since it will be basically a no-op.
      */
     private func startGarbageCollection() {
-        // Weak here is necessay, otherwise, we'd have a retain cycle.
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(UInt64(garbageCollectionInterval) * NSEC_PER_SEC)), dispatchQueue) { [weak self] in
-            self?.cleanMemory()
-            self?.startGarbageCollection()
+        // Saving a local variable so we only access this on the main thread
+        let garbageCollectionInterval = self.garbageCollectionInterval
+        // If garbageCollectionInterval is 0, this means it's disabled.
+        if garbageCollectionInterval > 0 {
+            // Weak here is necessay, otherwise, we'd have a retain cycle.
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(UInt64(garbageCollectionInterval) * NSEC_PER_SEC)), dispatchQueue) { [weak self] in
+                self?.cleanMemory()
+                dispatch_async(dispatch_get_main_queue()) {
+                    self?.startGarbageCollection()
+                }
+            }
         }
     }
 
