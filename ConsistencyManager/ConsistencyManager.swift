@@ -656,7 +656,7 @@ public class ConsistencyManager {
 
         override init() {
             super.init()
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidReceiveMemoryWarning:", name: UIApplicationDidReceiveMemoryWarningNotification, object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UIApplicationDelegate.applicationDidReceiveMemoryWarning(_:)), name: UIApplicationDidReceiveMemoryWarningNotification, object: nil)
         }
 
         deinit {

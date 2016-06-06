@@ -80,7 +80,7 @@ class TestModelGenerator {
                 currentNode.children.append(newChild)
                 // Also, let's add it to the queue
                 nodeQueue.append(newChild)
-                remainingNodes--
+                remainingNodes -= 1
             }
         }
 

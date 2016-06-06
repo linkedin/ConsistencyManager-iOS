@@ -290,7 +290,7 @@ class WeakListenerArrayTests: ConsistencyManagerTestCase {
             var iterations = 0
             for element in weakArray {
                 XCTAssertNil(element)
-                iterations++
+                iterations += 1
             }
             // Should have iterated over every value
             XCTAssertEqual(iterations, count)

@@ -41,7 +41,7 @@ class RaceConditionsTests: ConsistencyManagerTestCase {
             // The reason this is only necessary the first time is that changing the model in this method is an antipattern. This just simulates the bug. The second time it's called, it's called on the same thread as the update happenes so there can be no race condition there.
             if updates == 0 {
                 listener.model = newModel
-                updates++
+                updates += 1
             }
         }
 
@@ -74,7 +74,7 @@ class RaceConditionsTests: ConsistencyManagerTestCase {
         // This actually gets called 4 times
         // It gets called twice in a row first, then two more times again. These should each be grouped on their own thread.
         let modelRequested = {
-            numberOfCurrentModelRequests++
+            numberOfCurrentModelRequests += 1
 
             if numberOfCurrentModelRequests > 2 {
                 dispatch_async(dispatch_get_main_queue()) {
@@ -91,7 +91,7 @@ class RaceConditionsTests: ConsistencyManagerTestCase {
 
         var updates = 0
         let modelUpdated: (ConsistencyManagerModel?, ModelUpdates) -> Void = { _, _ in
-            updates++
+            updates += 1
             
             // Let's dispatch and get the next main block
             // When we do this, we should get both updated

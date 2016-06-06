@@ -39,11 +39,11 @@ class UpdateOrderingTests: ConsistencyManagerTestCase {
                 listener.updateClosure = { model, updates in
                     if let model = model as? TestModel {
                         if numberTimesCallbackCalled == 0 {
-                            numberTimesCallbackCalled++
+                            numberTimesCallbackCalled += 1
                             // On first update, we should have the new large model
                             XCTAssertEqual(model, newLargeModel)
                         } else if numberTimesCallbackCalled == 1 {
-                            numberTimesCallbackCalled++
+                            numberTimesCallbackCalled += 1
                             // Second time, it should have changed to our new smaller model
                             XCTAssertEqual(model, newModel)
                         } else {

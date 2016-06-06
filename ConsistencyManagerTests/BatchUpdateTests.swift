@@ -24,7 +24,7 @@ class BatchUpdateTests: ConsistencyManagerTestCase {
 
         var numberOfUpdates = 0
         listener.updateClosure = { _ in
-            numberOfUpdates++
+            numberOfUpdates += 1
         }
 
         let updateModel1 = TestModel(id: "2", data: -2, children: [], requiredModel: TestRequiredModel(id: "21", data: -1))

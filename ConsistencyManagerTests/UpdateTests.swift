@@ -86,7 +86,7 @@ class UpdateTests: ConsistencyManagerTestCase {
         // Let's skip 2 models since then the listener won't have a subtree
         for numberOfModels in 4.stride(through: 40, by: 4) {
             for branchingFactor in 1...5 {
-                let testModel = TestModelGenerator.testModelWithTotalChildren(numberOfModels, branchingFactor: branchingFactor) { id in
+                let testModel: TestModel = TestModelGenerator.testModelWithTotalChildren(numberOfModels, branchingFactor: branchingFactor) { id in
                     // Let's make everything we're testing have an id. This will be 0, 2, 6, 10...
                     return id == 0 || (id + 2) % 4 == 0
                 }
@@ -124,7 +124,7 @@ class UpdateTests: ConsistencyManagerTestCase {
         // Let's skip 2 models since then the listener won't have a subtree
         for numberOfModels in 4.stride(through: 40, by: 4) {
             for branchingFactor in 1...5 {
-                let testModel = TestModelGenerator.testModelWithTotalChildren(numberOfModels, branchingFactor: branchingFactor) { id in
+                let testModel: TestModel = TestModelGenerator.testModelWithTotalChildren(numberOfModels, branchingFactor: branchingFactor) { id in
                     // Let's make everything we're testing have an id. This will be 0, 2, 6, 10...
                     return id == 0 || (id + 2) % 4 == 0
                 }

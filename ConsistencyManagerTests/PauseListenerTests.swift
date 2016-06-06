@@ -47,7 +47,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
         var numberOfUpdates = 0
         var modelUpdates = ModelUpdates(changedModelIds: [], deletedModelIds: [])
         listener.updateClosure = { (_, updates) in
-            numberOfUpdates++
+            numberOfUpdates += 1
             modelUpdates = updates
             XCTAssertTrue(NSThread.currentThread().isMainThread)
         }
@@ -131,11 +131,11 @@ class PauseListenerTests: ConsistencyManagerTestCase {
         var numberOfUpdates2 = 0
         var modelUpdatesPausedListener = ModelUpdates(changedModelIds: [], deletedModelIds: [])
         activeListener.updateClosure = { (_, updates) in
-            numberOfUpdates1++
+            numberOfUpdates1 += 1
             XCTAssertTrue(NSThread.currentThread().isMainThread)
         }
         pausedListener.updateClosure = { (_, updates) in
-            numberOfUpdates2++
+            numberOfUpdates2 += 1
             modelUpdatesPausedListener = updates
             XCTAssertTrue(NSThread.currentThread().isMainThread)
         }
@@ -218,7 +218,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
         var numberOfUpdates = 0
         var modelUpdates = ModelUpdates(changedModelIds: [], deletedModelIds: [])
         listener.updateClosure = { (_, updates) in
-            numberOfUpdates++
+            numberOfUpdates += 1
             modelUpdates = updates
             XCTAssertTrue(NSThread.currentThread().isMainThread)
         }
@@ -256,7 +256,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
         var numberOfUpdates = 0
         var modelUpdates = ModelUpdates(changedModelIds: [], deletedModelIds: [])
         listener.updateClosure = { (_, updates) in
-            numberOfUpdates++
+            numberOfUpdates += 1
             modelUpdates = updates
             XCTAssertTrue(NSThread.currentThread().isMainThread)
         }
@@ -306,7 +306,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
         var numberOfUpdatesToPausedListener = 0
         var modelUpdatesPausedListener = ModelUpdates(changedModelIds: [], deletedModelIds: [])
         pausedListener.updateClosure = { (_, updates) in
-            numberOfUpdatesToPausedListener++
+            numberOfUpdatesToPausedListener += 1
             modelUpdatesPausedListener = updates
             XCTAssertTrue(NSThread.currentThread().isMainThread)
         }
@@ -319,7 +319,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
         var numberOfUpdatesToActiveListener = 0
         var modelUpdatesActiveListener = ModelUpdates(changedModelIds: [], deletedModelIds: [])
         activeListener.updateClosure = { (_, updates) in
-            numberOfUpdatesToActiveListener++
+            numberOfUpdatesToActiveListener += 1
             modelUpdatesActiveListener = updates
             XCTAssertTrue(NSThread.currentThread().isMainThread)
         }
@@ -489,14 +489,14 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             calledPausedListenerUpdateClosure = true
             XCTAssertEqual(updates.changedModelIds.count, 0)
             XCTAssertEqual(updates.deletedModelIds, ["0"])
-            numberOfUpdatesforPausedListener++
+            numberOfUpdatesforPausedListener += 1
             XCTAssertTrue(NSThread.currentThread().isMainThread)
         }
         var calledActiveListenerUpdateClosure = false
         var numberOfUpdatesForActiveListener = 0
         activeListener.updateClosure = { model, updates in
             calledActiveListenerUpdateClosure = true
-            numberOfUpdatesForActiveListener++
+            numberOfUpdatesForActiveListener += 1
             XCTAssertTrue(NSThread.currentThread().isMainThread)
         }
 
@@ -540,7 +540,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
 
         var numberOfUpdates = 0
         listener.updateClosure = { (_, updates) in
-            numberOfUpdates++
+            numberOfUpdates += 1
             XCTAssertEqual(updates.deletedModelIds, ["0"])
             XCTAssertTrue(NSThread.currentThread().isMainThread)
         }
@@ -573,7 +573,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
 
         var numberOfUpdates = 0
         listener.updateClosure = { (_, updates) in
-            numberOfUpdates++
+            numberOfUpdates += 1
             XCTAssertEqual(updates.deletedModelIds, ["0", "1"])
             XCTAssertEqual(updates.changedModelIds, [])
             XCTAssertTrue(NSThread.currentThread().isMainThread)
@@ -688,7 +688,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
 
         var updates = 0
         batchDelegate.updateClosure = { _, _, _, _ in
-            updates++
+            updates += 1
         }
 
         updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
@@ -716,7 +716,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
 
         var updates = 0
         batchDelegate.updateClosure = { _, _, _, _ in
-            updates++
+            updates += 1
         }
 
         updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
@@ -745,12 +745,12 @@ class PauseListenerTests: ConsistencyManagerTestCase {
 
         var updatesToBatch = 0
         batchDelegate.updateClosure = { _, _, _, _ in
-            updatesToBatch++
+            updatesToBatch += 1
         }
 
         var updatesToIndividual = 0
         individualListener.updateClosure = { _, _ in
-            updatesToIndividual++
+            updatesToIndividual += 1
         }
 
         let updateModel = TestModel(id: "0", data: 4, children: [], requiredModel: TestRequiredModel(id: "1", data: 0))

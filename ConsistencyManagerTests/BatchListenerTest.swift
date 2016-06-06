@@ -25,7 +25,7 @@ class BatchListenerTest: ConsistencyManagerTestCase {
 
         var calledUpdateClosure = 0
         batchDelegate.updateClosure = { batchListener, listeners, updates, context in
-            calledUpdateClosure++
+            calledUpdateClosure += 1
             XCTAssertTrue(batchListener === batchUpdateListener)
             XCTAssertEqual(listeners.count, 1)
             XCTAssertTrue(listeners[0] === listener)
@@ -39,7 +39,7 @@ class BatchListenerTest: ConsistencyManagerTestCase {
 
         var calledListenerUpdateClosure = 0
         listener.updateClosure = { _, updates in
-            calledListenerUpdateClosure++
+            calledListenerUpdateClosure += 1
             XCTAssertEqual(updates.changedModelIds.count, 2)
             XCTAssertEqual(updates.deletedModelIds.count, 0)
             XCTAssertTrue(updates.changedModelIds.contains("0"))
@@ -70,7 +70,7 @@ class BatchListenerTest: ConsistencyManagerTestCase {
 
         var calledUpdateClosure = 0
         batchDelegate.updateClosure = { batchListener, listeners, updates, context in
-            calledUpdateClosure++
+            calledUpdateClosure += 1
             XCTAssertTrue(batchListener === batchUpdateListener)
             XCTAssertEqual(listeners.count, 1)
             XCTAssertTrue(listeners[0] === listener)
@@ -85,7 +85,7 @@ class BatchListenerTest: ConsistencyManagerTestCase {
 
         var calledListenerUpdateClosure = 0
         listener.updateClosure = { _, updates in
-            calledListenerUpdateClosure++
+            calledListenerUpdateClosure += 1
             XCTAssertEqual(updates.changedModelIds, ["0", "1"])
             XCTAssertEqual(updates.deletedModelIds.count, 0)
         }
@@ -118,7 +118,7 @@ class BatchListenerTest: ConsistencyManagerTestCase {
 
         var calledUpdateClosure = 0
         batchDelegate.updateClosure = { batchListener, listeners, updates, context in
-            calledUpdateClosure++
+            calledUpdateClosure += 1
             XCTAssertTrue(batchListener === batchUpdateListener)
             XCTAssertEqual(listeners.count, 2)
             XCTAssertTrue(listeners[0] === listener)
@@ -136,7 +136,7 @@ class BatchListenerTest: ConsistencyManagerTestCase {
 
         var calledListenerUpdateClosure = 0
         listener.updateClosure = { _, updates in
-            calledListenerUpdateClosure++
+            calledListenerUpdateClosure += 1
             XCTAssertEqual(updates.changedModelIds.count, 2)
             XCTAssertEqual(updates.deletedModelIds.count, 0)
             XCTAssertTrue(updates.changedModelIds.contains("0"))
@@ -148,7 +148,7 @@ class BatchListenerTest: ConsistencyManagerTestCase {
 
         var calledListener2UpdateClosure = 0
         listener2.updateClosure = { _, updates in
-            calledListener2UpdateClosure++
+            calledListener2UpdateClosure += 1
             XCTAssertEqual(updates.changedModelIds.count, 2)
             XCTAssertEqual(updates.deletedModelIds.count, 0)
             XCTAssertTrue(updates.changedModelIds.contains("2"))
@@ -178,7 +178,7 @@ class BatchListenerTest: ConsistencyManagerTestCase {
 
         var calledUpdateClosure = 0
         batchDelegate.updateClosure = { batchListener, listeners, updates, context in
-            calledUpdateClosure++
+            calledUpdateClosure += 1
             XCTAssertTrue(batchListener === batchUpdateListener)
             XCTAssertEqual(listeners.count, 2)
             XCTAssertTrue(listeners[0] === listener)
@@ -197,7 +197,7 @@ class BatchListenerTest: ConsistencyManagerTestCase {
 
         var calledListenerUpdateClosure = 0
         listener.updateClosure = { _, updates in
-            calledListenerUpdateClosure++
+            calledListenerUpdateClosure += 1
             XCTAssertEqual(updates.changedModelIds.count, 1)
             XCTAssertTrue(updates.changedModelIds.contains("0"))
             XCTAssertEqual(updates.deletedModelIds.count, 2)
@@ -210,7 +210,7 @@ class BatchListenerTest: ConsistencyManagerTestCase {
 
         var calledListener2UpdateClosure = 0
         listener2.updateClosure = { _, updates in
-            calledListener2UpdateClosure++
+            calledListener2UpdateClosure += 1
             XCTAssertEqual(updates.changedModelIds.count, 1)
             XCTAssertTrue(updates.changedModelIds.contains("2"))
             XCTAssertEqual(updates.deletedModelIds.count, 2)
