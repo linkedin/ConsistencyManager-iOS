@@ -68,14 +68,14 @@ public class ConsistencyManager {
     // MARK: Constants
 
     /**
-     This notification is fired whenever the asyncronous work of clean memory starts.
+     This notification is fired whenever the asynchronous work of clean memory starts.
      It's useful if you want to add timers to this work.
      Called on an internal thread.
     */
     public static let kCleanMemoryAsynchronousWorkStarted = "com.linkedin.consistencyManager.kCleanMemoryAsynchronousWorkStarted"
 
     /**
-     This notification is fired whenever the asyncronous work of clean memory finishes.
+     This notification is fired whenever the asynchronous work of clean memory finishes.
      It's useful if you want to add timers to this work.
      Called on an internal thread.
      */

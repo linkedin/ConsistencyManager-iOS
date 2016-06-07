@@ -18,6 +18,8 @@ class MemoryWarningTests: ConsistencyManagerTestCase {
 
 
     func testMemoryWarning() {
+        let testStart = NSDate()
+
         NSNotificationCenter.defaultCenter().addObserverForName(ConsistencyManager.kCleanMemoryAsynchronousWorkStarted, object: nil, queue: nil) { _ in
             self.cleanMemoryStartedTimes.append(NSDate())
         }
@@ -59,5 +61,6 @@ class MemoryWarningTests: ConsistencyManagerTestCase {
         XCTAssertEqual(cleanMemoryStartedTimes.count, 1)
         XCTAssertEqual(cleanMemoryFinishedTimes.count, 1)
         XCTAssertTrue(cleanMemoryStartedTimes[0].timeIntervalSince1970 <= cleanMemoryFinishedTimes[0].timeIntervalSince1970)
+        XCTAssertTrue(testStart.timeIntervalSinceNow <= cleanMemoryStartedTimes[0].timeIntervalSince1970)
     }
 }
