@@ -13,7 +13,19 @@ import XCTest
 
 class MemoryWarningTests: ConsistencyManagerTestCase {
 
+    var cleanMemoryStartedTimes = [NSDate]()
+    var cleanMemoryFinishedTimes = [NSDate]()
+
+
     func testMemoryWarning() {
+        NSNotificationCenter.defaultCenter().addObserverForName(ConsistencyManager.kCleanMemoryAsynchronousWorkStarted, object: nil, queue: nil) { _ in
+            self.cleanMemoryStartedTimes.append(NSDate())
+        }
+
+        NSNotificationCenter.defaultCenter().addObserverForName(ConsistencyManager.kCleanMemoryAsynchronousWorkFinished, object: nil, queue: nil) { _ in
+            self.cleanMemoryFinishedTimes.append(NSDate())
+        }
+
         let model = TestRequiredModel(id: "0", data: 0)
 
         // Setting this up with a block ensures that the listener will be released and is out of scope.
@@ -42,5 +54,10 @@ class MemoryWarningTests: ConsistencyManagerTestCase {
             XCTAssertEqual(listenersArray.count, 0)
         }
         // Else it's nil which is fine too
+
+        // Now, let's check we got the right start/finish times
+        XCTAssertEqual(cleanMemoryStartedTimes.count, 1)
+        XCTAssertEqual(cleanMemoryFinishedTimes.count, 1)
+        XCTAssertTrue(cleanMemoryStartedTimes[0].timeIntervalSince1970 <= cleanMemoryFinishedTimes[0].timeIntervalSince1970)
     }
 }

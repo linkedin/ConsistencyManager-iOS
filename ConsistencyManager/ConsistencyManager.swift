@@ -65,6 +65,22 @@ public class ConsistencyManager {
      */
     public var garbageCollectionInterval: NSTimeInterval = 300
 
+    // MARK: Constants
+
+    /**
+     This notification is fired whenever the asyncronous work of clean memory starts.
+     It's useful if you want to add timers to this work.
+     Called on an internal thread.
+    */
+    public static let kCleanMemoryAsynchronousWorkStarted = "com.linkedin.consistencyManager.kCleanMemoryAsynchronousWorkStarted"
+
+    /**
+     This notification is fired whenever the asyncronous work of clean memory finishes.
+     It's useful if you want to add timers to this work.
+     Called on an internal thread.
+     */
+    public static let kCleanMemoryAsynchronousWorkFinished = "com.linkedin.consistencyManager.kCleanMemoryAsynchronousWorkFinished"
+
     // MARK: - Private ivars
 
     /**
@@ -343,6 +359,7 @@ public class ConsistencyManager {
     */
     public func cleanMemory() {
         dispatch_async(dispatchQueue) {
+            NSNotificationCenter.defaultCenter().postNotificationName(ConsistencyManager.kCleanMemoryAsynchronousWorkStarted, object: self)
             for (key, var listenersArray) in self.listeners {
                 listenersArray.prune()
                 // If the array has no elements now, let's remove it from the dictionary
@@ -353,6 +370,7 @@ public class ConsistencyManager {
                     self.listeners[key] = listenersArray
                 }
             }
+            NSNotificationCenter.defaultCenter().postNotificationName(ConsistencyManager.kCleanMemoryAsynchronousWorkFinished, object: self)
         }
         // Remove any PausedListener structs from our local list if the internal listener is now nil
         pausedListeners = self.pausedListeners.filter { $0.listener != nil }
