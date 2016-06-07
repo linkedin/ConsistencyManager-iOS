@@ -61,6 +61,6 @@ class MemoryWarningTests: ConsistencyManagerTestCase {
         XCTAssertEqual(cleanMemoryStartedTimes.count, 1)
         XCTAssertEqual(cleanMemoryFinishedTimes.count, 1)
         XCTAssertTrue(cleanMemoryStartedTimes[0].timeIntervalSince1970 <= cleanMemoryFinishedTimes[0].timeIntervalSince1970)
-        XCTAssertTrue(testStart.timeIntervalSinceNow <= cleanMemoryStartedTimes[0].timeIntervalSince1970)
+        XCTAssertTrue(testStart.timeIntervalSince1970 <= cleanMemoryStartedTimes[0].timeIntervalSince1970)
     }
 }
