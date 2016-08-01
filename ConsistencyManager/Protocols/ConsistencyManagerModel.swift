@@ -172,6 +172,23 @@ public protocol ConsistencyManagerModel {
      - Returns: True if the models are equal and we should not generate a consistency manager change.
      */
     func isEqualToModel(other: ConsistencyManagerModel) -> Bool
+
+    /**
+     Optional
+
+     This should take another model and merge it into the current model.
+     This is only needed if you are using projections (not common).
+     If you have two models with the same id but different data, this should merge one model into the other.
+     
+     TODO: More docs
+     */
+    func mergeModel(model: ConsistencyManagerModel) -> ConsistencyManagerModel?
+
+    /**
+     You can override to distinguish different projections. Usually, you would have a different class for each projection.
+     But you can use this to have one class represent multiple different projections (with optional fields for missing members).
+     */
+    var projectionIdentifier: String { get }
 }
 
 public extension ConsistencyManagerModel where Self: Equatable {
@@ -186,5 +203,17 @@ public extension ConsistencyManagerModel where Self: Equatable {
         } else {
             return false
         }
+    }
+}
+
+public extension ConsistencyManagerModel {
+    func mergeModel(model: ConsistencyManagerModel) -> ConsistencyManagerModel? {
+        // Usually, we don't need to merge and instead just return the other model
+        // TODO: Should we assert that the classes are the same here?
+        return model
+    }
+
+    var projectionIdentifier: String {
+        return String(self.dynamicType)
     }
 }
