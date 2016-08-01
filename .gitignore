@@ -1,6 +1,11 @@
 # Build Directory
 DerivedData
+
 # User Data
 *.pbxuser
 xcuserdata
+
+# Docs
+docs/_build/**
+docs/sphinx_rtd_theme/**
 
