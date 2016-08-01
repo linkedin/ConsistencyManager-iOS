@@ -182,7 +182,7 @@ public protocol ConsistencyManagerModel {
      
      TODO: More docs
      */
-    func mergeModel(model: ConsistencyManagerModel) -> ConsistencyManagerModel?
+    func mergeModel(model: ConsistencyManagerModel) -> ConsistencyManagerModel
 
     /**
      You can override to distinguish different projections. Usually, you would have a different class for each projection.
@@ -207,7 +207,7 @@ public extension ConsistencyManagerModel where Self: Equatable {
 }
 
 public extension ConsistencyManagerModel {
-    func mergeModel(model: ConsistencyManagerModel) -> ConsistencyManagerModel? {
+    func mergeModel(model: ConsistencyManagerModel) -> ConsistencyManagerModel {
         // Usually, we don't need to merge and instead just return the other model
         // TODO: Should we assert that the classes are the same here?
         return model

@@ -605,21 +605,16 @@ public class ConsistencyManager {
                 // So, the let statement only unwraps it once. This is a good thing since if it is nil, we want to delete the model.
                 if let replacementModel = replacementModel {
                     let mergedReplacementModel = mergedModelFromModel(model, withUpdates: replacementModel)
-                    if let mergedReplacementModel = mergedReplacementModel {
-                        if !mergedReplacementModel.isEqualToModel(model) {
-                            // We've found something to replace, and there's actually an update
-                            delegate?.consistencyManager(self, willReplaceModel: model, withModel: mergedReplacementModel, context: context)
-                            // There may be other changed models in the subtree of the model we're replacing. Let's search to see if anything else changed.
-                            var updates = changedSubmodelIdsFromModel(model, modelUpdates: updatedModels)
-                            updates.insert(id)
-                            return (mergedReplacementModel, ModelUpdates(changedModelIds: updates, deletedModelIds: []), [mergedReplacementModel])
-                        } else {
-                            // We've found there's an update here, but there's no actual change. So let's short curcuit here so we don't waste time recursing.
-                            return (model, ModelUpdates(changedModelIds: [], deletedModelIds: []), [])
-                        }
+                    if !mergedReplacementModel.isEqualToModel(model) {
+                        // We've found something to replace, and there's actually an update
+                        delegate?.consistencyManager(self, willReplaceModel: model, withModel: mergedReplacementModel, context: context)
+                        // There may be other changed models in the subtree of the model we're replacing. Let's search to see if anything else changed.
+                        var updates = changedSubmodelIdsFromModel(model, modelUpdates: updatedModels)
+                        updates.insert(id)
+                        return (mergedReplacementModel, ModelUpdates(changedModelIds: updates, deletedModelIds: []), [mergedReplacementModel])
                     } else {
-                        // The merge returned a nil model, so we should treat this as a delete
-                        return (nil, ModelUpdates(changedModelIds: [], deletedModelIds: [id]), [])
+                        // We've found there's an update here, but there's no actual change. So let's short curcuit here so we don't waste time recursing.
+                        return (model, ModelUpdates(changedModelIds: [], deletedModelIds: []), [])
                     }
                 } else {
                     // nil was an update, so returning it in updates
@@ -673,8 +668,7 @@ public class ConsistencyManager {
             if let id = child.modelIdentifier, let update = modelUpdates[id] {
                 // Update is still an optional because the value of model updates is optional
                 // We can ignore deletes because we are only looking for updated models.
-                if let update = update,
-                    mergedModel = self.mergedModelFromModel(child, withUpdates: update) where !mergedModel.isEqualToModel(child) {
+                if let update = update where !self.mergedModelFromModel(child, withUpdates: update).isEqualToModel(child) {
                     // There's another update here
                     changedModels.insert(id)
                 }
@@ -689,7 +683,7 @@ public class ConsistencyManager {
      This function takes an original model and a list of updates. It merges each of these models into the original model.
      If the model is not using projections, then there will be one model in this array and the implementation will just return the new model.
      */
-    private func mergedModelFromModel(model: ConsistencyManagerModel, withUpdates updates: [ConsistencyManagerModel]) -> ConsistencyManagerModel? {
+    private func mergedModelFromModel(model: ConsistencyManagerModel, withUpdates updates: [ConsistencyManagerModel]) -> ConsistencyManagerModel {
         // We want to merge each projection into the current model
         return updates.reduce(model) { current, modelToMerge in
             return model.mergeModel(modelToMerge)
