@@ -434,9 +434,9 @@ class PauseListenerTests: ConsistencyManagerTestCase {
      Resume
      Result should be: Deleted [], and Updated [0,2]
 
-     0
-     / | \
-     2' 4  1r
+         0
+       / | \
+      2' 4  1r
      /
      3r
      */

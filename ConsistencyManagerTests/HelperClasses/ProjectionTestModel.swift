@@ -70,11 +70,11 @@ final class ProjectionTestModel: ConsistencyManagerModel, Equatable {
     }
 
     private func testModelFromProjection(model: TestModel) -> ProjectionTestModel {
-        let children = model.children.map { currentChild in
+        let newChildren = model.children.map { currentChild in
             return testModelFromProjection(currentChild)
         }
         // For otherData, we're going to use our current value. For everything else, we're going to use the other model's values.
-        return ProjectionTestModel(id: model.id, data: model.data, otherData: otherData, children: children, requiredModel: model.requiredModel)
+        return ProjectionTestModel(id: model.id, data: model.data, otherData: otherData, children: newChildren, requiredModel: model.requiredModel)
     }
 }
 
