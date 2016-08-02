@@ -94,6 +94,8 @@ For other examples, see the documentation on Github.
 */
 public protocol ConsistencyManagerModel {
 
+    // MARK: Required Methods
+
     /**
      This method should return a globally unique identifier for the model.
      If it has no id, then you can return nil. If it has no id, it will be considered part of its parent model and you will not be able to update this model in isolation.
@@ -173,20 +175,34 @@ public protocol ConsistencyManagerModel {
      */
     func isEqualToModel(other: ConsistencyManagerModel) -> Bool
 
+    // MARK: Projections
+
     /**
      Optional
+     Most setups don't need to implement this method. You only need to implement this if you are using projections.
+     For more information on projections, see https://linkedin.github.io/ConsistencyManager-iOS/pages/055_projections.html.
 
      This should take another model and merge it into the current model.
-     This is only needed if you are using projections (not common).
      If you have two models with the same id but different data, this should merge one model into the other.
+     This should return the same type as Self. It should take all updates from the other model and merge it into the current model.
+     For performance reasons, you could check if the other model is the same projection.
+     If it is, you could avoid merging and just return the other model (since it's the correct class).
      
-     TODO: More docs
+     - NOTE: Ideally, we'd like this function to return `Self?`, not `ConsistencyManagerModel?`.
+     However, Swift currently has a few bugs regarding returning Self in protocols which make this protocol hard to implement (e.g. returning self in protocol extensions doesn't work).
+     When these bugs are fixed in Swift, we may consider moving back to using Self.
+     You should always return the same type of model from this function even though the protocol doesn't specifically require it.
+     
+     - parameter model: The other model to merge into the current model.
+     - Returns: A new version of the current model with the changes from the other model.
      */
     func mergeModel(model: ConsistencyManagerModel) -> ConsistencyManagerModel
 
     /**
      You can override to distinguish different projections. Usually, you would have a different class for each projection.
      But you can use this to have one class represent multiple different projections (with optional fields for missing members).
+     This is unusual and it's recommended instead to just use different classes for each projection.
+     If you do this, you do not need to override this method and can use the default value.
      */
     var projectionIdentifier: String { get }
 }
@@ -206,14 +222,21 @@ public extension ConsistencyManagerModel where Self: Equatable {
     }
 }
 
+/**
+ This extension contains the default implementations which make `mergeModel(:)` and `projectionIdentifier` optional.
+ */
 public extension ConsistencyManagerModel {
     func mergeModel(model: ConsistencyManagerModel) -> ConsistencyManagerModel {
-        // Usually, we don't need to merge and instead just return the other model
+        // Usually, we don't need to merge and instead just return the other model.
+        // This is because when we're not using projections, classes of the same id will always be of the same type.
+        // So, we should just replace the current model with the updated model.
         // TODO: Should we assert that the classes are the same here?
         return model
     }
 
     var projectionIdentifier: String {
+        // Returns the class name as a string
+        // This means each class type identifies a different projection
         return String(self.dynamicType)
     }
 }

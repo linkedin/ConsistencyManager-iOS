@@ -449,6 +449,8 @@ public class ConsistencyManager {
     /**
      This is a wrapper function to provide a functional API.
      It takes in a model and returns all the models contained in the model (flattened in a dictionary with ID for lookup).
+     The value here is an array of `ConsistencyManagerModel`. This should contain one model of each projection.
+     If the application is not using projections, it will always just contain one model.
      It also has an array of listeners that need to be updated because of this model change.
      */
     private func childrenAndListenersForModel(model: ConsistencyManagerModel) -> (modelUpdates: [String: [ConsistencyManagerModel]], listeners: [ConsistencyManagerListener]) {
@@ -603,7 +605,9 @@ public class ConsistencyManager {
                 // The id matches, so we should replace this model with a different model
                 // Important: replacementModel could actually be nil here. This is because modelUpdates[id] is actually type: ConsistencyManagerModel??.
                 // So, the let statement only unwraps it once. This is a good thing since if it is nil, we want to delete the model.
+                // At the point, we know that this is an id we care about. Let's see if it's an update or a delete.
                 if let replacementModel = replacementModel {
+                    // It's an update. Let's apply the changes.
                     let mergedReplacementModel = mergedModelFromModel(model, withUpdates: replacementModel)
                     if !mergedReplacementModel.isEqualToModel(model) {
                         // We've found something to replace, and there's actually an update
@@ -617,6 +621,7 @@ public class ConsistencyManager {
                         return (model, ModelUpdates(changedModelIds: [], deletedModelIds: []), [])
                     }
                 } else {
+                    // It was a delete.
                     // nil was an update, so returning it in updates
                     return (nil, ModelUpdates(changedModelIds: [], deletedModelIds: [id]), [])
                 }
@@ -668,6 +673,7 @@ public class ConsistencyManager {
             if let id = child.modelIdentifier, let update = modelUpdates[id] {
                 // Update is still an optional because the value of model updates is optional
                 // We can ignore deletes because we are only looking for updated models.
+                // Here, we should merge and check for equality to see if anything has actually changed.
                 if let update = update where !self.mergedModelFromModel(child, withUpdates: update).isEqualToModel(child) {
                     // There's another update here
                     changedModels.insert(id)
