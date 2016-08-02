@@ -38,14 +38,12 @@ final class ProjectionTestModel: ConsistencyManagerModel, Equatable {
     func map(transform: ConsistencyManagerModel -> ConsistencyManagerModel?) -> ConsistencyManagerModel? {
         var newChildren: [ProjectionTestModel] = []
         for model in children {
-            let newModel = transform(model) as? ProjectionTestModel
-            if let newModel = newModel {
+            if let newModel = transform(model) as? ProjectionTestModel {
                 newChildren.append(newModel)
             }
         }
 
-        let newRequiredModel = transform(requiredModel) as? TestRequiredModel
-        if let newRequiredModel = newRequiredModel {
+        if let newRequiredModel = transform(requiredModel) as? TestRequiredModel {
             return ProjectionTestModel(id: id, data: data, otherData: otherData, children: newChildren, requiredModel: newRequiredModel)
         } else {
             return nil

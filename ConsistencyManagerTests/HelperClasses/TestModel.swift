@@ -34,14 +34,12 @@ final class TestModel: ConsistencyManagerModel, Equatable {
     func map(transform: ConsistencyManagerModel -> ConsistencyManagerModel?) -> ConsistencyManagerModel? {
         var newChildren: [TestModel] = []
         for model in children {
-            let newModel = transform(model) as? TestModel
-            if let newModel = newModel {
+            if let newModel = transform(model) as? TestModel {
                 newChildren.append(newModel)
             }
         }
 
-        let newRequiredModel = transform(requiredModel) as? TestRequiredModel
-        if let newRequiredModel = newRequiredModel {
+        if let newRequiredModel = transform(requiredModel) as? TestRequiredModel {
             return TestModel(id: id, data: data, children: newChildren, requiredModel: newRequiredModel)
         } else {
             return nil
