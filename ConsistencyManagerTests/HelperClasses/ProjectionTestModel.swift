@@ -12,17 +12,21 @@ import ConsistencyManager
 
 
 /**
-This model is intended for unit testing the consistency manager. It simply declares some child objects and some data.
-*/
-final class TestModel: ConsistencyManagerModel, Equatable {
+ This model is intended for unit testing the consistency manager. It simply declares some child objects and some data.
+ It is similar to TestModel but declares an extra field.
+ Therefore, it also implements mergeModel which will merge TestModel into this model.
+ */
+final class ProjectionTestModel: ConsistencyManagerModel, Equatable {
     let id: String?
     let data: Int?
-    let children: [TestModel]
+    let otherData: Int?
+    let children: [ProjectionTestModel]
     let requiredModel: TestRequiredModel
 
-    init(id: String?, data: Int?, children: [TestModel], requiredModel: TestRequiredModel) {
+    init(id: String?, data: Int?, otherData: Int?, children: [ProjectionTestModel], requiredModel: TestRequiredModel) {
         self.id = id
         self.data = data
+        self.otherData = otherData
         self.children = children
         self.requiredModel = requiredModel
     }
@@ -32,9 +36,9 @@ final class TestModel: ConsistencyManagerModel, Equatable {
     }
 
     func map(transform: ConsistencyManagerModel -> ConsistencyManagerModel?) -> ConsistencyManagerModel? {
-        var newChildren: [TestModel] = []
+        var newChildren: [ProjectionTestModel] = []
         for model in children {
-            let newModel = transform(model) as? TestModel
+            let newModel = transform(model) as? ProjectionTestModel
             if let newModel = newModel {
                 newChildren.append(newModel)
             }
@@ -42,7 +46,7 @@ final class TestModel: ConsistencyManagerModel, Equatable {
 
         let newRequiredModel = transform(requiredModel) as? TestRequiredModel
         if let newRequiredModel = newRequiredModel {
-            return TestModel(id: id, data: data, children: newChildren, requiredModel: newRequiredModel)
+            return ProjectionTestModel(id: id, data: data, otherData: otherData, children: newChildren, requiredModel: newRequiredModel)
         } else {
             return nil
         }
@@ -56,10 +60,10 @@ final class TestModel: ConsistencyManagerModel, Equatable {
     }
 
     func mergeModel(model: ConsistencyManagerModel) -> ConsistencyManagerModel {
-        if let model = model as? TestModel {
+        if let model = model as? ProjectionTestModel {
             return model
-        } else if let model = model as? ProjectionTestModel {
-            return TestModel.testModelFromProjection(model)
+        } else if let model = model as? TestModel {
+            return testModelFromProjection(model)
         } else {
             assertionFailure("Tried to merge two models which cannot be merged: \(self.dynamicType) and \(model.dynamicType)")
             // The best we can do is return self (no merging done)
@@ -67,35 +71,37 @@ final class TestModel: ConsistencyManagerModel, Equatable {
         }
     }
 
-    static func testModelFromProjection(model: ProjectionTestModel) -> TestModel {
+    private func testModelFromProjection(model: TestModel) -> ProjectionTestModel {
         let children = model.children.map { currentChild in
             return testModelFromProjection(currentChild)
         }
-        return TestModel(id: model.id, data: model.data, children: children, requiredModel: model.requiredModel)
+        // For otherData, we're going to use our current value. For everything else, we're going to use the other model's values.
+        return ProjectionTestModel(id: model.id, data: model.data, otherData: otherData, children: children, requiredModel: model.requiredModel)
     }
 }
 
 // MARK - Equatable
 
-func ==(lhs: TestModel, rhs: TestModel) -> Bool {
+func ==(lhs: ProjectionTestModel, rhs: ProjectionTestModel) -> Bool {
     return lhs.id == rhs.id
         && lhs.data == rhs.data
+        && lhs.otherData == rhs.otherData
         && lhs.children == rhs.children
         && lhs.requiredModel == rhs.requiredModel
 }
 
 // MARK - CustomStringConvertible
 
-extension TestModel: CustomStringConvertible {
+extension ProjectionTestModel: CustomStringConvertible {
     var description: String {
-        return "\(id):\(data)-\(requiredModel)-\(children)"
+        return "\(id):\(data):\(otherData)-\(requiredModel)-\(children)"
     }
 }
 
 // MARK - Helpers
 
-extension TestModel {
-    func recursiveChildWithId(id: String) -> TestModel? {
+extension ProjectionTestModel {
+    func recursiveChildWithId(id: String) -> ProjectionTestModel? {
         if let currentId = self.id {
             if currentId == id {
                 return self
@@ -107,7 +113,7 @@ extension TestModel {
                 return foundModel
             }
         }
-        
+
         // We didn't find anything
         return nil
     }

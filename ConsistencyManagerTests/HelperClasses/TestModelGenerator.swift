@@ -8,6 +8,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 import Foundation
+import ConsistencyManager
 
 /**
 This class generates test models for use in the unit tests. It can create models with a variety of sizes and depths.
@@ -16,26 +17,46 @@ This class generates test models for use in the unit tests. It can create models
 class TestModelGenerator {
 
     /**
-    The main generator method for the class.
+     One of the main generator methods for the class.
+     This generator allows you to return either a TestModel or ProjectionTestModel so you can run your tests easily on both.
 
-    It generates a tree of TestModels for use for unit tests. This tree will have a certain number of children, and the size of the children array in TestModel will be the branching factor. The ids are zero indexed and are also used as data on each model.
+     It generates a tree of TestModels for use for unit tests. This tree will have a certain number of children, and the size of the children array in TestModel will be the branching factor. The ids are zero indexed and are also used as data on each model.
 
-    The TestModels will all have odd ids. The TestRequiredModels will all have even ids.
+     The TestModels will all have odd ids. The TestRequiredModels will all have even ids.
 
-    @param children Total number of children to be used in the model. This will be equal to the maxId + 1. This must be even since the id of a required model is always testModelId + 1
-    @param branchingFactor number of children in the children array of each model
-    @param includeId closure which dictates if you want an id on a certain model. Recommend that you don't make this % 2 since that will just make all the required models not have ids
-    */
+     - parameter children: Total number of children to be used in the model. This will be equal to the maxId + 1. This must be even since the id of a required model is always testModelId + 1
+     - parameter branchingFactor: number of children in the children array of each model
+     - parameter projectionModel: If false, it will return a `TestModel`. If true, it will return a `ProjectionTestModel`.
+     This allows us to easily write our tests so we test both projections and regular models.
+     - parameter includeId: closure which dictates if you want an id on a certain model. Recommend that you don't make this % 2 since that will just make all the required models not have ids
+     */
+    class func consistencyManagerModelWithTotalChildren(children: Int, branchingFactor: Int, projectionModel: Bool, startingId: Int = 0, includeId: Int -> Bool) -> ConsistencyManagerModel {
+        assert(children % 2 == 0, "If you don't have an even number of children, you will have unexpected ids")
+        // Each node in the tree actually represents two models (TestModel and TestRequiredModel)
+        let tree = childrenTreeWithTotalNodes(children / 2, branchingFactor: branchingFactor, startingId: startingId)
+        if projectionModel {
+            return projectionTestModelFromTree(tree, includeId: includeId)
+        } else {
+            return testModelFromTree(tree, includeId: includeId)
+        }
+    }
 
-    class func testModelWithTotalChildren(children: Int, branchingFactor: Int, startingId: Int, includeId: Int -> Bool) -> TestModel {
+    /**
+     One of the main generator methods for the class.
+
+     It generates a tree of TestModels for use for unit tests. This tree will have a certain number of children, and the size of the children array in TestModel will be the branching factor. The ids are zero indexed and are also used as data on each model.
+
+     The TestModels will all have odd ids. The TestRequiredModels will all have even ids.
+
+     - parameter children: Total number of children to be used in the model. This will be equal to the maxId + 1. This must be even since the id of a required model is always testModelId + 1
+     - parameter branchingFactor: number of children in the children array of each model
+     - parameter includeId: closure which dictates if you want an id on a certain model. Recommend that you don't make this % 2 since that will just make all the required models not have ids
+     */
+    class func testModelWithTotalChildren(children: Int, branchingFactor: Int, startingId: Int = 0, includeId: Int -> Bool) -> TestModel {
         assert(children % 2 == 0, "If you don't have an even number of children, you will have unexpected ids")
         // Each node in the tree actually represents two models (TestModel and TestRequiredModel)
         let tree = childrenTreeWithTotalNodes(children / 2, branchingFactor: branchingFactor, startingId: startingId)
         return testModelFromTree(tree, includeId: includeId)
-    }
-
-    class func testModelWithTotalChildren(children: Int, branchingFactor: Int, includeId: Int -> Bool) -> TestModel {
-        return testModelWithTotalChildren(children, branchingFactor: branchingFactor, startingId: 0, includeId: includeId)
     }
 
     /**
@@ -53,6 +74,24 @@ class TestModelGenerator {
         let requiredModel = TestRequiredModel(id: requiredModelId, data: nodeId)
 
         return TestModel(id: id, data: data, children: testModelChildren, requiredModel: requiredModel)
+    }
+
+    /**
+     Generates an immutable ProjectionTestModel from a tree object.
+     */
+    private class func projectionTestModelFromTree(tree: ChildrenTree, includeId: Int -> Bool) -> ProjectionTestModel {
+        let testModelChildren: [ProjectionTestModel] = tree.children.map { node in
+            return self.projectionTestModelFromTree(node, includeId: includeId)
+        }
+
+        let nodeId = tree.id
+        let id = stringIdFromInt(nodeId, includeId: includeId)
+        let data = nodeId
+        let otherData = nodeId
+        let requiredModelId = stringIdFromInt(nodeId + 1, includeId: includeId)
+        let requiredModel = TestRequiredModel(id: requiredModelId, data: nodeId)
+
+        return ProjectionTestModel(id: id, data: data, otherData: otherData, children: testModelChildren, requiredModel: requiredModel)
     }
 
     /**

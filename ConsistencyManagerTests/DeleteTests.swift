@@ -26,6 +26,21 @@ class DeleteTests: ConsistencyManagerTestCase {
         XCTAssertTrue(listener.model == nil)
     }
 
+    func testDeleteWholeModelProjection() {
+        let model = TestModel(id: "0", data: 0, children: [], requiredModel: TestRequiredModel(id: "1", data: 0))
+
+        let consistencyManager = ConsistencyManager()
+        let listener = TestListener(model: model)
+
+        addListener(listener, toConsistencyManager: consistencyManager)
+
+        let modelToDelete = ProjectionTestModel(id: "0", data: nil, otherData: nil, children: [], requiredModel: TestRequiredModel(id: "1", data: 0))
+
+        deleteModel(modelToDelete, consistencyManager: consistencyManager)
+
+        XCTAssertTrue(listener.model == nil)
+    }
+
     func testDeleteOptionalChild() {
         let requiredModel = TestRequiredModel(id: "100", data: 0)
         let child = TestModel(id: "1", data: nil, children: [], requiredModel: requiredModel)
@@ -37,6 +52,29 @@ class DeleteTests: ConsistencyManagerTestCase {
         addListener(listener, toConsistencyManager: consistencyManager)
 
         deleteModel(child, consistencyManager: consistencyManager)
+
+        // The child model should have disappeared
+        let expected = TestModel(id: "0", data: nil, children: [], requiredModel: requiredModel)
+        if let model = listener.model as? TestModel {
+            XCTAssertEqual(model, expected)
+        } else {
+            XCTFail()
+        }
+    }
+
+    func testDeleteOptionalChildProjection() {
+        let requiredModel = TestRequiredModel(id: "100", data: 0)
+        let child = TestModel(id: "1", data: nil, children: [], requiredModel: requiredModel)
+        let model = TestModel(id: "0", data: nil, children: [child], requiredModel: requiredModel)
+
+        let consistencyManager = ConsistencyManager()
+        let listener = TestListener(model: model)
+
+        addListener(listener, toConsistencyManager: consistencyManager)
+
+        let modelToDelete = ProjectionTestModel(id: "1", data: nil, otherData: nil, children: [], requiredModel: requiredModel)
+
+        deleteModel(modelToDelete, consistencyManager: consistencyManager)
 
         // The child model should have disappeared
         let expected = TestModel(id: "0", data: nil, children: [], requiredModel: requiredModel)

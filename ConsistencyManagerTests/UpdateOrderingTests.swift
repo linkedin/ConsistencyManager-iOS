@@ -14,79 +14,80 @@ import XCTest
 class UpdateOrderingTests: ConsistencyManagerTestCase {
 
     func testConsistencyManagerUpdateOrder() {
-        for numberOfModels in 30.stride(through: 50, by: 4) {
-            for branchingFactor in 1...10 {
-                let testModel = TestModelGenerator.testModelWithTotalChildren(numberOfModels, branchingFactor: branchingFactor) { id in
-                    // Let's test this with some ids missing
-                    return id % 3 == 0
-                }
-                // Just make another model which has 2 extra models (arbritrary big model which is different)
-                let newLargeModel = TestModelGenerator.testModelWithTotalChildren(numberOfModels+2, branchingFactor: branchingFactor) { id in
-                    // Let's test this with some ids missing
-                    return id % 3 == 0
-                }
-                let newModel = TestModel(id: "0", data: 0, children: [], requiredModel: TestRequiredModel(id: "-1", data: -1))
+        for testProjections in [true, false] {
+            for numberOfModels in 30.stride(through: 50, by: 4) {
+                for branchingFactor in 1...10 {
+                    let testModel = TestModelGenerator.consistencyManagerModelWithTotalChildren(numberOfModels, branchingFactor: branchingFactor, projectionModel: testProjections) { id in
+                        // Let's test this with some ids missing
+                        return id % 3 == 0
+                    }
+                    // Just make another model which has 2 extra models (arbritrary big model which is different)
+                    let newLargeModel = TestModelGenerator.testModelWithTotalChildren(numberOfModels+2, branchingFactor: branchingFactor) { id in
+                        // Let's test this with some ids missing
+                        return id % 3 == 0
+                    }
+                    let newModel = TestModel(id: "0", data: 0, children: [], requiredModel: TestRequiredModel(id: "-1", data: -1))
 
-                let consistencyManager = ConsistencyManager()
-                let listener = TestListener(model: testModel)
+                    let consistencyManager = ConsistencyManager()
+                    let listener = TestListener(model: testModel)
 
-                addListener(listener, toConsistencyManager: consistencyManager)
+                    addListener(listener, toConsistencyManager: consistencyManager)
 
-                var numberTimesCallbackCalled = 0
+                    var numberTimesCallbackCalled = 0
 
-                // This will verify that the updates are made in the correct order.
-                // Even though the first update will be much longer, it should complete before the other.
-                listener.updateClosure = { model, updates in
-                    if let model = model as? TestModel {
-                        if numberTimesCallbackCalled == 0 {
-                            numberTimesCallbackCalled += 1
-                            // On first update, we should have the new large model
-                            XCTAssertEqual(model, newLargeModel)
-                        } else if numberTimesCallbackCalled == 1 {
-                            numberTimesCallbackCalled += 1
-                            // Second time, it should have changed to our new smaller model
-                            XCTAssertEqual(model, newModel)
+                    // This will verify that the updates are made in the correct order.
+                    // Even though the first update will be much longer, it should complete before the other.
+                    listener.updateClosure = { model, updates in
+                        if let model = self.testModelFromListenerModel(model) {
+                            if numberTimesCallbackCalled == 0 {
+                                numberTimesCallbackCalled += 1
+                                // On first update, we should have the new large model
+                                XCTAssertEqual(model, newLargeModel)
+                            } else if numberTimesCallbackCalled == 1 {
+                                numberTimesCallbackCalled += 1
+                                // Second time, it should have changed to our new smaller model
+                                XCTAssertEqual(model, newModel)
+                            } else {
+                                XCTFail()
+                            }
                         } else {
                             XCTFail()
                         }
-                    } else {
-                        XCTFail()
                     }
-                }
 
-                // First, let's do a long operation, which should complete first
-                // For this operation, we'll pass in the large model
-                consistencyManager.updateWithNewModel(newLargeModel)
-                consistencyManager.updateWithNewModel(newModel)
+                    // First, let's do a long operation, which should complete first
+                    // For this operation, we'll pass in the large model
+                    consistencyManager.updateWithNewModel(newLargeModel)
+                    consistencyManager.updateWithNewModel(newModel)
 
-                // NOTE: Here we SHOULD NOT use the SyncronousHelperFunctions class because that will ensure the ordering in the tests
+                    // NOTE: Here we SHOULD NOT use the SyncronousHelperFunctions class because that will ensure the ordering in the tests
 
-                // First we need to wait for the consistency manager to finish on its queue
-                let expectation = expectationWithDescription("Wait for consistency manager to finish it's task and async to the main queue")
+                    // First we need to wait for the consistency manager to finish on its queue
+                    let expectation = expectationWithDescription("Wait for consistency manager to finish it's task and async to the main queue")
 
-                dispatch_async(consistencyManager.dispatchQueue) {
-                    expectation.fulfill()
-                }
+                    dispatch_async(consistencyManager.dispatchQueue) {
+                        expectation.fulfill()
+                    }
 
-                waitForExpectationsWithTimeout(1) { error in
-                    XCTAssertNil(error)
+                    waitForExpectationsWithTimeout(10) { error in
+                        XCTAssertNil(error)
+                    }
+
+                    // Now, we need to wait for the main queue to do the actual updates
+                    let mainQueueExpectation = expectationWithDescription("Wait for main queue to finish so the updates have happened")
+
+                    dispatch_async(dispatch_get_main_queue()) {
+                        mainQueueExpectation.fulfill()
+                    }
+                    
+                    waitForExpectationsWithTimeout(10) { error in
+                        XCTAssertNil(error)
+                    }
+                    
+                    // Finally, let's verify that block actually got called
+                    XCTAssertEqual(2, numberTimesCallbackCalled)
                 }
-                
-                // Now, we need to wait for the main queue to do the actual updates
-                let mainQueueExpectation = expectationWithDescription("Wait for main queue to finish so the updates have happened")
-                
-                dispatch_async(dispatch_get_main_queue()) {
-                    mainQueueExpectation.fulfill()
-                }
-                
-                waitForExpectationsWithTimeout(1) { error in
-                    XCTAssertNil(error)
-                }
-                
-                // Finally, let's verify that block actually got called
-                XCTAssertEqual(2, numberTimesCallbackCalled)
             }
         }
     }
-    
 }

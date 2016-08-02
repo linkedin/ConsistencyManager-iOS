@@ -42,6 +42,7 @@
 		6144A8341CB6DF1B00025127 /* TestRequiredModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A81E1CB6DF1B00025127 /* TestRequiredModel.swift */; };
 		6144A8361CB6DF1B00025127 /* ModelUpdatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A8201CB6DF1B00025127 /* ModelUpdatesTests.swift */; };
 		614661E61A0293B3001C9B50 /* ConsistencyManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBAA5419FFF64100A23A60 /* ConsistencyManager.framework */; };
+		615B9CA91D4FFD430091F71A /* ProjectionTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615B9CA81D4FFD430091F71A /* ProjectionTestModel.swift */; };
 		F29D8FC71CC52EBB005DBB71 /* PauseListenerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29D8FC61CC52EBB005DBB71 /* PauseListenerTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +94,7 @@
 		6144A81E1CB6DF1B00025127 /* TestRequiredModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRequiredModel.swift; sourceTree = "<group>"; };
 		6144A81F1CB6DF1B00025127 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6144A8201CB6DF1B00025127 /* ModelUpdatesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelUpdatesTests.swift; sourceTree = "<group>"; };
+		615B9CA81D4FFD430091F71A /* ProjectionTestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectionTestModel.swift; sourceTree = "<group>"; };
 		61DBAA5419FFF64100A23A60 /* ConsistencyManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ConsistencyManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61DBAA5F19FFF64100A23A60 /* ConsistencyManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConsistencyManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F29D8FC61CC52EBB005DBB71 /* PauseListenerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseListenerTests.swift; sourceTree = "<group>"; };
@@ -202,8 +204,9 @@
 				6144A81A1CB6DF1B00025127 /* ConsistencyManagerTestCase.swift */,
 				6144A81B1CB6DF1B00025127 /* TestListener.swift */,
 				6144A81C1CB6DF1B00025127 /* TestModel.swift */,
-				6144A81D1CB6DF1B00025127 /* TestModelGenerator.swift */,
+				615B9CA81D4FFD430091F71A /* ProjectionTestModel.swift */,
 				6144A81E1CB6DF1B00025127 /* TestRequiredModel.swift */,
+				6144A81D1CB6DF1B00025127 /* TestModelGenerator.swift */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				6144A8261CB6DF1B00025127 /* ListenerTests.swift in Sources */,
 				6144A8301CB6DF1B00025127 /* ConsistencyManagerTestCase.swift in Sources */,
 				6144A82F1CB6DF1B00025127 /* WeakArrayTests.swift in Sources */,
+				615B9CA91D4FFD430091F71A /* ProjectionTestModel.swift in Sources */,
 				6144A82D1CB6DF1B00025127 /* UpdateOrderingTests.swift in Sources */,
 				6144A8211CB6DF1B00025127 /* BatchListenerTest.swift in Sources */,
 				F29D8FC71CC52EBB005DBB71 /* PauseListenerTests.swift in Sources */,

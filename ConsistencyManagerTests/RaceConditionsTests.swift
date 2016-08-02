@@ -13,42 +13,47 @@ import ConsistencyManager
 class RaceConditionsTests: ConsistencyManagerTestCase {
 
     /**
-    1) An update occurs which affects a listener
-    2) The listener is asked for it's current model
-    3) The consistency manager does some work
-    4) The listener changes its own model for some other reason
-    5) The consistency manager reports the change
-    */
+     1) An update occurs which affects a listener
+     2) The listener is asked for it's current model
+     3) The consistency manager does some work
+     4) The listener changes its own model for some other reason
+     5) The consistency manager reports the change
+     */
     func testCurrentModelRaceCondition() {
-        let initialModel = TestModel(id: "2", data: 0, children: [], requiredModel: TestRequiredModel(id: nil, data: -1))
-
-        let consistencyManager = ConsistencyManager()
-        let listener = TestListener(model: initialModel)
-
-        addListener(listener, toConsistencyManager: consistencyManager)
-
-        // Have a model to change to
-        let updateModel = TestModel(id: "2", data: 1, children: [], requiredModel: TestRequiredModel(id: nil, data: -1))
-        let newModel = TestModel(id: "3", data: 2, children: [], requiredModel: TestRequiredModel(id: nil, data: -1))
-
-        listener.updateClosure = { context in
-            XCTFail()
-        }
-
-        var updates = 0
-        listener.currentModelRequested = {
-            // After we have requested the current model, we're going to change it to another model (but only the first time). This simulates the race condition.
-            // The reason this is only necessary the first time is that changing the model in this method is an antipattern. This just simulates the bug. The second time it's called, it's called on the same thread as the update happenes so there can be no race condition there.
-            if updates == 0 {
-                listener.model = newModel
-                updates += 1
+        for testProjections in [true, false] {
+            let initialModel = TestModelGenerator.consistencyManagerModelWithTotalChildren(2, branchingFactor: 0, projectionModel: testProjections) { id in
+                return id == 0
             }
+
+            let consistencyManager = ConsistencyManager()
+            let listener = TestListener(model: initialModel)
+
+            addListener(listener, toConsistencyManager: consistencyManager)
+
+            // Have a model to change to
+            let updateModel = TestModel(id: "0", data: 1, children: [], requiredModel: TestRequiredModel(id: nil, data: -1))
+            let newModel = TestModel(id: "2", data: 2, children: [], requiredModel: TestRequiredModel(id: nil, data: -1))
+
+            listener.updateClosure = { context in
+                XCTFail()
+            }
+
+            var updates = 0
+            listener.currentModelRequested = {
+                // After we have requested the current model, we're going to change it to another model (but only the first time). This simulates the race condition.
+                // The reason this is only necessary the first time is that changing the model in this method is an antipattern. This just simulates the bug. The second time it's called, it's called on the same thread as the update happenes so there can be no race condition there.
+                if updates == 0 {
+                    listener.model = newModel
+                    updates += 1
+                }
+            }
+
+            updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: 4)
+            
+            // Should have the new model here
+            XCTAssertEqual(testModelFromListenerModel(listener.model)?.data, 2)
+            XCTAssertEqual(updates, 1)
         }
-
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: 4)
-
-        // Should have the new model here
-        XCTAssertEqual((listener.model as! TestModel).data, 2)
     }
 
     /**

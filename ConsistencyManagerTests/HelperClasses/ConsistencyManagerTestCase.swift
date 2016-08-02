@@ -38,6 +38,22 @@ class ConsistencyManagerTestCase: XCTestCase {
         waitOnMainThread()
     }
 
+    /**
+     This helper function is useful for testing projections.
+     We want to validate the fields of our model, but aren't sure if it's a TestModel or ProjectionTestModel.
+     This converts it to a TestModel and allows us to test the fields of the model.
+     */
+    func testModelFromListenerModel(model: ConsistencyManagerModel?) -> TestModel? {
+        if let model = model as? TestModel {
+            return model
+        } else if let model = model as? ProjectionTestModel {
+            return TestModel.testModelFromProjection(model)
+        } else {
+            XCTFail("Cannot convert listener model to test model.")
+            return nil
+        }
+    }
+
     func deleteModel(model: ConsistencyManagerModel, consistencyManager: ConsistencyManager, context: Any? = nil) {
         consistencyManager.deleteModel(model, context: context)
 
@@ -82,7 +98,7 @@ class ConsistencyManagerTestCase: XCTestCase {
             expectation.fulfill()
         }
 
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectationsWithTimeout(10) { error in
             XCTAssertNil(error)
         }
     }

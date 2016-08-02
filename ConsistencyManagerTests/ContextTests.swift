@@ -13,26 +13,28 @@ import ConsistencyManager
 class ContextTests: ConsistencyManagerTestCase {
 
     func testContextPassedThrough() {
-        let testModel = TestModelGenerator.testModelWithTotalChildren(20, branchingFactor: 3) { id in
-            return true
+        for testProjections in [true, false] {
+            let testModel = TestModelGenerator.consistencyManagerModelWithTotalChildren(20, branchingFactor: 3, projectionModel: testProjections) { id in
+                return true
+            }
+
+            let consistencyManager = ConsistencyManager()
+            let listener = TestListener(model: testModel)
+
+            addListener(listener, toConsistencyManager: consistencyManager)
+
+            // Pick a random child
+            let updateModel = TestModel(id: "2", data: -1, children: [], requiredModel: TestRequiredModel(id: nil, data: -1))
+
+            var contextClosureCalled = false
+            listener.contextClosure = { context in
+                contextClosureCalled = true
+                XCTAssertEqual(context as? Int, 4)
+            }
+
+            updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: 4)
+            
+            XCTAssertTrue(contextClosureCalled)
         }
-
-        let consistencyManager = ConsistencyManager()
-        let listener = TestListener(model: testModel)
-
-        addListener(listener, toConsistencyManager: consistencyManager)
-
-        // Pick a random child
-        let updateModel = TestModel(id: "2", data: -1, children: [], requiredModel: TestRequiredModel(id: nil, data: -1))
-
-        var contextClosureCalled = false
-        listener.contextClosure = { context in
-            contextClosureCalled = true
-            XCTAssertEqual(context as? Int, 4)
-        }
-
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: 4)
-
-        XCTAssertTrue(contextClosureCalled)
     }
 }

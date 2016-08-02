@@ -18,28 +18,30 @@ class UpdateTests: ConsistencyManagerTestCase {
      Test updating the 'root' model of the tree.
      */
     func testUpdateSameModel() {
-        // Only want even number of models. See TestModelGenerator docs.
-        for numberOfModels in 2.stride(through: 40, by: 4) {
-            // Branching factor shouldn't really be a factor, so let's just test these two values
-            for branchingFactor in 1...2 {
-                let testModel = TestModelGenerator.testModelWithTotalChildren(numberOfModels, branchingFactor: branchingFactor) { id in
-                    // Let's test this with some ids missing
-                    return id % 3 == 0
-                }
+        for testProjections in [true, false] {
+            // Only want even number of models. See TestModelGenerator docs.
+            for numberOfModels in 2.stride(through: 40, by: 4) {
+                // Branching factor shouldn't really be a factor, so let's just test these two values
+                for branchingFactor in 1...2 {
+                    let testModel = TestModelGenerator.consistencyManagerModelWithTotalChildren(numberOfModels, branchingFactor: branchingFactor, projectionModel: testProjections) { id in
+                        // Let's test this with some ids missing
+                        return id % 3 == 0
+                    }
 
-                let consistencyManager = ConsistencyManager()
-                let listener = TestListener(model: testModel)
+                    let consistencyManager = ConsistencyManager()
+                    let listener = TestListener(model: testModel)
 
-                addListener(listener, toConsistencyManager: consistencyManager)
+                    addListener(listener, toConsistencyManager: consistencyManager)
 
-                let updateModel = TestModel(id: "0", data: -1, children: [], requiredModel: TestRequiredModel(id: "4", data: -1))
-                updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+                    let updateModel = TestModel(id: "0", data: -1, children: [], requiredModel: TestRequiredModel(id: "4", data: -1))
+                    updateWithNewModel(updateModel, consistencyManager: consistencyManager)
 
-                // Should have updated the model of the listener
-                if let testModel = listener.model as? TestModel {
-                    XCTAssertTrue(testModel == updateModel)
-                } else {
-                    XCTFail()
+                    // Should have updated the model of the listener
+                    if let testModel = testModelFromListenerModel(listener.model) {
+                        XCTAssertTrue(testModel == updateModel)
+                    } else {
+                        XCTFail()
+                    }
                 }
             }
         }
@@ -49,30 +51,32 @@ class UpdateTests: ConsistencyManagerTestCase {
      Test that it correctly updates when the listener is a subtree of the model we are updating.
      */
     func testListenerSubtree() {
-        // Only want even number of models. See TestModelGenerator docs.
-        for numberOfModels in 2.stride(through: 100, by: 4) {
-            for branchingFactor in 1...5 {
-                let testModel = TestModelGenerator.testModelWithTotalChildren(numberOfModels, branchingFactor: branchingFactor) { id in
-                    // Let's test this with some ids missing
-                    return id % 3 == 0
-                }
+        for testProjections in [true, false] {
+            // Only want even number of models. See TestModelGenerator docs.
+            for numberOfModels in 2.stride(through: 100, by: 4) {
+                for branchingFactor in 1...5 {
+                    let testModel = TestModelGenerator.consistencyManagerModelWithTotalChildren(numberOfModels, branchingFactor: branchingFactor, projectionModel: testProjections) { id in
+                        // Let's test this with some ids missing
+                        return id % 3 == 0
+                    }
 
-                let consistencyManager = ConsistencyManager()
-                let listener = TestListener(model: testModel)
+                    let consistencyManager = ConsistencyManager()
+                    let listener = TestListener(model: testModel)
 
-                addListener(listener, toConsistencyManager: consistencyManager)
+                    addListener(listener, toConsistencyManager: consistencyManager)
 
-                // A model with id 0 will be a child of the update model
-                let expectedModel = TestModel(id: "0", data: -1, children: [], requiredModel: TestRequiredModel(id: "4", data: -1))
-                let updateModel = TestModel(id: "-100", data: -100, children: [expectedModel], requiredModel: TestRequiredModel(id: "4", data: -1))
+                    // A model with id 0 will be a child of the update model
+                    let expectedModel = TestModel(id: "0", data: -1, children: [], requiredModel: TestRequiredModel(id: "4", data: -1))
+                    let updateModel = TestModel(id: "-100", data: -100, children: [expectedModel], requiredModel: TestRequiredModel(id: "4", data: -1))
 
-                updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+                    updateWithNewModel(updateModel, consistencyManager: consistencyManager)
 
-                // Should have updated the model of the listener
-                if let testModel = listener.model as? TestModel {
-                    XCTAssertTrue(testModel == expectedModel)
-                } else {
-                    XCTFail()
+                    // Should have updated the model of the listener
+                    if let testModel = testModelFromListenerModel(listener.model) {
+                        XCTAssertTrue(testModel == expectedModel)
+                    } else {
+                        XCTFail()
+                    }
                 }
             }
         }
@@ -82,34 +86,37 @@ class UpdateTests: ConsistencyManagerTestCase {
      If the update model is a subtree of the listener's model, then the listener's model should have been updated to include this subtree.
      */
     func testUpdateModelSubtree() {
-        // Only want even number of models. See TestModelGenerator docs.
-        // Let's skip 2 models since then the listener won't have a subtree
-        for numberOfModels in 4.stride(through: 40, by: 4) {
-            for branchingFactor in 1...5 {
-                let testModel: TestModel = TestModelGenerator.testModelWithTotalChildren(numberOfModels, branchingFactor: branchingFactor) { id in
-                    // Let's make everything we're testing have an id. This will be 0, 2, 6, 10...
-                    return id == 0 || (id + 2) % 4 == 0
-                }
+        for testProjections in [true, false] {
+            // Only want even number of models. See TestModelGenerator docs.
+            // Let's skip 2 models since then the listener won't have a subtree
+            for numberOfModels in 4.stride(through: 40, by: 4) {
+                for branchingFactor in 1...5 {
+                    let testModel = TestModelGenerator.consistencyManagerModelWithTotalChildren(numberOfModels, branchingFactor: branchingFactor, projectionModel: testProjections) { id in
+                        // Let's make everything we're testing have an id. This will be 0, 2, 6, 10...
+                        let includeId: Bool = (id + 2) % 4 == 0
+                        return id == 0 || includeId
+                    }
 
-                for replacementId in 2.stride(through: numberOfModels, by: 4) {
+                    for replacementId in 2.stride(through: numberOfModels, by: 4) {
 
-                    let consistencyManager = ConsistencyManager()
-                    let listener = TestListener(model: testModel)
+                        let consistencyManager = ConsistencyManager()
+                        let listener = TestListener(model: testModel)
 
-                    addListener(listener, toConsistencyManager: consistencyManager)
-                    let updateModel = TestModel(id: "\(replacementId)", data: -100, children: [], requiredModel: TestRequiredModel(id: "4", data: -1))
-                    updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+                        addListener(listener, toConsistencyManager: consistencyManager)
+                        let updateModel = TestModel(id: "\(replacementId)", data: -100, children: [], requiredModel: TestRequiredModel(id: "4", data: -1))
+                        updateWithNewModel(updateModel, consistencyManager: consistencyManager)
 
-                    // Let's search for the model with the correct id (the one we replaced)
-                    // Let's ensure that it has been replaced with the correct model
-                    if let testModel = listener.model as? TestModel {
-                        if let childModel = testModel.recursiveChildWithId("\(replacementId)") {
-                            XCTAssertTrue(childModel == updateModel)
+                        // Let's search for the model with the correct id (the one we replaced)
+                        // Let's ensure that it has been replaced with the correct model
+                        if let testModel = testModelFromListenerModel(listener.model) {
+                            if let childModel = testModel.recursiveChildWithId("\(replacementId)") {
+                                XCTAssertTrue(childModel == updateModel)
+                            } else {
+                                XCTFail()
+                            }
                         } else {
                             XCTFail()
                         }
-                    } else {
-                        XCTFail()
                     }
                 }
             }
@@ -120,36 +127,39 @@ class UpdateTests: ConsistencyManagerTestCase {
      If the update model and the listener model have a subtree in common, then the listener model should be updated with this subtree.
      */
     func testUpdateModelListenerCommonSubtree() {
-        // Only want even number of models. See TestModelGenerator docs.
-        // Let's skip 2 models since then the listener won't have a subtree
-        for numberOfModels in 4.stride(through: 40, by: 4) {
-            for branchingFactor in 1...5 {
-                let testModel: TestModel = TestModelGenerator.testModelWithTotalChildren(numberOfModels, branchingFactor: branchingFactor) { id in
-                    // Let's make everything we're testing have an id. This will be 0, 2, 6, 10...
-                    return id == 0 || (id + 2) % 4 == 0
-                }
+        for testProjections in [true, false] {
+            // Only want even number of models. See TestModelGenerator docs.
+            // Let's skip 2 models since then the listener won't have a subtree
+            for numberOfModels in 4.stride(through: 40, by: 4) {
+                for branchingFactor in 1...5 {
+                    let testModel = TestModelGenerator.consistencyManagerModelWithTotalChildren(numberOfModels, branchingFactor: branchingFactor, projectionModel: testProjections) { id in
+                        // Let's make everything we're testing have an id. This will be 0, 2, 6, 10...
+                        let includeId: Bool = (id + 2) % 4 == 0
+                        return id == 0 || includeId
+                    }
 
-                // Loop through a bunch of ids we'll look to replace. Note: All these are subtrees of the listener model
-                for replacementId in 2.stride(through: numberOfModels, by: 4) {
+                    // Loop through a bunch of ids we'll look to replace. Note: All these are subtrees of the listener model
+                    for replacementId in 2.stride(through: numberOfModels, by: 4) {
 
-                    let consistencyManager = ConsistencyManager()
-                    let listener = TestListener(model: testModel)
+                        let consistencyManager = ConsistencyManager()
+                        let listener = TestListener(model: testModel)
 
-                    addListener(listener, toConsistencyManager: consistencyManager)
-                    let expectedModel = TestModel(id: "\(replacementId)", data: -100, children: [], requiredModel: TestRequiredModel(id: "4", data: -1))
-                    let updateModel = TestModel(id: "-200", data: -200, children: [expectedModel], requiredModel: TestRequiredModel(id: "4", data: -1))
-                    updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+                        addListener(listener, toConsistencyManager: consistencyManager)
+                        let expectedModel = TestModel(id: "\(replacementId)", data: -100, children: [], requiredModel: TestRequiredModel(id: "4", data: -1))
+                        let updateModel = TestModel(id: "-200", data: -200, children: [expectedModel], requiredModel: TestRequiredModel(id: "4", data: -1))
+                        updateWithNewModel(updateModel, consistencyManager: consistencyManager)
 
-                    // Let's search for the model with the correct id (the one we replaced)
-                    // Let's ensure that it has been replaced with the correct model
-                    if let testModel = listener.model as? TestModel {
-                        if let childModel = testModel.recursiveChildWithId("\(replacementId)") {
-                            XCTAssertTrue(childModel == expectedModel)
+                        // Let's search for the model with the correct id (the one we replaced)
+                        // Let's ensure that it has been replaced with the correct model
+                        if let testModel = testModelFromListenerModel(listener.model) {
+                            if let childModel = testModel.recursiveChildWithId("\(replacementId)") {
+                                XCTAssertTrue(childModel == expectedModel)
+                            } else {
+                                XCTFail()
+                            }
                         } else {
                             XCTFail()
                         }
-                    } else {
-                        XCTFail()
                     }
                 }
             }
@@ -194,36 +204,38 @@ class UpdateTests: ConsistencyManagerTestCase {
     }
 
     func testNoIDsInCommon() {
-        // Only want even number of models. See TestModelGenerator docs.
-        for numberOfModels in 2.stride(through: 40, by: 4) {
-            for branchingFactor in 1...5 {
-                for numberOfTestModels in numberOfModels.stride(through: 40, by: 4) {
-                    let testModel = TestModelGenerator.testModelWithTotalChildren(numberOfModels, branchingFactor: branchingFactor) { id in
-                        // Let's make everything we're testing have an id. This will be 0, 2, 6, 10...
-                        return id % 3 == 0
-                    }
+        for testProjections in [true, false] {
+            // Only want even number of models. See TestModelGenerator docs.
+            for numberOfModels in 2.stride(through: 40, by: 4) {
+                for branchingFactor in 1...5 {
+                    for numberOfTestModels in numberOfModels.stride(through: 40, by: 4) {
+                        let testModel = TestModelGenerator.consistencyManagerModelWithTotalChildren(numberOfModels, branchingFactor: branchingFactor, projectionModel: testProjections) { id in
+                            // Let's make everything we're testing have an id. This will be 0, 2, 6, 10...
+                            return id % 3 == 0
+                        }
 
-                    let consistencyManager = ConsistencyManager()
-                    let listener = TestListener(model: testModel)
-                    // We don't want to receive any updates
-                    listener.updateClosure = { _ in
-                        XCTFail()
-                    }
+                        let consistencyManager = ConsistencyManager()
+                        let listener = TestListener(model: testModel)
+                        // We don't want to receive any updates
+                        listener.updateClosure = { _ in
+                            XCTFail()
+                        }
 
-                    addListener(listener, toConsistencyManager: consistencyManager)
-
-                    // This update model will have no ids in common with the previous model
-                    let updateModel = TestModelGenerator.testModelWithTotalChildren(numberOfTestModels, branchingFactor: branchingFactor, startingId: numberOfModels) { id in
-                        return id % 5 == 0
-                    }
-
-                    updateWithNewModel(updateModel, consistencyManager: consistencyManager)
-                    
-                    if let model = listener.model as? TestModel {
-                        // Shouldn't have changed
-                        XCTAssertEqual(model, testModel)
-                    } else {
-                        XCTFail()
+                        addListener(listener, toConsistencyManager: consistencyManager)
+                        
+                        // This update model will have no ids in common with the previous model
+                        let updateModel = TestModelGenerator.testModelWithTotalChildren(numberOfTestModels, branchingFactor: branchingFactor, startingId: numberOfModels) { id in
+                            return id % 5 == 0
+                        }
+                        
+                        updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+                        
+                        if let model = testModelFromListenerModel(listener.model) {
+                            // Shouldn't have changed
+                            XCTAssertEqual(model, testModelFromListenerModel(testModel))
+                        } else {
+                            XCTFail()
+                        }
                     }
                 }
             }
