@@ -18,9 +18,9 @@ class PauseListenerTests: ConsistencyManagerTestCase {
     /**
      This provides some reusable code for generating a test model with many children.
      */
-    func setUpListeners(quantity: Int, testProjections: Bool) -> ([TestListener], ConsistencyManager) {
+    func setUpListeners(quantity: Int, projectionModel: Bool) -> ([TestListener], ConsistencyManager) {
         // We generate models with varying lists of children for more thorough testing.
-        let testModel = TestModelGenerator.consistencyManagerModelWithTotalChildren(10, branchingFactor: 3, projectionModel: testProjections) { id in
+        let testModel = TestModelGenerator.consistencyManagerModelWithTotalChildren(10, branchingFactor: 3, projectionModel: projectionModel) { id in
             return true
         }
 
@@ -42,7 +42,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
      */
     func testUpdatesBetweenPausingAndResuming() {
         for testProjections in [true, false] {
-            let (listeners, consistencyManager) = setUpListeners(1, testProjections: testProjections)
+            let (listeners, consistencyManager) = setUpListeners(1, projectionModel: testProjections)
             let listener = listeners[0]
 
             var numberOfUpdates = 0
@@ -126,7 +126,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
      */
     func testMultipleListenersWithPausingAndResuming() {
         for testProjections in [true, false] {
-            var (listeners, consistencyManager) = setUpListeners(2, testProjections: testProjections)
+            var (listeners, consistencyManager) = setUpListeners(2, projectionModel: testProjections)
             let activeListener = listeners[0]
             let pausedListener = listeners[1]
 
@@ -217,7 +217,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
      */
     func testNoChangesWhilePaused() {
         for testProjections in [true, false] {
-            let (listeners, consistencyManager) = setUpListeners(1, testProjections: testProjections)
+            let (listeners, consistencyManager) = setUpListeners(1, projectionModel: testProjections)
             let listener = listeners[0]
 
             var numberOfUpdates = 0
