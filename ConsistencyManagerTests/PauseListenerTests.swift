@@ -415,9 +415,9 @@ class PauseListenerTests: ConsistencyManagerTestCase {
      We confirm at the end that only the persistent deletes and changes stay in the changelist when the listener
      resumes listening.
 
-     0
-     / | \
-     2  4  1r
+         0
+       / | \
+      2  4  1r
      /
      3r
 
