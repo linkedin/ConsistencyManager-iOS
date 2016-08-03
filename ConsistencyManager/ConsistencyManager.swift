@@ -692,7 +692,7 @@ public class ConsistencyManager {
     private func mergedModelFromModel(model: ConsistencyManagerModel, withUpdates updates: [ConsistencyManagerModel]) -> ConsistencyManagerModel {
         // We want to merge each projection into the current model
         return updates.reduce(model) { current, modelToMerge in
-            return model.mergeModel(modelToMerge)
+            return current.mergeModel(modelToMerge)
         }
     }
 
