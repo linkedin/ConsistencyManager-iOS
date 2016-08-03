@@ -96,7 +96,7 @@ class ProjectionTests: ConsistencyManagerTestCase {
     /**
      This tests a tree with one child (.both projection).
      We're going to update this with a new model which has two children with the same id (but different projections).
-     We will verify that the original child get's both updates.
+     We will verify that the original child gets both updates.
      */
     func testUpdatingModelWithTwoProjections() {
         let child = ProjectionTreeModel(type: .both, id: 1, data: 2, otherData: 4, child: nil, otherChild: nil)
@@ -153,7 +153,7 @@ class ProjectionTests: ConsistencyManagerTestCase {
             XCTFail()
         }
 
-        // This should cause both children to update one of their fields
+        // No update occurs here, because the children with id=1 are of different projection types that do not overlap.
         let updateModel = ProjectionTreeModel(type: .otherData, id: 1, data: nil, otherData: 5, child: nil, otherChild: nil)
 
         updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
