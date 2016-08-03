@@ -10,7 +10,7 @@ pod 'ConsistencyManager'
 
 ## Motivation
 
-Immutable models have many advantages including thread-safety, performance, and more functional and understandable code. However, many applications need to be able to update their models, and these models are often shared across different screens. The models are also often shared across different screens. Since the models are immutable, you always need to create new models for changes. Then, you need to propagate these changes to all the screens rendering this model. The Consistency Manager provides a pub-sub API and automatically regenerates new models for listeners.
+Immutable models have many advantages including thread-safety, performance, and more functional and understandable code. However, many applications need to be able to update their models, and these models are often shared across different screens. Since the models are immutable, you always need to create new models for changes. Then, you need to propagate these changes to all the screens rendering this model. The Consistency Manager provides a pub-sub API and automatically regenerates new models for listeners.
 
 ## How It Works
 
