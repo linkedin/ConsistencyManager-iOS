@@ -84,7 +84,7 @@ final class ProjectionTreeModel: ConsistencyManagerModel, Equatable {
         // If we are of type .data we don't want to grab the otherData field
         var otherData = self.otherData
         var data = self.data
-        // This is a little complex. We only want to update a field if we both care about that field.
+        // This is a little complex. We only want to update a field if both models care about that field.
         switch type {
         case .data:
             if model.type == .both || model.type == .data {

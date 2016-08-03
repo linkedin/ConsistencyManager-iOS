@@ -54,7 +54,7 @@ class ProjectionTests: ConsistencyManagerTestCase {
     /**
      This tests a tree with two children with the same id.
      But, both children are different projections (one is .data, the other is .otherData).
-     We update this with a .both projection. We expect
+     We update this with a .both projection. We expect both the data field and the otherData field of this model to update.
      */
     func testUpdatingModelWithTwoSubmodels() {
         let firstChild = ProjectionTreeModel(type: .data, id: 1, data: 2, otherData: nil, child: nil, otherChild: nil)
