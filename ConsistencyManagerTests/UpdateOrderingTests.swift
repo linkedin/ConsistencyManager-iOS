@@ -65,9 +65,10 @@ class UpdateOrderingTests: ConsistencyManagerTestCase {
                     // First we need to wait for the consistency manager to finish on its queue
                     let expectation = expectationWithDescription("Wait for consistency manager to finish it's task and async to the main queue")
 
-                    dispatch_async(consistencyManager.dispatchQueue) {
+                    let operation = NSBlockOperation() {
                         expectation.fulfill()
                     }
+                    consistencyManager.queue.addOperation(operation)
 
                     waitForExpectationsWithTimeout(10) { error in
                         XCTAssertNil(error)
