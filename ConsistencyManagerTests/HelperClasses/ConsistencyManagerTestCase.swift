@@ -28,7 +28,7 @@ class ConsistencyManagerTestCase: XCTestCase {
         waitOnDispatchQueue(consistencyManager)
     }
 
-    func updateWithNewModel(model: ConsistencyManagerModel, consistencyManager: ConsistencyManager, timeout: NSTimeInterval = 1, context: Any? = nil) {
+    func updateWithNewModel(model: ConsistencyManagerModel, consistencyManager: ConsistencyManager, timeout: NSTimeInterval = 10, context: Any? = nil) {
         consistencyManager.updateWithNewModel(model, context: context)
 
         // First we need to wait for the consistency manager to finish on its queue
