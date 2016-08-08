@@ -63,7 +63,7 @@ class ConsistencyManagerTestCase: XCTestCase {
         waitOnMainThread()
     }
 
-    func waitOnDispatchQueue(consistencyManager: ConsistencyManager, timeout: NSTimeInterval = 1) {
+    func waitOnDispatchQueue(consistencyManager: ConsistencyManager, timeout: NSTimeInterval = 10) {
         let expectation = expectationWithDescription("Wait for consistency manager to update internal state")
 
         dispatch_async(consistencyManager.dispatchQueue) {
@@ -82,7 +82,7 @@ class ConsistencyManagerTestCase: XCTestCase {
             expectation.fulfill()
         }
 
-        waitForExpectationsWithTimeout(1) { error in
+        waitForExpectationsWithTimeout(10) { error in
             XCTAssertNil(error)
         }
     }

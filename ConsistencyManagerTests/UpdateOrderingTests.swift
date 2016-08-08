@@ -68,7 +68,7 @@ class UpdateOrderingTests: ConsistencyManagerTestCase {
                     expectation.fulfill()
                 }
 
-                waitForExpectationsWithTimeout(1) { error in
+                waitForExpectationsWithTimeout(10) { error in
                     XCTAssertNil(error)
                 }
                 
@@ -79,7 +79,7 @@ class UpdateOrderingTests: ConsistencyManagerTestCase {
                     mainQueueExpectation.fulfill()
                 }
                 
-                waitForExpectationsWithTimeout(1) { error in
+                waitForExpectationsWithTimeout(10) { error in
                     XCTAssertNil(error)
                 }
                 
