@@ -28,11 +28,11 @@ class ConsistencyManagerTestCase: XCTestCase {
         waitOnDispatchQueue(consistencyManager)
     }
 
-    func updateWithNewModel(model: ConsistencyManagerModel, consistencyManager: ConsistencyManager, timeout: NSTimeInterval = 10, context: Any? = nil) {
+    func updateWithNewModel(model: ConsistencyManagerModel, consistencyManager: ConsistencyManager, context: Any? = nil) {
         consistencyManager.updateWithNewModel(model, context: context)
 
         // First we need to wait for the consistency manager to finish on its queue
-        waitOnDispatchQueue(consistencyManager, timeout: timeout)
+        waitOnDispatchQueue(consistencyManager)
 
         // Now, we need to wait for the main queue to do the actual updates
         waitOnMainThread()
@@ -63,14 +63,14 @@ class ConsistencyManagerTestCase: XCTestCase {
         waitOnMainThread()
     }
 
-    func waitOnDispatchQueue(consistencyManager: ConsistencyManager, timeout: NSTimeInterval = 10) {
+    func waitOnDispatchQueue(consistencyManager: ConsistencyManager) {
         let expectation = expectationWithDescription("Wait for consistency manager to update internal state")
 
         dispatch_async(consistencyManager.dispatchQueue) {
             expectation.fulfill()
         }
 
-        waitForExpectationsWithTimeout(timeout) { error in
+        waitForExpectationsWithTimeout(10) { error in
             XCTAssertNil(error)
         }
     }
