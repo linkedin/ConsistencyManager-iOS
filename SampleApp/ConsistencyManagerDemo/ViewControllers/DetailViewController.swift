@@ -47,7 +47,7 @@ class DetailViewController: UIViewController, ConsistencyManagerListener {
 
     @IBAction func deleteTapped(_ sender: UIButton) {
         ConsistencyManager.sharedInstance.deleteModel(update)
-        navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
 
     @IBAction func likeButtonTapped(_ sender: UIButton) {
