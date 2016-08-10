@@ -9,3 +9,5 @@ xcuserdata
 docs/_build/**
 docs/sphinx_rtd_theme/**
 
+
+SampleApp/Pods/

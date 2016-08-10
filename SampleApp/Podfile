@@ -4,3 +4,6 @@ target 'ConsistencyManagerDemo' do
 	pod 'ConsistencyManager', :path => '..'
 end
 
+target 'ConsistencyManagerDemoTests' do
+    pod 'ConsistencyManager', :path => '..'
+end
