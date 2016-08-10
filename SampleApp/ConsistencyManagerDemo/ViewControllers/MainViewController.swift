@@ -32,25 +32,25 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.tableView.reloadData()
         }
 
-        tableView.registerNib(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
     }
 
     // MARK: - Table View Delegate/DataSource
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.stream?.updates.count ?? 0
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let update = stream?.updates[indexPath.row]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let update = stream?.updates[(indexPath as NSIndexPath).row]
         if let update = update {
-            let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! TableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
             cell.delegate = self
             cell.idLabel.text = update.id
             if update.liked {
-                cell.button.setTitle("Unlike", forState: .Normal)
+                cell.button.setTitle("Unlike", for: UIControlState())
             } else {
-                cell.button.setTitle("Like", forState: .Normal)
+                cell.button.setTitle("Like", for: UIControlState())
             }
             return cell
         } else {
@@ -59,20 +59,20 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let update = stream?.updates[indexPath.row]
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let update = stream?.updates[(indexPath as NSIndexPath).row]
         let detail = DetailViewController(update: update!)
         navigationController?.pushViewController(detail, animated: true)
     }
 
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
     }
 
     // MARK: - Cell Actions
 
-    func buttonWasTappedOnCell(cell: TableViewCell) {
-        let index = tableView.indexPathForCell(cell)?.row
+    func buttonWasTappedOnCell(_ cell: TableViewCell) {
+        let index = (tableView.indexPath(for: cell) as NSIndexPath?)?.row
         if let index = index {
             let update = stream?.updates[index]
             if let update = update {
@@ -87,7 +87,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return stream
     }
 
-    func modelUpdated(model: ConsistencyManagerModel?, updates: ModelUpdates, context: Any?) {
+    func modelUpdated(_ model: ConsistencyManagerModel?, updates: ModelUpdates, context: Any?) {
         if let model = model as? StreamModel {
             if model != stream {
                 stream = model

@@ -13,14 +13,14 @@ import ConsistencyManager
 class Network {
 
     // This class fakes a network response
-    class func fetchUpdates(callback: StreamModel -> ()) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
+    class func fetchUpdates(_ callback: (StreamModel) -> ()) {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             let updates = Array(0..<20).map() { index in
                 UpdateModel(id: "\(index)", liked: index % 2 == 0)
             }
 
             let stream = StreamModel(id: "100", updates: updates)
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 callback(stream)
             }
         }

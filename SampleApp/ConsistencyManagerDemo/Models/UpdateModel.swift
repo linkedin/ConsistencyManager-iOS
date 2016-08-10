@@ -24,12 +24,12 @@ final class UpdateModel: ConsistencyManagerModel, Equatable {
         return id
     }
 
-    func map(transform: ConsistencyManagerModel -> ConsistencyManagerModel?) -> ConsistencyManagerModel? {
+    func map(_ transform: (ConsistencyManagerModel) -> ConsistencyManagerModel?) -> ConsistencyManagerModel? {
         // Do nothing. No children.
         return self
     }
 
-    func forEach(function: ConsistencyManagerModel -> ()) {
+    func forEach(_ function: (ConsistencyManagerModel) -> ()) {
         // Do nothing. No children.
     }
 }

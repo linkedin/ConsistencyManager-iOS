@@ -27,11 +27,11 @@ final class TestRequiredModel: ConsistencyManagerModel, Equatable {
         return id
     }
 
-    func map(transform: ConsistencyManagerModel -> ConsistencyManagerModel?) -> ConsistencyManagerModel? {
+    func map(_ transform: (ConsistencyManagerModel) -> ConsistencyManagerModel?) -> ConsistencyManagerModel? {
         return self
     }
 
-    func forEach(function: ConsistencyManagerModel -> ()) {
+    func forEach(_ function: (ConsistencyManagerModel) -> ()) {
         // Do nothing. No child models.
     }
 }

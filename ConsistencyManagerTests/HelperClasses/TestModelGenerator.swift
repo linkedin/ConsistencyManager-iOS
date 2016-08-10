@@ -30,7 +30,7 @@ class TestModelGenerator {
      This allows us to easily write our tests so we test both projections and regular models.
      - parameter includeId: closure which dictates if you want an id on a certain model. Recommend that you don't make this % 2 since that will just make all the required models not have ids
      */
-    class func consistencyManagerModelWithTotalChildren(children: Int, branchingFactor: Int, projectionModel: Bool, startingId: Int = 0, includeId: Int -> Bool) -> ConsistencyManagerModel {
+    class func consistencyManagerModelWithTotalChildren(_ children: Int, branchingFactor: Int, projectionModel: Bool, startingId: Int = 0, includeId: (Int) -> Bool) -> ConsistencyManagerModel {
         assert(children % 2 == 0, "If you don't have an even number of children, you will have unexpected ids")
         // Each node in the tree actually represents two models (TestModel and TestRequiredModel)
         let tree = childrenTreeWithTotalNodes(children / 2, branchingFactor: branchingFactor, startingId: startingId)
@@ -52,7 +52,7 @@ class TestModelGenerator {
      - parameter branchingFactor: number of children in the children array of each model
      - parameter includeId: closure which dictates if you want an id on a certain model. Recommend that you don't make this % 2 since that will just make all the required models not have ids
      */
-    class func testModelWithTotalChildren(children: Int, branchingFactor: Int, startingId: Int = 0, includeId: Int -> Bool) -> TestModel {
+    class func testModelWithTotalChildren(_ children: Int, branchingFactor: Int, startingId: Int = 0, includeId: (Int) -> Bool) -> TestModel {
         assert(children % 2 == 0, "If you don't have an even number of children, you will have unexpected ids")
         // Each node in the tree actually represents two models (TestModel and TestRequiredModel)
         let tree = childrenTreeWithTotalNodes(children / 2, branchingFactor: branchingFactor, startingId: startingId)
@@ -62,7 +62,7 @@ class TestModelGenerator {
     /**
     Generates an immutable TestModel from a tree object.
     */
-    private class func testModelFromTree(tree: ChildrenTree, includeId: Int -> Bool) -> TestModel {
+    private class func testModelFromTree(_ tree: ChildrenTree, includeId: (Int) -> Bool) -> TestModel {
         let testModelChildren: [TestModel] = tree.children.map { node in
             return self.testModelFromTree(node, includeId: includeId)
         }
@@ -79,7 +79,7 @@ class TestModelGenerator {
     /**
      Generates an immutable ProjectionTestModel from a tree object.
      */
-    private class func projectionTestModelFromTree(tree: ChildrenTree, includeId: Int -> Bool) -> ProjectionTestModel {
+    private class func projectionTestModelFromTree(_ tree: ChildrenTree, includeId: (Int) -> Bool) -> ProjectionTestModel {
         let testModelChildren: [ProjectionTestModel] = tree.children.map { node in
             return self.projectionTestModelFromTree(node, includeId: includeId)
         }
@@ -97,7 +97,7 @@ class TestModelGenerator {
     /**
     Use a breadth first search to generate a tree with a certain number of nodes.
     */
-    private class func childrenTreeWithTotalNodes(nodes: Int, branchingFactor: Int, startingId: Int) -> ChildrenTree {
+    private class func childrenTreeWithTotalNodes(_ nodes: Int, branchingFactor: Int, startingId: Int) -> ChildrenTree {
         var nodeQueue = [ChildrenTree]()
 
         var currentId = startingId
@@ -110,7 +110,7 @@ class TestModelGenerator {
         while remainingNodes > 0 {
             // Pop from the queue
             let currentNode = nodeQueue[0]
-            nodeQueue.removeAtIndex(0)
+            nodeQueue.remove(at: 0)
 
             let numberOfChildren = min(remainingNodes, branchingFactor)
             for _ in 0..<numberOfChildren {
@@ -126,7 +126,7 @@ class TestModelGenerator {
         return rootNode
     }
     
-    private class func stringIdFromInt(id: Int, includeId: Int -> Bool) -> String? {
+    private class func stringIdFromInt(_ id: Int, includeId: (Int) -> Bool) -> String? {
         if includeId(id) {
             return "\(id)"
         } else {
