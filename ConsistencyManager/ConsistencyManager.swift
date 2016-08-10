@@ -187,7 +187,7 @@ public class ConsistencyManager {
                     return element
                 }
                 // Do some cleanup
-                newListeners.prune()
+                _ = newListeners.prune()
                 self.listeners[key] = newListeners
             }
         }
@@ -389,7 +389,7 @@ public class ConsistencyManager {
         dispatchTask { _ in
             NotificationCenter.default.post(name: ConsistencyManager.kCleanMemoryAsynchronousWorkStarted, object: self)
             for (key, var listenersArray) in self.listeners {
-                listenersArray.prune()
+                _ = listenersArray.prune()
                 // If the array has no elements now, let's remove it from the dictionary
                 // Else, let's reset it (we may have removed elements)
                 if listenersArray.count == 0 {
