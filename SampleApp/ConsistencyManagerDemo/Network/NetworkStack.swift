@@ -14,7 +14,7 @@ class Network {
 
     // This class fakes a network response
     class func fetchUpdates(_ callback: (StreamModel) -> ()) {
-        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high).async {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             let updates = Array(0..<20).map() { index in
                 UpdateModel(id: "\(index)", liked: index % 2 == 0)
             }
