@@ -76,7 +76,7 @@ public class BatchListener: ConsistencyManagerListener {
     }
 
     public func modelUpdated(_ model: ConsistencyManagerModel?, updates: ModelUpdates, context: Any?) {
-        if let model = model as? BatchUpdateModel , model.models.count == listeners.count {
+        if let model = model as? BatchUpdateModel, model.models.count == listeners.count {
 
             var updatedListeners = [ConsistencyManagerListener]()
 

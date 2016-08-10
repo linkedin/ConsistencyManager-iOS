@@ -72,14 +72,14 @@ public class ConsistencyManager {
      It's useful if you want to add timers to this work.
      Called on an internal thread.
     */
-    public static let kCleanMemoryAsynchronousWorkStarted = "com.linkedin.consistencyManager.kCleanMemoryAsynchronousWorkStarted"
+    public static let kCleanMemoryAsynchronousWorkStarted = Notification.Name("com.linkedin.consistencyManager.kCleanMemoryAsynchronousWorkStarted")
 
     /**
      This notification is fired whenever the asynchronous work of clean memory finishes.
      It's useful if you want to add timers to this work.
      Called on an internal thread.
      */
-    public static let kCleanMemoryAsynchronousWorkFinished = "com.linkedin.consistencyManager.kCleanMemoryAsynchronousWorkFinished"
+    public static let kCleanMemoryAsynchronousWorkFinished = Notification.Name("com.linkedin.consistencyManager.kCleanMemoryAsynchronousWorkFinished")
 
     // MARK: - Private ivars
 
@@ -243,7 +243,7 @@ public class ConsistencyManager {
             // So, we should just return
             return
         }
-        if let newModel = newModel , outdatedModel.isEqualToModel(newModel) {
+        if let newModel = newModel, outdatedModel.isEqualToModel(newModel) {
             return
         }
 
@@ -271,8 +271,7 @@ public class ConsistencyManager {
                 // Traverse the old model and remove models from the changelist that haven't actually changed.
                 self.recursivelyIterateOverModel(outdatedModel) { model in
                     if let id = model.modelIdentifier,
-                        let newModel = idToNewModel[id]
-                        , confirmedChangelist.changedModelIds.contains(id) && newModel.isEqualToModel(model)
+                        let newModel = idToNewModel[id], confirmedChangelist.changedModelIds.contains(id) && newModel.isEqualToModel(model)
                     {
                         confirmedChangelist.changedModelIds.remove(id)
                     }
@@ -388,7 +387,7 @@ public class ConsistencyManager {
     */
     public func cleanMemory() {
         dispatchTask { _ in
-            NotificationCenter.default.post(name: Notification.Name(rawValue: ConsistencyManager.kCleanMemoryAsynchronousWorkStarted), object: self)
+            NotificationCenter.default.post(name: ConsistencyManager.kCleanMemoryAsynchronousWorkStarted, object: self)
             for (key, var listenersArray) in self.listeners {
                 listenersArray.prune()
                 // If the array has no elements now, let's remove it from the dictionary
@@ -399,7 +398,7 @@ public class ConsistencyManager {
                     self.listeners[key] = listenersArray
                 }
             }
-            NotificationCenter.default.post(name: Notification.Name(rawValue: ConsistencyManager.kCleanMemoryAsynchronousWorkFinished), object: self)
+            NotificationCenter.default.post(name: ConsistencyManager.kCleanMemoryAsynchronousWorkFinished, object: self)
         }
         // Remove any PausedListener structs from our local list if the internal listener is now nil
         pausedListeners = self.pausedListeners.filter { $0.listener != nil }
@@ -417,7 +416,7 @@ public class ConsistencyManager {
             // We're going to use a low priority queue for this timer
             // We need to use a dispatch queue because NSOperationQueue doesn't support delays
             
-            let dispatchQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.default)
+            let dispatchQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.utility)
             // Weak here is necessary, otherwise, we'd have a retain cycle.
             dispatchQueue.asyncAfter(deadline: DispatchTime.now() + Double(Int64(UInt64(garbageCollectionInterval) * NSEC_PER_SEC)) / Double(NSEC_PER_SEC)) { [weak self] in
                 // Don't need to dispatch here. We'll dispatch in cleanMemory. We never want this to be cancelled.
@@ -617,8 +616,7 @@ public class ConsistencyManager {
                 // We're just going to make sure the id is the same so it represents the same data.
                 // If the id is nil, then we will still update since this represents a delete.
                 if let id = newModel?.modelIdentifier,
-                    let currentId = listener.currentModel()?.modelIdentifier
-                    , id != currentId {
+                    let currentId = listener.currentModel()?.modelIdentifier, id != currentId {
                         // The model has been changed while we were doing work, so let's just return.
                         // The next call to this function will take care of updating the model with more recent information.
                         return
@@ -716,7 +714,7 @@ public class ConsistencyManager {
                 // Update is still an optional because the value of model updates is optional
                 // We can ignore deletes because we are only looking for updated models.
                 // Here, we should merge and check for equality to see if anything has actually changed.
-                if let update = update , !self.mergedModelFromModel(child, withUpdates: update).isEqualToModel(child) {
+                if let update = update, !self.mergedModelFromModel(child, withUpdates: update).isEqualToModel(child) {
                     // There's another update here
                     changedModels.insert(id)
                 }
