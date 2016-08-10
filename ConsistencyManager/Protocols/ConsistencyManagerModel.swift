@@ -232,7 +232,7 @@ public extension ConsistencyManagerModel {
         // Usually, we don't need to merge and instead just return the other model.
         // This is because when we're not using projections, classes of the same id will always be of the same type.
         // So, we should just replace the current model with the updated model.
-        // TODO: Should we assert that the classes are the same here?
+        assert(self.dynamicType == model.dynamicType, "Two models of different classes have the same ID. This is not allowed without override mergeModel(:). See the documentation for more information on projections.")
         return model
     }
 
