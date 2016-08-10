@@ -125,8 +125,8 @@ extension WeakArray: MutableCollection {
         return IndexingIterator<WeakArray<T>>(_elements: self)
     }
 
+    // Required by _CollectionType
     public func index(after i: Int) -> Int {
-        //TODO: modify the code to return the correct value
         return i + 1
     }
     
