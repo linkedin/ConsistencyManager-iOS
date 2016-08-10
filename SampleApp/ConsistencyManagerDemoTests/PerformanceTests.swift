@@ -109,8 +109,8 @@ class PerformanceTests: ConsistencyManagerTestCase {
         let consistencyManagers = Array<ConsistencyManager>(count: 20, repeatedValue: ConsistencyManager())
 
         var index = 0
-        measureBlock() {
-            index++
+        measure() {
+            index += 1
             XCTAssert(index < consistencyManagers.count, "Looks like measure block is now taking more polls than before. Need to increase the count on the array.")
             self.addListener(listener, toConsistencyManager: consistencyManagers[index])
         }

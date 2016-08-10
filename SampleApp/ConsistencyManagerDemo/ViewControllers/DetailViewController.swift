@@ -29,7 +29,7 @@ class DetailViewController: UIViewController, ConsistencyManagerListener {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        edgesForExtendedLayout = .None
+        edgesForExtendedLayout = UIRectEdge()
         title = update.id
 
         ConsistencyManager.sharedInstance.listenForUpdates(self)
@@ -37,20 +37,20 @@ class DetailViewController: UIViewController, ConsistencyManagerListener {
     }
 
     func loadData() {
-        likeButton.hidden = false
+        likeButton.isHidden = false
         if update.liked {
-            likeButton.setTitle("Unlike", forState: .Normal)
+            likeButton.setTitle("Unlike", for: UIControlState())
         } else {
-            likeButton.setTitle("Like", forState: .Normal)
+            likeButton.setTitle("Like", for: UIControlState())
         }
     }
 
-    @IBAction func deleteTapped(sender: UIButton) {
+    @IBAction func deleteTapped(_ sender: UIButton) {
         ConsistencyManager.sharedInstance.deleteModel(update)
-        navigationController?.popViewControllerAnimated(true)
+        navigationController?.popViewController(animated: true)
     }
 
-    @IBAction func likeButtonTapped(sender: UIButton) {
+    @IBAction func likeButtonTapped(_ sender: UIButton) {
         UpdateHelper.likeUpdate(update, like: !update.liked)
     }
 
@@ -60,7 +60,7 @@ class DetailViewController: UIViewController, ConsistencyManagerListener {
         return update
     }
 
-    func modelUpdated(model: ConsistencyManagerModel?, updates: ModelUpdates, context: Any?) {
+    func modelUpdated(_ model: ConsistencyManagerModel?, updates: ModelUpdates, context: Any?) {
         if let model = model as? UpdateModel {
             if model != update {
                 update = model

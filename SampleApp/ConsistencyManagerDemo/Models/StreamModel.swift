@@ -24,14 +24,14 @@ final class StreamModel: ConsistencyManagerModel, Equatable {
         return id
     }
 
-    func map(transform: ConsistencyManagerModel -> ConsistencyManagerModel?) -> ConsistencyManagerModel? {
+    func map(_ transform: (ConsistencyManagerModel) -> ConsistencyManagerModel?) -> ConsistencyManagerModel? {
         let newUpdates: [UpdateModel] = updates.flatMap { model in
             return transform(model) as? UpdateModel
         }
         return StreamModel(id: id, updates: newUpdates)
     }
 
-    func forEach(function: ConsistencyManagerModel -> ()) {
+    func forEach(_ function: (ConsistencyManagerModel) -> ()) {
         for model in updates {
             function(model)
         }

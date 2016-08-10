@@ -23,15 +23,15 @@ class TestListener: ConsistencyManagerListener {
     }
 
     func currentModel() -> ConsistencyManagerModel? {
-        assert(NSThread.currentThread().isMainThread)
+        assert(Thread.current.isMainThread)
         // Save the state here, because we may want to change the model for testing purposes in this block
         let model = self.model
         currentModelRequested?()
         return model
     }
 
-    func modelUpdated(model: ConsistencyManagerModel?, updates: ModelUpdates, context: Any?) {
-        assert(NSThread.currentThread().isMainThread)
+    func modelUpdated(_ model: ConsistencyManagerModel?, updates: ModelUpdates, context: Any?) {
+        assert(Thread.current.isMainThread)
         self.model = model
         if let updateClosure = updateClosure {
             updateClosure(model, updates)

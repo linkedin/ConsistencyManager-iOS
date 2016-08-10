@@ -12,7 +12,7 @@ import ConsistencyManager
 
 class UpdateHelper: NSObject {
 
-    class func likeUpdate(update:  UpdateModel, like: Bool) {
+    class func likeUpdate(_ update:  UpdateModel, like: Bool) {
         // Here is where you would also send a network request
         // Note: These helper classes can shared across multiple view controller easily since all they need is an Update object
         let newUpdate = UpdateModel(id: update.id, liked: like)

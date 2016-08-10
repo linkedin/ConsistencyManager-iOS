@@ -22,5 +22,5 @@ class TableViewCell: UITableViewCell {
 }
 
 protocol TableViewCellDelegate: class {
-    func buttonWasTappedOnCell(cell: TableViewCell)
+    func buttonWasTappedOnCell(_ cell: TableViewCell)
 }

@@ -42,14 +42,14 @@ public class BatchListener: ConsistencyManagerListener {
      Instead of calling listenForUpdates on each of the child listeners, you should call this method.
      You should also call it whenever you manually change any of the sublisteners.
      */
-    public func listenForUpdates(consistencyManager: ConsistencyManager) {
+    public func listenForUpdates(_ consistencyManager: ConsistencyManager) {
         consistencyManager.listenForUpdates(self)
     }
 
     /**
      Whenever you manually change a model on a listener, you must call this method to let the batch listener know.
      */
-    public func listenerHasUpdatedModel(listener: ConsistencyManagerListener, consistencyManager: ConsistencyManager) {
+    public func listenerHasUpdatedModel(_ listener: ConsistencyManagerListener, consistencyManager: ConsistencyManager) {
         if let model = listener.currentModel() {
             consistencyManager.listenForUpdates(self, onModel: model)
         }
@@ -62,7 +62,7 @@ public class BatchListener: ConsistencyManagerListener {
      - parameter model: The model which has changed.
      - parameter consistencyManager: The consistency manager you are using to listen to these changes.
      */
-    public func listenerHasUpdatedModel(model: ConsistencyManagerModel, consistencyManager: ConsistencyManager) {
+    public func listenerHasUpdatedModel(_ model: ConsistencyManagerModel, consistencyManager: ConsistencyManager) {
         consistencyManager.listenForUpdates(self, onModel: model)
     }
 
@@ -75,17 +75,17 @@ public class BatchListener: ConsistencyManagerListener {
         return BatchUpdateModel(models: models)
     }
 
-    public func modelUpdated(model: ConsistencyManagerModel?, updates: ModelUpdates, context: Any?) {
+    public func modelUpdated(_ model: ConsistencyManagerModel?, updates: ModelUpdates, context: Any?) {
         if let model = model as? BatchUpdateModel where model.models.count == listeners.count {
 
             var updatedListeners = [ConsistencyManagerListener]()
 
-            for (index, listener) in listeners.enumerate() {
+            for (index, listener) in listeners.enumerated() {
                 if let currentModel = listener.currentModel() {
                     let currentModelIds = BatchListener.allIds(currentModel)
                     let currentModelUpdates = ModelUpdates(
-                        changedModelIds: updates.changedModelIds.intersect(currentModelIds),
-                        deletedModelIds: updates.deletedModelIds.intersect(currentModelIds)
+                        changedModelIds: updates.changedModelIds.intersection(currentModelIds),
+                        deletedModelIds: updates.deletedModelIds.intersection(currentModelIds)
                     )
                     if currentModelUpdates.changedModelIds.count > 0 || currentModelUpdates.deletedModelIds.count > 0 {
                         listener.modelUpdated(model.models[index], updates: currentModelUpdates, context: context)
@@ -103,13 +103,13 @@ public class BatchListener: ConsistencyManagerListener {
 
     // MARK: Private Helpers
 
-    private static func allIds(model: ConsistencyManagerModel) -> Set<String> {
+    private static func allIds(_ model: ConsistencyManagerModel) -> Set<String> {
         var ids = Set<String>()
         if let id = model.modelIdentifier {
             ids.insert(id)
         }
         model.forEach { child in
-            ids.unionInPlace(allIds(child))
+            ids.formUnion(allIds(child))
         }
         return ids
     }
@@ -127,5 +127,5 @@ public protocol BatchListenerDelegate: class {
      - parameter updates: The combined ModelUpdates from all the listeners affected.
      - parameter context: The context which caused this change.
      */
-    func batchListener(batchListener: BatchListener, hasUpdatedListeners listeners: [ConsistencyManagerListener], updates: ModelUpdates, context: Any?)
+    func batchListener(_ batchListener: BatchListener, hasUpdatedListeners listeners: [ConsistencyManagerListener], updates: ModelUpdates, context: Any?)
 }
