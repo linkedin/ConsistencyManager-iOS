@@ -122,9 +122,14 @@ extension WeakArray: MutableCollection {
     // Required by SequenceType
     public func makeIterator() -> IndexingIterator<WeakArray<T>> {
         // Rather than implement our own generator, let's take advantage of the generator provided by IndexingGenerator
-        return IndexingIterator<WeakArray<T>>(self)
+        return IndexingIterator<WeakArray<T>>(_elements: self)
     }
 
+    public func index(after i: Int) -> Int {
+        //TODO: modify the code to return the correct value
+        return i + 1
+    }
+    
     // Required by _CollectionType
     public var endIndex: Int {
         return self.count

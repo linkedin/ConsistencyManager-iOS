@@ -78,7 +78,7 @@ public final class BatchUpdateModel: ConsistencyManagerModel {
         }
 
         for (index, model) in models.enumerated() {
-            if let model = model, otherModel = other.models[index] {
+            if let model = model, let otherModel = other.models[index] {
                 if !model.isEqualToModel(otherModel) {
                     return false
                 }

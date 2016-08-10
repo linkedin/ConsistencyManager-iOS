@@ -243,7 +243,7 @@ public class ConsistencyManager {
             // So, we should just return
             return
         }
-        if let newModel = newModel where outdatedModel.isEqualToModel(newModel) {
+        if let newModel = newModel , outdatedModel.isEqualToModel(newModel) {
             return
         }
 
@@ -272,7 +272,7 @@ public class ConsistencyManager {
                 self.recursivelyIterateOverModel(outdatedModel) { model in
                     if let id = model.modelIdentifier,
                         let newModel = idToNewModel[id]
-                        where confirmedChangelist.changedModelIds.contains(id) && newModel.isEqualToModel(model)
+                        , confirmedChangelist.changedModelIds.contains(id) && newModel.isEqualToModel(model)
                     {
                         confirmedChangelist.changedModelIds.remove(id)
                     }
@@ -416,7 +416,8 @@ public class ConsistencyManager {
         if garbageCollectionInterval > 0 {
             // We're going to use a low priority queue for this timer
             // We need to use a dispatch queue because NSOperationQueue doesn't support delays
-            let dispatchQueue = DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.low)
+            
+            let dispatchQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.default)
             // Weak here is necessary, otherwise, we'd have a retain cycle.
             dispatchQueue.asyncAfter(deadline: DispatchTime.now() + Double(Int64(UInt64(garbageCollectionInterval) * NSEC_PER_SEC)) / Double(NSEC_PER_SEC)) { [weak self] in
                 // Don't need to dispatch here. We'll dispatch in cleanMemory. We never want this to be cancelled.
@@ -617,7 +618,7 @@ public class ConsistencyManager {
                 // If the id is nil, then we will still update since this represents a delete.
                 if let id = newModel?.modelIdentifier,
                     let currentId = listener.currentModel()?.modelIdentifier
-                    where id != currentId {
+                    , id != currentId {
                         // The model has been changed while we were doing work, so let's just return.
                         // The next call to this function will take care of updating the model with more recent information.
                         return
@@ -715,7 +716,7 @@ public class ConsistencyManager {
                 // Update is still an optional because the value of model updates is optional
                 // We can ignore deletes because we are only looking for updated models.
                 // Here, we should merge and check for equality to see if anything has actually changed.
-                if let update = update where !self.mergedModelFromModel(child, withUpdates: update).isEqualToModel(child) {
+                if let update = update , !self.mergedModelFromModel(child, withUpdates: update).isEqualToModel(child) {
                     // There's another update here
                     changedModels.insert(id)
                 }

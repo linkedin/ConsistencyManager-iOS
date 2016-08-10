@@ -119,7 +119,12 @@ extension WeakListenerArray: MutableCollection {
     // Required by SequenceType
     public func makeIterator() -> IndexingIterator<WeakListenerArray> {
         // Rather than implement our own generator, let's take advantage of the generator provided by IndexingGenerator
-        return IndexingIterator<WeakListenerArray>(self)
+        return IndexingIterator<WeakListenerArray>(_elements: self)
+    }
+    
+    public func index(after i: Int) -> Int {
+        //TODO: modify the code to return the correct value
+        return i + 1
     }
 
     // Required by _CollectionType
