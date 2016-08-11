@@ -20,14 +20,6 @@ class MemoryWarningTests: ConsistencyManagerTestCase {
     func testMemoryWarning() {
         let testStart = NSDate()
 
-        NSNotificationCenter.defaultCenter().addObserverForName(ConsistencyManager.kCleanMemoryAsynchronousWorkStarted, object: nil, queue: nil) { _ in
-            self.cleanMemoryStartedTimes.append(NSDate())
-        }
-
-        NSNotificationCenter.defaultCenter().addObserverForName(ConsistencyManager.kCleanMemoryAsynchronousWorkFinished, object: nil, queue: nil) { _ in
-            self.cleanMemoryFinishedTimes.append(NSDate())
-        }
-
         let model = TestRequiredModel(id: "0", data: 0)
 
         // Setting this up with a block ensures that the listener will be released and is out of scope.
@@ -39,6 +31,14 @@ class MemoryWarningTests: ConsistencyManagerTestCase {
 
             return consistencyManager
             }()
+
+        NSNotificationCenter.defaultCenter().addObserverForName(ConsistencyManager.kCleanMemoryAsynchronousWorkStarted, object: consistencyManager, queue: nil) { _ in
+            self.cleanMemoryStartedTimes.append(NSDate())
+        }
+
+        NSNotificationCenter.defaultCenter().addObserverForName(ConsistencyManager.kCleanMemoryAsynchronousWorkFinished, object: consistencyManager, queue: nil) { _ in
+            self.cleanMemoryFinishedTimes.append(NSDate())
+        }
 
         // This part MAY fail in the future if we change the logic for when we prune the listeners dictionary
         // If this starts to fail, we should write this test to prove that memory warnings are doing something
