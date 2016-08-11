@@ -105,6 +105,7 @@ class ListenerTests: ConsistencyManagerTestCase {
                     listener = strongListener
 
                     addListener(strongListener, toConsistencyManager: consistencyManager)
+                    waitOnMainThread()
                 }
 
                 XCTAssertNil(listener)
