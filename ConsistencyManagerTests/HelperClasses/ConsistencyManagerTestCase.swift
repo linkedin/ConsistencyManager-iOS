@@ -35,7 +35,7 @@ class ConsistencyManagerTestCase: XCTestCase {
         waitOnDispatchQueue(consistencyManager)
 
         // Now, we need to wait for the main queue to do the actual updates
-        waitOnMainThread()
+        flushMainQueueOperations()
     }
 
     /**
@@ -61,7 +61,7 @@ class ConsistencyManagerTestCase: XCTestCase {
         waitOnDispatchQueue(consistencyManager)
 
         // Now, we need to wait for the main queue to do the actual updates
-        waitOnMainThread()
+        flushMainQueueOperations()
     }
 
     func pauseListeningForUpdates(listener: ConsistencyManagerListener, consistencyManager: ConsistencyManager) {
@@ -76,7 +76,7 @@ class ConsistencyManagerTestCase: XCTestCase {
         waitOnDispatchQueue(consistencyManager)
 
         // Now, we need to wait for the main queue to do the actual updates
-        waitOnMainThread()
+        flushMainQueueOperations()
     }
 
     func waitOnDispatchQueue(consistencyManager: ConsistencyManager) {
@@ -92,7 +92,7 @@ class ConsistencyManagerTestCase: XCTestCase {
         }
     }
 
-    func waitOnMainThread() {
+    func flushMainQueueOperations() {
         let expectation = expectationWithDescription("Wait for main queue to finish so the updates have happened")
 
         dispatch_async(dispatch_get_main_queue()) {

@@ -57,7 +57,7 @@ class ClearAndCancelTests: ConsistencyManagerTestCase {
         waitForExpectationsWithTimeout(10, handler: nil)
 
         waitOnDispatchQueue(consistencyManager)
-        waitOnMainThread()
+        flushMainQueueOperations()
 
         // Test succeeds as long as XCTFail() never gets called.
     }
@@ -92,7 +92,7 @@ class ClearAndCancelTests: ConsistencyManagerTestCase {
         waitForExpectationsWithTimeout(10, handler: nil)
 
         waitOnDispatchQueue(consistencyManager)
-        waitOnMainThread()
+        flushMainQueueOperations()
 
         // Test succeeds as long as XCTFail() never gets called.
     }
