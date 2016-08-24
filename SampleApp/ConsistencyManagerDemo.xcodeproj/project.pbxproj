@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47701B439C16D9E6BC8A5589 /* Pods_ConsistencyManagerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8EC009E94A4E8CC989B8CC3 /* Pods_ConsistencyManagerDemo.framework */; };
 		611562D31CC06B810001F5CE /* ConsistencyManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611562CE1CC06B810001F5CE /* ConsistencyManagerTestCase.swift */; };
 		611562D41CC06B810001F5CE /* TestListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611562CF1CC06B810001F5CE /* TestListener.swift */; };
 		611562D51CC06B810001F5CE /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611562D01CC06B810001F5CE /* TestModel.swift */; };
@@ -26,7 +27,6 @@
 		61DB68841CBC5A1A00BD1F65 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DB687A1CBC5A1A00BD1F65 /* MainViewController.swift */; };
 		61DB68851CBC5A1A00BD1F65 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61DB687B1CBC5A1A00BD1F65 /* MainViewController.xib */; };
 		61DB68871CBC5C5200BD1F65 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DB68861CBC5C5200BD1F65 /* PerformanceTests.swift */; };
-		678C153453B77D668739B1F9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C344DB998673B6A206DFC7F6 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		24C1D9750A2A5B1D15C0640F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		611562CE1CC06B810001F5CE /* ConsistencyManagerTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsistencyManagerTestCase.swift; path = ../../ConsistencyManagerTests/HelperClasses/ConsistencyManagerTestCase.swift; sourceTree = "<group>"; };
 		611562CF1CC06B810001F5CE /* TestListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestListener.swift; path = ../../ConsistencyManagerTests/HelperClasses/TestListener.swift; sourceTree = "<group>"; };
 		611562D01CC06B810001F5CE /* TestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestModel.swift; path = ../../ConsistencyManagerTests/HelperClasses/TestModel.swift; sourceTree = "<group>"; };
@@ -64,7 +63,9 @@
 		61DB687A1CBC5A1A00BD1F65 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		61DB687B1CBC5A1A00BD1F65 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		61DB68861CBC5C5200BD1F65 /* PerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
-		B50ED7FDA955576258B0A2D4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6E210B67B1E1FD1686485F50 /* Pods-ConsistencyManagerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConsistencyManagerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConsistencyManagerDemo/Pods-ConsistencyManagerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		734D065F5910B4D21566E7D5 /* Pods-ConsistencyManagerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConsistencyManagerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConsistencyManagerDemo/Pods-ConsistencyManagerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		B8EC009E94A4E8CC989B8CC3 /* Pods_ConsistencyManagerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConsistencyManagerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C344DB998673B6A206DFC7F6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -73,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				678C153453B77D668739B1F9 /* Pods.framework in Frameworks */,
+				47701B439C16D9E6BC8A5589 /* Pods_ConsistencyManagerDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,11 +88,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4B983C495F97FF49E9F692C9 /* Pods */ = {
+		4003325896F3F42FE43A086C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				24C1D9750A2A5B1D15C0640F /* Pods.debug.xcconfig */,
-				B50ED7FDA955576258B0A2D4 /* Pods.release.xcconfig */,
+				6E210B67B1E1FD1686485F50 /* Pods-ConsistencyManagerDemo.debug.xcconfig */,
+				734D065F5910B4D21566E7D5 /* Pods-ConsistencyManagerDemo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -114,8 +115,8 @@
 				61DB684D1CBC596F00BD1F65 /* ConsistencyManagerDemo */,
 				61DB68621CBC596F00BD1F65 /* ConsistencyManagerDemoTests */,
 				61DB684C1CBC596F00BD1F65 /* Products */,
-				4B983C495F97FF49E9F692C9 /* Pods */,
 				F315C729CD095388D8AE0B52 /* Frameworks */,
+				4003325896F3F42FE43A086C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -195,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				C344DB998673B6A206DFC7F6 /* Pods.framework */,
+				B8EC009E94A4E8CC989B8CC3 /* Pods_ConsistencyManagerDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -206,12 +208,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61DB68681CBC596F00BD1F65 /* Build configuration list for PBXNativeTarget "ConsistencyManagerDemo" */;
 			buildPhases = (
-				F894F89B66598F10AA6C9B46 /* Check Pods Manifest.lock */,
+				DE066A886970E3002EA1B200 /* [CP] Check Pods Manifest.lock */,
 				61DB68471CBC596F00BD1F65 /* Sources */,
 				61DB68481CBC596F00BD1F65 /* Frameworks */,
 				61DB68491CBC596F00BD1F65 /* Resources */,
-				5FA8CF786AB1F092A18C70E8 /* Embed Pods Frameworks */,
-				B5372D70FAB900099CED79BE /* Copy Pods Resources */,
+				3368ABD8ABB70E4DE5637DC5 /* [CP] Embed Pods Frameworks */,
+				314329789AD2B373909895C4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -301,44 +303,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5FA8CF786AB1F092A18C70E8 /* Embed Pods Frameworks */ = {
+		314329789AD2B373909895C4 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConsistencyManagerDemo/Pods-ConsistencyManagerDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B5372D70FAB900099CED79BE /* Copy Pods Resources */ = {
+		3368ABD8ABB70E4DE5637DC5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConsistencyManagerDemo/Pods-ConsistencyManagerDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F894F89B66598F10AA6C9B46 /* Check Pods Manifest.lock */ = {
+		DE066A886970E3002EA1B200 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,7 +484,7 @@
 		};
 		61DB68691CBC596F00BD1F65 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24C1D9750A2A5B1D15C0640F /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 6E210B67B1E1FD1686485F50 /* Pods-ConsistencyManagerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ConsistencyManagerDemo/Info.plist;
@@ -495,7 +497,7 @@
 		};
 		61DB686A1CBC596F00BD1F65 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B50ED7FDA955576258B0A2D4 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 734D065F5910B4D21566E7D5 /* Pods-ConsistencyManagerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ConsistencyManagerDemo/Info.plist;

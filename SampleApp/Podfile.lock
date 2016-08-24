@@ -1,14 +1,16 @@
 PODS:
-  - ConsistencyManager (1.0.0)
+  - ConsistencyManager (2.0.0)
 
 DEPENDENCIES:
   - ConsistencyManager (from `..`)
 
 EXTERNAL SOURCES:
   ConsistencyManager:
-    :path: ..
+    :path: ".."
 
 SPEC CHECKSUMS:
-  ConsistencyManager: 130254eb5cc3d7f2f03ef7c63ccdd99eb15d8210
+  ConsistencyManager: 4a1f6f20628befc25ed3393444c7c18ae64149a4
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: b21bbf55226ba480e94d5cf731df9621484fed45
+
+COCOAPODS: 1.0.1
