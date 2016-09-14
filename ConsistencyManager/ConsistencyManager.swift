@@ -745,7 +745,7 @@ public class ConsistencyManager {
      A helper function which wraps our queue.
      You can call the closure provided by the block to check if the operation has been cancelled.
      */
-    private func dispatchTask(task: (()->Bool)->Void) {
+    func dispatchTask(task: (()->Bool)->Void) {
         // In order to get cancelled for an NSBlockOperation, you need to do a weak dance
         // If this is strong, then the block will hold a reference to itself and cause a retain cycle
         weak var weakOperation: NSBlockOperation?
@@ -754,6 +754,10 @@ public class ConsistencyManager {
             let cancelled = {
                 // Default to true if weakOperation is nil
                 return weakOperation?.cancelled ?? true
+            }
+            // Let's check here to see if it's cancelled before we start
+            if cancelled() {
+                return
             }
             task(cancelled)
         }
