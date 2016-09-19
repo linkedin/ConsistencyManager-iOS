@@ -72,7 +72,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: - Cell Actions
 
     func buttonWasTappedOnCell(_ cell: TableViewCell) {
-        let index = (tableView.indexPath(for: cell) as NSIndexPath?)?.row
+        let index = (tableView.indexPath(for: cell) as IndexPath?)?.row
         if let index = index {
             let update = stream?.updates[index]
             if let update = update {
