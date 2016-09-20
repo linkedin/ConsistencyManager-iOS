@@ -32,7 +32,7 @@ class DetailViewController: UIViewController, ConsistencyManagerListener {
         edgesForExtendedLayout = UIRectEdge()
         title = update.id
 
-        ConsistencyManager.sharedInstance.listenForUpdates(self)
+        ConsistencyManager.sharedInstance.addListener(self)
         loadData()
     }
 

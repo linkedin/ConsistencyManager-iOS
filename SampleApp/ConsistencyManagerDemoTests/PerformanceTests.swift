@@ -39,8 +39,8 @@ class PerformanceTests: ConsistencyManagerTestCase {
         addListener(listener, toConsistencyManager: consistencyManager)
 
         // Now let's test this by giving the SAME model as an update. This takes a lot of work because everything is considered a change.
-        measureBlock() {
-            self.updateWithNewModel(model, consistencyManager: consistencyManager, timeout: 1000)
+        measure() {
+            self.updateNewModel(model, consistencyManager: consistencyManager, timeout: 1000)
         }
     }
 
@@ -69,8 +69,8 @@ class PerformanceTests: ConsistencyManagerTestCase {
         }
 
         // Now let's test this by giving the SAME model as an update. This takes a lot of work because everything is considered a change.
-        measureBlock() {
-            self.updateWithNewModel(model, consistencyManager: consistencyManager, timeout: 1000)
+        measure() {
+            self.updateNewModel(model, consistencyManager: consistencyManager, timeout: 1000)
         }
     }
 
@@ -90,8 +90,8 @@ class PerformanceTests: ConsistencyManagerTestCase {
         addListener(listener, toConsistencyManager: consistencyManager)
 
         // Now let's test this by giving the SAME model as an update. This takes a lot of work because everything is considered a change.
-        measureBlock() {
-            self.updateWithNewModel(model, consistencyManager: consistencyManager, timeout: 1000)
+        measure() {
+            self.updateNewModel(model, consistencyManager: consistencyManager, timeout: 1000)
         }
     }
 
@@ -106,7 +106,7 @@ class PerformanceTests: ConsistencyManagerTestCase {
     func testListenerSpeedLargeModel() {
         let model = TestModelGenerator.testModelWithTotalChildren(1000, branchingFactor: 50) { _ in return true }
         let listener = TestListener(model: model)
-        let consistencyManagers = Array<ConsistencyManager>(count: 20, repeatedValue: ConsistencyManager())
+        let consistencyManagers = Array<ConsistencyManager>(repeating: ConsistencyManager(), count: 20)
 
         var index = 0
         measure() {

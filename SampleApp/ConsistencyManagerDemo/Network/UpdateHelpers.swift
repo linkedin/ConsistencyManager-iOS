@@ -16,6 +16,6 @@ class UpdateHelper: NSObject {
         // Here is where you would also send a network request
         // Note: These helper classes can shared across multiple view controller easily since all they need is an Update object
         let newUpdate = UpdateModel(id: update.id, liked: like)
-        ConsistencyManager.sharedInstance.updateWithNewModel(newUpdate)
+        ConsistencyManager.sharedInstance.updateModel(newUpdate)
     }
 }

@@ -24,11 +24,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         title = "Demo"
 
-        ConsistencyManager.sharedInstance.listenForUpdates(self)
+        ConsistencyManager.sharedInstance.addListener(self)
 
         Network.fetchUpdates() { stream in
             self.stream = stream
-            ConsistencyManager.sharedInstance.listenForUpdates(self)
+            ConsistencyManager.sharedInstance.addListener(self)
             self.tableView.reloadData()
         }
 

@@ -53,11 +53,11 @@ class ConsistencyManagerTestCase: XCTestCase {
         waitOnDispatchQueue(consistencyManager)
     }
 
-    func updateNewModel(_ model: ConsistencyManagerModel, consistencyManager: ConsistencyManager, context: Any? = nil) {
+    func updateNewModel(_ model: ConsistencyManagerModel, consistencyManager: ConsistencyManager, context: Any? = nil, timeout: TimeInterval = 10) {
         consistencyManager.updateModel(model, context: context)
 
         // First we need to wait for the consistency manager to finish on its queue
-        waitOnDispatchQueue(consistencyManager)
+        waitOnDispatchQueue(consistencyManager, timeout: timeout)
 
         // Now, we need to wait for the main queue to do the actual updates
         flushMainQueueOperations()
@@ -104,7 +104,7 @@ class ConsistencyManagerTestCase: XCTestCase {
         flushMainQueueOperations()
     }
 
-    func waitOnDispatchQueue(_ consistencyManager: ConsistencyManager) {
+    func waitOnDispatchQueue(_ consistencyManager: ConsistencyManager, timeout: TimeInterval = 10) {
         let expectation = self.expectation(description: "Wait for consistency manager to update internal state")
 
         let operation = BlockOperation() {
@@ -112,7 +112,7 @@ class ConsistencyManagerTestCase: XCTestCase {
         }
         consistencyManager.queue.addOperation(operation)
 
-        waitForExpectations(timeout: 10) { error in
+        waitForExpectations(timeout: timeout) { error in
             XCTAssertNil(error)
         }
     }

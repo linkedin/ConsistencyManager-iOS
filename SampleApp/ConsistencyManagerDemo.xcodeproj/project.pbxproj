@@ -13,6 +13,7 @@
 		611562D51CC06B810001F5CE /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611562D01CC06B810001F5CE /* TestModel.swift */; };
 		611562D61CC06B810001F5CE /* TestModelGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611562D11CC06B810001F5CE /* TestModelGenerator.swift */; };
 		611562D71CC06B810001F5CE /* TestRequiredModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611562D21CC06B810001F5CE /* TestRequiredModel.swift */; };
+		61BCF9C31D91A08A0034F8BA /* ProjectionTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BCF9C21D91A08A0034F8BA /* ProjectionTestModel.swift */; };
 		61DB684F1CBC596F00BD1F65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DB684E1CBC596F00BD1F65 /* AppDelegate.swift */; };
 		61DB68561CBC596F00BD1F65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61DB68551CBC596F00BD1F65 /* Assets.xcassets */; };
 		61DB68591CBC596F00BD1F65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61DB68571CBC596F00BD1F65 /* LaunchScreen.storyboard */; };
@@ -46,6 +47,7 @@
 		611562D01CC06B810001F5CE /* TestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestModel.swift; path = ../../ConsistencyManagerTests/HelperClasses/TestModel.swift; sourceTree = "<group>"; };
 		611562D11CC06B810001F5CE /* TestModelGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestModelGenerator.swift; path = ../../ConsistencyManagerTests/HelperClasses/TestModelGenerator.swift; sourceTree = "<group>"; };
 		611562D21CC06B810001F5CE /* TestRequiredModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestRequiredModel.swift; path = ../../ConsistencyManagerTests/HelperClasses/TestRequiredModel.swift; sourceTree = "<group>"; };
+		61BCF9C21D91A08A0034F8BA /* ProjectionTestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectionTestModel.swift; path = ../../ConsistencyManagerTests/HelperClasses/ProjectionTestModel.swift; sourceTree = "<group>"; };
 		61DB684B1CBC596F00BD1F65 /* ConsistencyManagerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConsistencyManagerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61DB684E1CBC596F00BD1F65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61DB68551CBC596F00BD1F65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				611562D01CC06B810001F5CE /* TestModel.swift */,
 				611562D11CC06B810001F5CE /* TestModelGenerator.swift */,
 				611562D21CC06B810001F5CE /* TestRequiredModel.swift */,
+				61BCF9C21D91A08A0034F8BA /* ProjectionTestModel.swift */,
 			);
 			name = HelperClasses;
 			sourceTree = "<group>";
@@ -260,7 +263,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = LinkedIn;
 				TargetAttributes = {
 					61DB684A1CBC596F00BD1F65 = {
@@ -358,7 +361,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D1F2E7B3AED4AD7F0212ED88 /* [CP] Embed Pods Frameworks */ = {
@@ -388,7 +391,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E89AD40B1913B6D56B8EC358 /* [CP] Copy Pods Resources */ = {
@@ -429,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				611562D31CC06B810001F5CE /* ConsistencyManagerTestCase.swift in Sources */,
+				61BCF9C31D91A08A0034F8BA /* ProjectionTestModel.swift in Sources */,
 				611562D41CC06B810001F5CE /* TestListener.swift in Sources */,
 				611562D61CC06B810001F5CE /* TestModelGenerator.swift in Sources */,
 				61DB68871CBC5C5200BD1F65 /* PerformanceTests.swift in Sources */,
@@ -472,8 +476,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -516,8 +522,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -536,6 +544,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -544,6 +553,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6E210B67B1E1FD1686485F50 /* Pods-ConsistencyManagerDemo.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ConsistencyManagerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -558,6 +568,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 734D065F5910B4D21566E7D5 /* Pods-ConsistencyManagerDemo.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ConsistencyManagerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -572,6 +583,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 759A782C6CADF4AC944DF279 /* Pods-ConsistencyManagerDemoTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ConsistencyManagerDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -586,6 +598,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FF19B31ACE93FA0F4E627B2C /* Pods-ConsistencyManagerDemoTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ConsistencyManagerDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
