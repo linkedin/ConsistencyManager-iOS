@@ -149,12 +149,12 @@ open class ConsistencyManager {
     }
 
     /**
-     Call this method if you want to listen to a specific model. Usually, this is unnecssary and you should just use addListener(listener).
+     Call this method if you want to listen to a specific model. Usually, this is unnecssary and you should just use `addListener(listener)`.
      This is necessary if you manually update a model and change only part of it.
      Note that calling this method on a paused listener will not unpause it.
      For a performance optimization, you may only want to add yourself as a listener for this new change (and not the whole model again).
      - parameter listener: the consistency manager
-     - parameter to: the model you want to listen to with this listener
+     - parameter model: the model you want to listen to with this listener
      */
     open func addListener(_ listener: ConsistencyManagerListener, to model: ConsistencyManagerModel) {
         dispatchTask { _ in
@@ -198,7 +198,7 @@ open class ConsistencyManager {
     // MARK: Pausing and Resuming Listening to Updates
 
     /**
-     Temporarily ignore any updates on the current model. Use removeListener(listener: ConsistencyManagerListener) instead if you
+     Temporarily ignore any updates on the current model. Use `removeListener(listener: ConsistencyManagerListener)` instead if you
      know that you will not ever need to resume listening to updates.
      Once you start listening again, you will get all the changes that you missed via the modelUpdated delegate method
      with the most updated model at that point, and you will get the most recent context (only) as well.
@@ -212,7 +212,7 @@ open class ConsistencyManager {
      - parameter listener: The consistency manager listener that is currently listening to a model
     */
     open func pauseListener(_ listener: ConsistencyManagerListener) {
-        if !isPaused(listener) {
+        if !isListenerPaused(listener) {
             let pausedListener = PausedListener(listener: listener, updatedModel: listener.currentModel(), mostRecentContext: nil, modelUpdates: ModelUpdates(changedModelIds: [], deletedModelIds: []))
             pausedListeners.append(pausedListener)
         }
@@ -295,7 +295,7 @@ open class ConsistencyManager {
 
      - parameter listener: The listener to query the paused state of.
      */
-    open func isPaused(_ listener: ConsistencyManagerListener) -> Bool {
+    open func isListenerPaused(_ listener: ConsistencyManagerListener) -> Bool {
         return pausedListeners.contains { listener === $0.listener }
     }
 
