@@ -32,7 +32,7 @@ class ContextTests: ConsistencyManagerTestCase {
                 XCTAssertEqual(context as? Int, 4)
             }
 
-            updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: 4)
+            updateNewModel(updateModel, consistencyManager: consistencyManager, context: 4)
             
             XCTAssertTrue(contextClosureCalled)
         }

@@ -11,7 +11,7 @@ import XCTest
 @testable import ConsistencyManager
 
 /**
- This test suite focuses on the pauseListeningForUpdates and resumeListeningForUpdates methods in ConsistencyManager.swift.
+ This test suite focuses on the pauseListener and resumeListener methods in ConsistencyManager.swift.
  This tests behavior with updates, deletes, multiple listeners, batch updates, etc.
  */
 class PauseListenerTests: ConsistencyManagerTestCase {
@@ -68,10 +68,10 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             XCTAssertEqual(numberOfUpdates, 0)
 
             XCTAssertFalse(consistencyManager.isPaused(listener))
-            pauseListeningForUpdates(listener, consistencyManager: consistencyManager)
+            pauseListener(listener, consistencyManager: consistencyManager)
             XCTAssertTrue(consistencyManager.isPaused(listener))
             // Pausing again shouldn't affect anything. We should still only get one callback.
-            pauseListeningForUpdates(listener, consistencyManager: consistencyManager)
+            pauseListener(listener, consistencyManager: consistencyManager)
             XCTAssertTrue(consistencyManager.isPaused(listener))
             // Similarly, adding the listener again shouldn't affect anything, as this does not resume the listening of the listener.
             addListener(listener, toConsistencyManager: consistencyManager)
@@ -80,7 +80,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             let updateModel1 = TestModel(id: "2", data: -2, children: [], requiredModel: TestRequiredModel(id: "21", data: -1))
             let updateModel2 = TestModel(id: "4", data: -4, children: [], requiredModel: TestRequiredModel(id: "21", data: -1))
             let batchModel = BatchUpdateModel(models: [updateModel1, updateModel2])
-            updateWithNewModel(batchModel, consistencyManager: consistencyManager, context: "change")
+            updateNewModel(batchModel, consistencyManager: consistencyManager, context: "change")
 
             testModel = testModelFromListenerModel(listener.model)!
             // Updates have happened, but we didn't listen for them.
@@ -93,7 +93,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             let updateModel3 = TestModel(id: "2", data: -5, children: [], requiredModel: TestRequiredModel(id: "21", data: -1))
             let updateModel4 = TestModel(id: "4", data: -6, children: [], requiredModel: TestRequiredModel(id: "21", data: -1))
             let batchModel2 = BatchUpdateModel(models: [updateModel3, updateModel4])
-            updateWithNewModel(batchModel2, consistencyManager: consistencyManager, context: "change2")
+            updateNewModel(batchModel2, consistencyManager: consistencyManager, context: "change2")
 
             testModel = testModelFromListenerModel(listener.model)!
             // Updates have happened, but we didn't listen for them.
@@ -105,7 +105,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             XCTAssertEqual(numberOfUpdates, 0)
 
             // Resume listening for changes, and get all previous changes.
-            resumeListeningForUpdates(listener, consistencyManager: consistencyManager)
+            resumeListener(listener, consistencyManager: consistencyManager)
 
             // Both models were updated, and now we have listened to those updates.
             testModel = testModelFromListenerModel(listener.model)!
@@ -152,20 +152,20 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             }
 
             XCTAssertFalse(consistencyManager.isPaused(pausedListener))
-            pauseListeningForUpdates(pausedListener, consistencyManager: consistencyManager)
+            pauseListener(pausedListener, consistencyManager: consistencyManager)
             XCTAssertTrue(consistencyManager.isPaused(pausedListener))
 
             let updateModel1a = TestModel(id: "2", data: -22, children: [], requiredModel: TestRequiredModel(id: "21", data: -1))
             let updateModel2a = TestModel(id: "4", data: -44, children: [], requiredModel: TestRequiredModel(id: "21", data: -1))
             let batchModel1 = BatchUpdateModel(models: [updateModel1a, updateModel2a])
 
-            updateWithNewModel(batchModel1, consistencyManager: consistencyManager)
+            updateNewModel(batchModel1, consistencyManager: consistencyManager)
 
             let updateModel1b = TestModel(id: "2", data: -2, children: [], requiredModel: TestRequiredModel(id: "21", data: -1))
             let updateModel2b = TestModel(id: "4", data: -4, children: [], requiredModel: TestRequiredModel(id: "21", data: -1))
             let batchModel2 = BatchUpdateModel(models: [updateModel1b, updateModel2b])
             // Updating the models
-            updateWithNewModel(batchModel2, consistencyManager: consistencyManager)
+            updateNewModel(batchModel2, consistencyManager: consistencyManager)
 
             // After the first two updates
             var testModel1 = testModelFromListenerModel(activeListener.model)!
@@ -181,7 +181,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             XCTAssertEqual(numberOfUpdates2, 0)
 
             // Resume listening for changes, and get all previous changes in a batch update
-            resumeListeningForUpdates(pausedListener, consistencyManager: consistencyManager)
+            resumeListener(pausedListener, consistencyManager: consistencyManager)
             XCTAssertFalse(consistencyManager.isPaused(pausedListener))
 
             testModel2 = testModelFromListenerModel(pausedListener.model)!
@@ -194,7 +194,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             let updateModel3 = TestModel(id: "2", data: -5, children: [], requiredModel: TestRequiredModel(id: "21", data: -1))
             let updateModel4 = TestModel(id: "4", data: -6, children: [], requiredModel: TestRequiredModel(id: "21", data: -1))
             let batchModel3 = BatchUpdateModel(models: [updateModel3, updateModel4])
-            updateWithNewModel(batchModel3, consistencyManager: consistencyManager)
+            updateNewModel(batchModel3, consistencyManager: consistencyManager)
 
             testModel1 = testModelFromListenerModel(activeListener.model)!
             testModel2 = testModelFromListenerModel(pausedListener.model)!
@@ -234,9 +234,9 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             XCTAssertEqual(numberOfUpdates, 0)
 
             XCTAssertFalse(consistencyManager.isPaused(listener))
-            pauseListeningForUpdates(listener, consistencyManager: consistencyManager)
+            pauseListener(listener, consistencyManager: consistencyManager)
             XCTAssertTrue(consistencyManager.isPaused(listener))
-            resumeListeningForUpdates(listener, consistencyManager: consistencyManager)
+            resumeListener(listener, consistencyManager: consistencyManager)
             XCTAssertFalse(consistencyManager.isPaused(listener))
 
             // Current models before the update
@@ -272,11 +272,11 @@ class PauseListenerTests: ConsistencyManagerTestCase {
         XCTAssertEqual(numberOfUpdates, 0)
 
         XCTAssertFalse(consistencyManager.isPaused(listener))
-        pauseListeningForUpdates(listener, consistencyManager: consistencyManager)
+        pauseListener(listener, consistencyManager: consistencyManager)
         XCTAssertTrue(consistencyManager.isPaused(listener))
 
         let updateModel = testModel
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: nil)
+        updateNewModel(updateModel, consistencyManager: consistencyManager, context: nil)
 
         testModel = listener.model as! TestModel
         XCTAssertEqual(testModel.requiredModel.data, 0)
@@ -284,7 +284,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
         XCTAssertEqual(modelUpdates.deletedModelIds, [])
         XCTAssertEqual(numberOfUpdates, 0)
 
-        resumeListeningForUpdates(listener, consistencyManager: consistencyManager)
+        resumeListener(listener, consistencyManager: consistencyManager)
         XCTAssertFalse(consistencyManager.isPaused(listener))
         testModel = listener.model as! TestModel
         XCTAssertEqual(testModel.requiredModel.data, 0)
@@ -348,11 +348,11 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             XCTAssertEqual(numberOfUpdatesToActiveListener, 0)
 
             XCTAssertFalse(consistencyManager.isPaused(pausedListener))
-            pauseListeningForUpdates(pausedListener, consistencyManager: consistencyManager)
+            pauseListener(pausedListener, consistencyManager: consistencyManager)
             XCTAssertTrue(consistencyManager.isPaused(pausedListener))
 
             let updateModel = TestModel(id: "0", data: 0, children: [], requiredModel: TestRequiredModel(id: "1", data: -5))
-            updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: "firstChange")
+            updateNewModel(updateModel, consistencyManager: consistencyManager, context: "firstChange")
 
             // Update has happened, but we didn't listen for it on the first listener.
             testModel = testModelFromListenerModel(pausedListener.model)!
@@ -370,7 +370,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             XCTAssertEqual(contextStringSavedToActiveListener!, "firstChange")
 
             let undoUpdateModel = TestModel(id: "0", data: 0, children: [], requiredModel: TestRequiredModel(id: "1", data: 0))
-            updateWithNewModel(undoUpdateModel, consistencyManager: consistencyManager, context: "undoingChange")
+            updateNewModel(undoUpdateModel, consistencyManager: consistencyManager, context: "undoingChange")
 
             // Update has happened, but we didn't listen for it on the first listener.
             testModel = testModelFromListenerModel(pausedListener.model)!
@@ -388,7 +388,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             XCTAssertEqual(contextStringSavedToActiveListener!, "undoingChange")
 
             // Resume listening for changes, and get all previous changes
-            resumeListeningForUpdates(pausedListener, consistencyManager: consistencyManager)
+            resumeListener(pausedListener, consistencyManager: consistencyManager)
             XCTAssertFalse(consistencyManager.isPaused(pausedListener))
 
             // Make sure that we received no updates on the paused listener.
@@ -463,18 +463,18 @@ class PauseListenerTests: ConsistencyManagerTestCase {
         }
 
         XCTAssertFalse(consistencyManager.isPaused(pausedListener))
-        pauseListeningForUpdates(pausedListener, consistencyManager: consistencyManager)
+        pauseListener(pausedListener, consistencyManager: consistencyManager)
         XCTAssertTrue(consistencyManager.isPaused(pausedListener))
 
         let modelToDelete = TestRequiredModel(id: "3", data: 0)
         deleteModel(modelToDelete, consistencyManager: consistencyManager)
-        updateWithNewModel(TestModel(id: "0", data: 0, children: [child, otherChild], requiredModel: TestRequiredModel(id: "1", data: -1)), consistencyManager: consistencyManager)
-        updateWithNewModel(TestModel(id: "0", data: 0, children: [child, otherChild], requiredModel: TestRequiredModel(id: "1", data: 0)), consistencyManager: consistencyManager)
-        updateWithNewModel(TestModel(id: "2", data: 6, children: [], requiredModel: TestRequiredModel(id: "3", data: -1)), consistencyManager: consistencyManager)
-        updateWithNewModel(TestModel(id: "2", data: 6, children: [], requiredModel: TestRequiredModel(id: "3", data: 0)), consistencyManager: consistencyManager, context: "Last Change")
+        updateNewModel(TestModel(id: "0", data: 0, children: [child, otherChild], requiredModel: TestRequiredModel(id: "1", data: -1)), consistencyManager: consistencyManager)
+        updateNewModel(TestModel(id: "0", data: 0, children: [child, otherChild], requiredModel: TestRequiredModel(id: "1", data: 0)), consistencyManager: consistencyManager)
+        updateNewModel(TestModel(id: "2", data: 6, children: [], requiredModel: TestRequiredModel(id: "3", data: -1)), consistencyManager: consistencyManager)
+        updateNewModel(TestModel(id: "2", data: 6, children: [], requiredModel: TestRequiredModel(id: "3", data: 0)), consistencyManager: consistencyManager, context: "Last Change")
 
         // Resume listening for changes, and get all previous changes
-        resumeListeningForUpdates(pausedListener, consistencyManager: consistencyManager)
+        resumeListener(pausedListener, consistencyManager: consistencyManager)
         XCTAssertFalse(consistencyManager.isPaused(pausedListener))
         XCTAssertEqual(contextStringSavedToPausedListener, "Last Change")
         XCTAssertTrue(calledUpdateClosure)
@@ -520,9 +520,9 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             XCTAssertEqual(testModel.requiredModel.data, 0)
 
             XCTAssertFalse(consistencyManager.isPaused(pausedListener))
-            pauseListeningForUpdates(pausedListener, consistencyManager: consistencyManager)
+            pauseListener(pausedListener, consistencyManager: consistencyManager)
             XCTAssertTrue(consistencyManager.isPaused(pausedListener))
-            updateWithNewModel(TestModel(id: "0", data: 1, children: [], requiredModel: TestRequiredModel(id: "1", data: 0)), consistencyManager: consistencyManager)
+            updateNewModel(TestModel(id: "0", data: 1, children: [], requiredModel: TestRequiredModel(id: "1", data: 0)), consistencyManager: consistencyManager)
             deleteModel(testModel, consistencyManager: consistencyManager)
 
             // Delete has happened, but we didn't listen for it on the first listener.
@@ -533,7 +533,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             XCTAssertTrue(calledActiveListenerUpdateClosure)
 
             // Resume listening for changes, and get all previous changes.
-            resumeListeningForUpdates(pausedListener, consistencyManager: consistencyManager)
+            resumeListener(pausedListener, consistencyManager: consistencyManager)
             XCTAssertFalse(consistencyManager.isPaused(pausedListener))
             XCTAssertTrue(calledPausedListenerUpdateClosure)
             XCTAssertTrue(calledActiveListenerUpdateClosure)
@@ -565,9 +565,9 @@ class PauseListenerTests: ConsistencyManagerTestCase {
         XCTAssertEqual(numberOfUpdates, 1)
 
         XCTAssertFalse(consistencyManager.isPaused(listener))
-        pauseListeningForUpdates(listener, consistencyManager: consistencyManager)
+        pauseListener(listener, consistencyManager: consistencyManager)
         XCTAssertTrue(consistencyManager.isPaused(listener))
-        resumeListeningForUpdates(listener, consistencyManager: consistencyManager)
+        resumeListener(listener, consistencyManager: consistencyManager)
         XCTAssertFalse(consistencyManager.isPaused(listener))
 
         XCTAssertEqual(numberOfUpdates, 1)
@@ -597,16 +597,16 @@ class PauseListenerTests: ConsistencyManagerTestCase {
 
             addListener(listener, toConsistencyManager: consistencyManager)
             XCTAssertFalse(consistencyManager.isPaused(listener))
-            pauseListeningForUpdates(listener, consistencyManager: consistencyManager)
+            pauseListener(listener, consistencyManager: consistencyManager)
             XCTAssertTrue(consistencyManager.isPaused(listener))
 
             let updateModel = TestModel(id: "2", data: 1, children: [], requiredModel: TestRequiredModel(id: nil, data: 0))
-            updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+            updateNewModel(updateModel, consistencyManager: consistencyManager)
             deleteModel(modelToDelete, consistencyManager: consistencyManager)
 
             XCTAssertEqual(numberOfUpdates, 0)
 
-            resumeListeningForUpdates(listener, consistencyManager: consistencyManager)
+            resumeListener(listener, consistencyManager: consistencyManager)
             XCTAssertFalse(consistencyManager.isPaused(listener))
 
             XCTAssertEqual(numberOfUpdates, 1)
@@ -631,15 +631,15 @@ class PauseListenerTests: ConsistencyManagerTestCase {
         addListener(listener, toConsistencyManager: consistencyManager)
 
         XCTAssertFalse(consistencyManager.isPaused(listener))
-        pauseListeningForUpdates(listener, consistencyManager: consistencyManager)
+        pauseListener(listener, consistencyManager: consistencyManager)
         XCTAssertTrue(consistencyManager.isPaused(listener))
 
         let newModel = TestRequiredModel(id: "0", data: 1)
         listener.model = newModel
         // Don't wait for this to finish, we want to resume listening before this happens
-        consistencyManager.updateWithNewModel(newModel)
+        consistencyManager.updateModel(newModel)
 
-        resumeListeningForUpdates(listener, consistencyManager: consistencyManager)
+        resumeListener(listener, consistencyManager: consistencyManager)
         XCTAssertFalse(consistencyManager.isPaused(listener))
 
         XCTAssertTrue(listener.model?.isEqualToModel(newModel) ?? false)
@@ -658,7 +658,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             listener = strongListener
 
             addListener(strongListener, toConsistencyManager: consistencyManager)
-            pauseListeningForUpdates(strongListener, consistencyManager: consistencyManager)
+            pauseListener(strongListener, consistencyManager: consistencyManager)
         }
 
         XCTAssertNil(listener)
@@ -674,7 +674,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
         autoreleasepool {
             let strongListener: TestListener? = TestListener(model: model)
             addListener(strongListener!, toConsistencyManager: consistencyManager)
-            pauseListeningForUpdates(strongListener!, consistencyManager: consistencyManager)
+            pauseListener(strongListener!, consistencyManager: consistencyManager)
             XCTAssertEqual(consistencyManager.pausedListeners.count, 1)
 
         }
@@ -699,7 +699,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
         let batchUpdateListener = BatchListener(listeners: [individualListener], consistencyManager: consistencyManager)
         let batchDelegate = TestBatchListenersDelegate()
         batchUpdateListener.delegate = batchDelegate
-        pauseListeningForUpdates(batchUpdateListener, consistencyManager: consistencyManager)
+        pauseListener(batchUpdateListener, consistencyManager: consistencyManager)
 
         let updateModel = TestRequiredModel(id: "1", data: 3)
 
@@ -708,10 +708,10 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             updates += 1
         }
 
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
+        updateNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
         XCTAssertEqual(updates, 0)
 
-        resumeListeningForUpdates(batchUpdateListener, consistencyManager: consistencyManager)
+        resumeListener(batchUpdateListener, consistencyManager: consistencyManager)
         XCTAssertEqual(updates, 1)
     }
 
@@ -727,7 +727,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
         let batchDelegate = TestBatchListenersDelegate()
         batchUpdateListener.delegate = batchDelegate
 
-        pauseListeningForUpdates(batchUpdateListener, consistencyManager: consistencyManager)
+        pauseListener(batchUpdateListener, consistencyManager: consistencyManager)
 
         let updateModel = TestRequiredModel(id: "1", data: 3)
 
@@ -736,10 +736,10 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             updates += 1
         }
 
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
+        updateNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
         XCTAssertEqual(updates, 0)
 
-        resumeListeningForUpdates(batchUpdateListener, consistencyManager: consistencyManager)
+        resumeListener(batchUpdateListener, consistencyManager: consistencyManager)
         XCTAssertEqual(updates, 1)
     }
 
@@ -761,7 +761,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             batchUpdateListener.delegate = batchDelegate
 
             addListener(individualListener, toConsistencyManager: consistencyManager)
-            pauseListeningForUpdates(individualListener, consistencyManager: consistencyManager)
+            pauseListener(individualListener, consistencyManager: consistencyManager)
 
             var updatesToBatch = 0
             batchDelegate.updateClosure = { _, _, _, _ in
@@ -774,11 +774,11 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             }
 
             let updateModel = TestModel(id: "0", data: 4, children: [], requiredModel: TestRequiredModel(id: "1", data: 0))
-            updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
+            updateNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
             XCTAssertEqual(updatesToBatch, 1)
             XCTAssertEqual(updatesToIndividual, 1)
 
-            resumeListeningForUpdates(individualListener, consistencyManager: consistencyManager)
+            resumeListener(individualListener, consistencyManager: consistencyManager)
             XCTAssertEqual(updatesToBatch, 1)
             XCTAssertEqual(updatesToIndividual, 1)
         }

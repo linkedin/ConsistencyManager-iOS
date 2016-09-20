@@ -41,7 +41,7 @@ class ProjectionTests: ConsistencyManagerTestCase {
         // We expect otherData to update but data to be left alone
         let expectedModel = ProjectionTreeModel(type: .both, id: 1, data: 2, otherData: 4, child: nil, otherChild: nil)
 
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
+        updateNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
 
         // Should have updated the model of the listener
         if let testModel = listener.model as? ProjectionTreeModel {
@@ -80,7 +80,7 @@ class ProjectionTests: ConsistencyManagerTestCase {
         // This should cause both children to update one of their fields
         let updateModel = ProjectionTreeModel(type: .both, id: 1, data: 3, otherData: 3, child: nil, otherChild: nil)
 
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
+        updateNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
 
         // Should have updated the model of the listener
         if let testModel = listener.model as? ProjectionTreeModel {
@@ -123,7 +123,7 @@ class ProjectionTests: ConsistencyManagerTestCase {
         let updateOtherChild = ProjectionTreeModel(type: .otherData, id: 1, data: nil, otherData: 3, child: nil, otherChild: nil)
         let updateModel = ProjectionTreeModel(type: .both, id: 2, data: 5, otherData: 5, child: updateChild, otherChild: updateOtherChild)
 
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
+        updateNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
 
         // Should have updated the model of the listener
         if let testModel = listener.model as? ProjectionTreeModel {
@@ -156,7 +156,7 @@ class ProjectionTests: ConsistencyManagerTestCase {
         // No update occurs here, because the children with id=1 are of different projection types that do not overlap.
         let updateModel = ProjectionTreeModel(type: .otherData, id: 1, data: nil, otherData: 5, child: nil, otherChild: nil)
 
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
+        updateNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
 
         // Nothing should have changed
         if let listenerModel = listener.model as? ProjectionTreeModel {

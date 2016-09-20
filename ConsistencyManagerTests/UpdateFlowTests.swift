@@ -37,7 +37,7 @@ class UpdateFlowTests: ConsistencyManagerTestCase {
         let updateSubtree1 = TestModel(id: "1", data: 1, children: [extraChild], requiredModel: requiredModel)
         let updateTestModel = TestModel(id: "5", data: 0, children: [updateSubtree1], requiredModel: requiredModel)
 
-        updateWithNewModel(updateTestModel, consistencyManager: consistencyManager)
+        updateNewModel(updateTestModel, consistencyManager: consistencyManager)
 
         // New model should have the extra child added
         let expectedModel = TestModel(id: "0", data: 0, children: [updateSubtree1], requiredModel: requiredModel)
@@ -55,7 +55,7 @@ class UpdateFlowTests: ConsistencyManagerTestCase {
         let additionalChild = TestModel(id: "200", data: 200, children: [], requiredModel: newRequiredModel)
         let newChild = TestModel(id: "2", data: -2, children: [additionalChild], requiredModel: newRequiredModel)
 
-        updateWithNewModel(newChild, consistencyManager: consistencyManager)
+        updateNewModel(newChild, consistencyManager: consistencyManager)
 
         let newUpdatedSubtree = TestModel(id: "1", data: 1, children: [newChild], requiredModel: requiredModel)
         let nextExpectedModel = TestModel(id: "0", data: 0, children: [newUpdatedSubtree], requiredModel: requiredModel)
@@ -87,7 +87,7 @@ class UpdateFlowTests: ConsistencyManagerTestCase {
         let updateSubtree1 = TestModel(id: "1", data: 1, children: [newChild], requiredModel: requiredModel)
         let updateTestModel = TestModel(id: "5", data: 0, children: [updateSubtree1], requiredModel: requiredModel)
 
-        updateWithNewModel(updateTestModel, consistencyManager: consistencyManager)
+        updateNewModel(updateTestModel, consistencyManager: consistencyManager)
 
         // New model should have the child updated
         let expectedModel = TestModel(id: "0", data: 0, children: [updateSubtree1], requiredModel: requiredModel)
@@ -108,7 +108,7 @@ class UpdateFlowTests: ConsistencyManagerTestCase {
             XCTFail()
         }
         
-        updateWithNewModel(originalChildUpdated, consistencyManager: consistencyManager)
+        updateNewModel(originalChildUpdated, consistencyManager: consistencyManager)
         
         // Double check to make sure everything is as before
         if let model = listener.model as? TestModel {

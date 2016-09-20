@@ -33,7 +33,7 @@ class ShortCurcuitTests: ConsistencyManagerTestCase {
             XCTFail()
         }
 
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+        updateNewModel(updateModel, consistencyManager: consistencyManager)
 
         // Let's now create an update which should cause the consistency manager to update
         let secondUpdateModel = TestModel(id: updateModel.id, data: -42, children: updateModel.children, requiredModel: updateModel.requiredModel)
@@ -53,7 +53,7 @@ class ShortCurcuitTests: ConsistencyManagerTestCase {
             }
         }
 
-        updateWithNewModel(secondUpdateModel, consistencyManager: consistencyManager)
+        updateNewModel(secondUpdateModel, consistencyManager: consistencyManager)
 
         XCTAssertTrue(calledUpdateClosure)
     }

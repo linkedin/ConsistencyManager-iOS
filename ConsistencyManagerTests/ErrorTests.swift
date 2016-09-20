@@ -41,7 +41,7 @@ class ErrorTests: ConsistencyManagerTestCase, ConsistencyManagerDelegate {
         let listener = TestListener(model: model)
         addListener(listener, toConsistencyManager: consistencyManager)
 
-        updateWithNewModel(TestRequiredModel(id: "1", data: 1), consistencyManager: consistencyManager)
+        updateNewModel(TestRequiredModel(id: "1", data: 1), consistencyManager: consistencyManager)
 
         // Make sure the error got called
         if let error = error {

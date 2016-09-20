@@ -49,7 +49,7 @@ class BatchListenerTest: ConsistencyManagerTestCase {
             XCTAssertEqual(context as? String, "context")
         }
 
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
+        updateNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
 
         XCTAssertEqual(calledUpdateClosure, 1)
         XCTAssertEqual(calledListenerUpdateClosure, 1)
@@ -97,7 +97,7 @@ class BatchListenerTest: ConsistencyManagerTestCase {
             XCTFail()
         }
 
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
+        updateNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
 
         XCTAssertEqual(calledUpdateClosure, 1)
         XCTAssertEqual(calledListenerUpdateClosure, 1)
@@ -155,7 +155,7 @@ class BatchListenerTest: ConsistencyManagerTestCase {
             XCTAssertTrue(updates.changedModelIds.contains("1"))
         }
 
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
+        updateNewModel(updateModel, consistencyManager: consistencyManager, context: "context")
 
         XCTAssertEqual(calledUpdateClosure, 1)
         XCTAssertEqual(calledListenerUpdateClosure, 1)

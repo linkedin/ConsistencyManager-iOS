@@ -42,7 +42,7 @@ class ConsistencyManagerTestCase: XCTestCase {
     }
 
     func addListener(_ listener: ConsistencyManagerListener, toConsistencyManager consistencyManager: ConsistencyManager) {
-        consistencyManager.listenForUpdates(listener)
+        consistencyManager.addListener(listener)
 
         waitOnDispatchQueue(consistencyManager)
     }
@@ -53,8 +53,8 @@ class ConsistencyManagerTestCase: XCTestCase {
         waitOnDispatchQueue(consistencyManager)
     }
 
-    func updateWithNewModel(_ model: ConsistencyManagerModel, consistencyManager: ConsistencyManager, context: Any? = nil) {
-        consistencyManager.updateWithNewModel(model, context: context)
+    func updateNewModel(_ model: ConsistencyManagerModel, consistencyManager: ConsistencyManager, context: Any? = nil) {
+        consistencyManager.updateModel(model, context: context)
 
         // First we need to wait for the consistency manager to finish on its queue
         waitOnDispatchQueue(consistencyManager)
@@ -89,13 +89,13 @@ class ConsistencyManagerTestCase: XCTestCase {
         flushMainQueueOperations()
     }
 
-    func pauseListeningForUpdates(_ listener: ConsistencyManagerListener, consistencyManager: ConsistencyManager) {
+    func pauseListener(_ listener: ConsistencyManagerListener, consistencyManager: ConsistencyManager) {
         // This is synchronous so no wait is necessary here. This is just for readability and consistency with resume.
-        consistencyManager.pauseListeningForUpdates(listener)
+        consistencyManager.pauseListener(listener)
     }
 
-    func resumeListeningForUpdates(_ listener: ConsistencyManagerListener, consistencyManager: ConsistencyManager) {
-        consistencyManager.resumeListeningForUpdates(listener)
+    func resumeListener(_ listener: ConsistencyManagerListener, consistencyManager: ConsistencyManager) {
+        consistencyManager.resumeListener(listener)
 
         // First we need to wait for the consistency manager to finish on its queue
         waitOnDispatchQueue(consistencyManager)

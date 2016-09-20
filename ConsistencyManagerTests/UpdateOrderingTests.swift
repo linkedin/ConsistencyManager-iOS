@@ -57,8 +57,8 @@ class UpdateOrderingTests: ConsistencyManagerTestCase {
 
                     // First, let's do a long operation, which should complete first
                     // For this operation, we'll pass in the large model
-                    consistencyManager.updateWithNewModel(newLargeModel)
-                    consistencyManager.updateWithNewModel(newModel)
+                    consistencyManager.updateModel(newLargeModel)
+                    consistencyManager.updateModel(newModel)
 
                     // NOTE: Here we SHOULD NOT use the SyncronousHelperFunctions class because that will ensure the ordering in the tests
 

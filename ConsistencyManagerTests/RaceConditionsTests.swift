@@ -48,7 +48,7 @@ class RaceConditionsTests: ConsistencyManagerTestCase {
                 }
             }
 
-            updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: 4)
+            updateNewModel(updateModel, consistencyManager: consistencyManager, context: 4)
             
             // Should have the new model here
             XCTAssertEqual(testModelFromListenerModel(listener.model)?.data, 2)
@@ -107,7 +107,7 @@ class RaceConditionsTests: ConsistencyManagerTestCase {
         listener1.updateClosure = modelUpdated
         listener2.updateClosure = modelUpdated
 
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager, context: nil)
+        updateNewModel(updateModel, consistencyManager: consistencyManager, context: nil)
 
         // Should have the new model here
         XCTAssertEqual((listener1.model as! TestModel).requiredModel.data, 1)

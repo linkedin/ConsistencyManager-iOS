@@ -21,7 +21,7 @@ class ClearAndCancelTests: ConsistencyManagerTestCase {
 
         addListener(listener, toConsistencyManager: consistencyManager)
         addListener(pausedListener, toConsistencyManager: consistencyManager)
-        consistencyManager.pauseListeningForUpdates(pausedListener)
+        consistencyManager.pauseListener(pausedListener)
 
         let expectation = self.expectation(description: "Wait for clear to complete")
         consistencyManager.clearListenersAndCancelAllTasks {
@@ -47,7 +47,7 @@ class ClearAndCancelTests: ConsistencyManagerTestCase {
         }
 
         let updateModel = TestRequiredModel(id: "0", data: 1)
-        consistencyManager.updateWithNewModel(updateModel)
+        consistencyManager.updateModel(updateModel)
 
         let expectation = self.expectation(description: "Wait for clear to complete")
         consistencyManager.clearListenersAndCancelAllTasks {
@@ -87,7 +87,7 @@ class ClearAndCancelTests: ConsistencyManagerTestCase {
         }
 
         let updateModel = TestRequiredModel(id: "0", data: 1)
-        consistencyManager.updateWithNewModel(updateModel)
+        consistencyManager.updateModel(updateModel)
 
         waitForExpectations(timeout: 10, handler: nil)
 

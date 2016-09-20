@@ -31,7 +31,7 @@ class BatchUpdateTests: ConsistencyManagerTestCase {
             let updateModel1 = TestModel(id: "2", data: -2, children: [], requiredModel: TestRequiredModel(id: "21", data: -1))
             let updateModel2 = TestModel(id: "4", data: -4, children: [], requiredModel: TestRequiredModel(id: "21", data: -1))
             let batchModel = BatchUpdateModel(models: [updateModel1, updateModel2])
-            updateWithNewModel(batchModel, consistencyManager: consistencyManager)
+            updateNewModel(batchModel, consistencyManager: consistencyManager)
 
             // Both models should have been updated, but we should only have gotten one update
             if let testModel = listener.model as? TestModel {

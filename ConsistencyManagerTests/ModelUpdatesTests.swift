@@ -37,7 +37,7 @@ class ModelUpdatesTests: ConsistencyManagerTestCase {
             }
         }
 
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+        updateNewModel(updateModel, consistencyManager: consistencyManager)
         
         XCTAssertTrue(calledUpdateClosure)
     }
@@ -63,7 +63,7 @@ class ModelUpdatesTests: ConsistencyManagerTestCase {
             XCTAssertEqual(updates.deletedModelIds.count, 0)
         }
 
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+        updateNewModel(updateModel, consistencyManager: consistencyManager)
 
         XCTAssertTrue(calledUpdateClosure)
     }
@@ -89,7 +89,7 @@ class ModelUpdatesTests: ConsistencyManagerTestCase {
             XCTAssertEqual(updates.deletedModelIds.count, 0)
         }
 
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+        updateNewModel(updateModel, consistencyManager: consistencyManager)
 
         XCTAssertTrue(calledUpdateClosure)
     }
@@ -117,7 +117,7 @@ class ModelUpdatesTests: ConsistencyManagerTestCase {
             XCTAssertEqual(updates.deletedModelIds.count, 0)
         }
 
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+        updateNewModel(updateModel, consistencyManager: consistencyManager)
 
         XCTAssertTrue(calledUpdateClosure)
     }
@@ -148,7 +148,7 @@ class ModelUpdatesTests: ConsistencyManagerTestCase {
             XCTAssertEqual(updates.deletedModelIds.count, 0)
         }
 
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+        updateNewModel(updateModel, consistencyManager: consistencyManager)
 
         XCTAssertTrue(calledUpdateClosure)
     }
@@ -179,7 +179,7 @@ class ModelUpdatesTests: ConsistencyManagerTestCase {
             XCTAssertEqual(updates.deletedModelIds.count, 0)
         }
 
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+        updateNewModel(updateModel, consistencyManager: consistencyManager)
 
         XCTAssertTrue(calledUpdateClosure)
     }
@@ -213,7 +213,7 @@ class ModelUpdatesTests: ConsistencyManagerTestCase {
             XCTAssertEqual(updates.deletedModelIds.count, 0)
         }
 
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+        updateNewModel(updateModel, consistencyManager: consistencyManager)
 
         XCTAssertTrue(calledUpdateClosure)
     }
@@ -232,7 +232,7 @@ class ModelUpdatesTests: ConsistencyManagerTestCase {
         let initialSubchildUpdate = TestModel(id: "7", data: 0, children: [], requiredModel: TestRequiredModel(id: "8", data: 0))
         let initialUpdateModel = TestModel(id: "2", data: 0, children: [initialSubchildUpdate], requiredModel: TestRequiredModel(id: "3", data: 0))
         // Now, let's do an update so it changes
-        updateWithNewModel(initialUpdateModel, consistencyManager: consistencyManager)
+        updateNewModel(initialUpdateModel, consistencyManager: consistencyManager)
 
         // Now, let's change the new model, but with it contained in a subtree
         // Here were updating both 2 and 7. We expect both of these to register as updates
@@ -252,7 +252,7 @@ class ModelUpdatesTests: ConsistencyManagerTestCase {
             XCTAssertEqual(updates.deletedModelIds.count, 0)
         }
 
-        updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+        updateNewModel(updateModel, consistencyManager: consistencyManager)
 
         XCTAssertTrue(calledUpdateClosure)
     }

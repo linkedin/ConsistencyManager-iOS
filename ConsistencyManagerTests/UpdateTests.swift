@@ -34,7 +34,7 @@ class UpdateTests: ConsistencyManagerTestCase {
                     addListener(listener, toConsistencyManager: consistencyManager)
 
                     let updateModel = TestModel(id: "0", data: -1, children: [], requiredModel: TestRequiredModel(id: "4", data: -1))
-                    updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+                    updateNewModel(updateModel, consistencyManager: consistencyManager)
 
                     // Should have updated the model of the listener
                     if let testModel = testModelFromListenerModel(listener.model) {
@@ -69,7 +69,7 @@ class UpdateTests: ConsistencyManagerTestCase {
                     let expectedModel = TestModel(id: "0", data: -1, children: [], requiredModel: TestRequiredModel(id: "4", data: -1))
                     let updateModel = TestModel(id: "-100", data: -100, children: [expectedModel], requiredModel: TestRequiredModel(id: "4", data: -1))
 
-                    updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+                    updateNewModel(updateModel, consistencyManager: consistencyManager)
 
                     // Should have updated the model of the listener
                     if let testModel = testModelFromListenerModel(listener.model) {
@@ -104,7 +104,7 @@ class UpdateTests: ConsistencyManagerTestCase {
 
                         addListener(listener, toConsistencyManager: consistencyManager)
                         let updateModel = TestModel(id: "\(replacementId)", data: -100, children: [], requiredModel: TestRequiredModel(id: "4", data: -1))
-                        updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+                        updateNewModel(updateModel, consistencyManager: consistencyManager)
 
                         // Let's search for the model with the correct id (the one we replaced)
                         // Let's ensure that it has been replaced with the correct model
@@ -147,7 +147,7 @@ class UpdateTests: ConsistencyManagerTestCase {
                         addListener(listener, toConsistencyManager: consistencyManager)
                         let expectedModel = TestModel(id: "\(replacementId)", data: -100, children: [], requiredModel: TestRequiredModel(id: "4", data: -1))
                         let updateModel = TestModel(id: "-200", data: -200, children: [expectedModel], requiredModel: TestRequiredModel(id: "4", data: -1))
-                        updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+                        updateNewModel(updateModel, consistencyManager: consistencyManager)
 
                         // Let's search for the model with the correct id (the one we replaced)
                         // Let's ensure that it has been replaced with the correct model
@@ -192,7 +192,7 @@ class UpdateTests: ConsistencyManagerTestCase {
         let updateSubtree1 = TestModel(id: "1", data: -1, children: [updateSubtree2], requiredModel: requiredModel)
         let updateTestModel = TestModel(id: "5", data: 0, children: [updateSubtree2, updateSubtree1], requiredModel: requiredModel)
 
-        updateWithNewModel(updateTestModel, consistencyManager: consistencyManager)
+        updateNewModel(updateTestModel, consistencyManager: consistencyManager)
 
         // New model should be the same as testModel but with different children
         let expectedModel = TestModel(id: "0", data: 0, children: [updateSubtree1, updateSubtree2], requiredModel: requiredModel)
@@ -228,7 +228,7 @@ class UpdateTests: ConsistencyManagerTestCase {
                             return id % 5 == 0
                         }
                         
-                        updateWithNewModel(updateModel, consistencyManager: consistencyManager)
+                        updateNewModel(updateModel, consistencyManager: consistencyManager)
                         
                         if let model = testModelFromListenerModel(listener.model) {
                             // Shouldn't have changed
