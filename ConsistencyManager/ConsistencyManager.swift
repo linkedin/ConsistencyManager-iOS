@@ -95,6 +95,12 @@ open class ConsistencyManager {
     var listeners = [String: WeakListenerArray]()
 
     /**
+     This is an array of all the model update listeners.
+     These will get notified whenever anything changes in the Consistency Manager.
+     */
+    var modelUpdatesListeners = WeakModelUpdatesListenerArray()
+
+    /**
      We expect fast lookup (regardless of O(n) searches) because listeners are typically view controllers
      and most apps will not have too many.
      This will only be accessed (read/write) on the main thread.
@@ -310,7 +316,12 @@ open class ConsistencyManager {
         dispatchTask { cancelled in
             let tuple = self.childrenAndListenersForModel(model)
             let optionalModelUpdates = CollectionHelpers.optionalValueDictionaryFromDictionary(tuple.modelUpdates)
-            self.updateListeners(tuple.listeners, withUpdatedModels: optionalModelUpdates, context: context, cancelled: cancelled)
+            self.updateListeners(
+                tuple.listeners,
+                withUpdatedModels: optionalModelUpdates,
+                context: context,
+                originalModel: model,
+                cancelled: cancelled)
         }
     }
 
@@ -345,7 +356,12 @@ open class ConsistencyManager {
 
                 // A simple update dictionary. We're just deleting a model with this id. Nothing else.
                 let updatesDictionary: [String: [ConsistencyManagerModel]?] = [ id: nil ]
-                self.updateListeners(listenersArray, withUpdatedModels: updatesDictionary, context: context, cancelled: cancelled)
+                self.updateListeners(
+                    listenersArray,
+                    withUpdatedModels: updatesDictionary,
+                    context: context,
+                    originalModel: model,
+                    cancelled: cancelled)
             } else {
                 DispatchQueue.main.async {
                     self.delegate?.consistencyManager(self, failedWithCriticalError: CriticalError.DeleteIDFailure.rawValue)
@@ -377,6 +393,25 @@ open class ConsistencyManager {
             DispatchQueue.main.async {
                 completion?()
             }
+        }
+    }
+
+    /**
+     Adds an update listener to the consistency manager.
+     This listener will get notified of ALL changes posted to the consistency manager.
+     This method must be called on the main thread.
+     */
+    open func addModelUpdatesListener(_ updatesListener: ConsistencyManagerUpdatesListener) {
+        modelUpdatesListeners.append(updatesListener)
+    }
+
+    /**
+     Removes an update listener to the consistency manager.
+     This method must be called on the main thread.
+     */
+    open func removeModelUpdatesListener(_ updatesListener: ConsistencyManagerUpdatesListener) {
+        modelUpdatesListeners = modelUpdatesListeners.filter { currentListener in
+            currentListener === updatesListener
         }
     }
 
@@ -567,7 +602,12 @@ open class ConsistencyManager {
      In the case of this listener being in a paused state, the function updates
      the listener's PausedListener struct accordingly, without notifying the delegate.
      */
-    private func updateListeners(_ listeners: [ConsistencyManagerListener], withUpdatedModels updatedModels: [String: [ConsistencyManagerModel]?], context: Any?, cancelled: ()->Bool) {
+    private func updateListeners(
+        _ listeners: [ConsistencyManagerListener],
+        withUpdatedModels updatedModels: [String: [ConsistencyManagerModel]?],
+        context: Any?,
+        originalModel: ConsistencyManagerModel,
+        cancelled: ()->Bool) {
 
         var currentModels: [(listener: ConsistencyManagerListener, currentModel: ConsistencyManagerModel?)] = []
 
@@ -629,6 +669,13 @@ open class ConsistencyManager {
                 } else {
                     listener.modelUpdated(newModel, updates: modelUpdates, context: context)
                 }
+            }
+            self.modelUpdatesListeners.forEach { listener in
+                listener?.consistencyManager(
+                    self,
+                    updatedModel: originalModel,
+                    flattenedChildren: updatedModels,
+                    context: context)
             }
         }
     }
