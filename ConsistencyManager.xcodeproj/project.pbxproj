@@ -50,6 +50,7 @@
 		6179D1A81D5137A100A5209E /* ProjectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6179D1A71D5137A100A5209E /* ProjectionTests.swift */; };
 		6179D1C81D526C8F00A5209E /* ClearAndCancelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6179D1C71D526C8F00A5209E /* ClearAndCancelTests.swift */; };
 		618096E71DF638560069E586 /* ConsistencyManagerUpdatesListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618096E61DF638560069E586 /* ConsistencyManagerUpdatesListener.swift */; };
+		618096E91DF63A9B0069E586 /* WeakModelUpdatesListenerArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618096E81DF63A9B0069E586 /* WeakModelUpdatesListenerArray.swift */; };
 		61D145101D8B6541003746D0 /* GarbageCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D1450F1D8B6541003746D0 /* GarbageCollectionTests.swift */; };
 		F29D8FC71CC52EBB005DBB71 /* PauseListenerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29D8FC61CC52EBB005DBB71 /* PauseListenerTests.swift */; };
 /* End PBXBuildFile section */
@@ -111,6 +112,7 @@
 		6179D1A71D5137A100A5209E /* ProjectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectionTests.swift; sourceTree = "<group>"; };
 		6179D1C71D526C8F00A5209E /* ClearAndCancelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearAndCancelTests.swift; sourceTree = "<group>"; };
 		618096E61DF638560069E586 /* ConsistencyManagerUpdatesListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsistencyManagerUpdatesListener.swift; sourceTree = "<group>"; };
+		618096E81DF63A9B0069E586 /* WeakModelUpdatesListenerArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakModelUpdatesListenerArray.swift; sourceTree = "<group>"; };
 		61D1450F1D8B6541003746D0 /* GarbageCollectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarbageCollectionTests.swift; sourceTree = "<group>"; };
 		61DBAA5419FFF64100A23A60 /* ConsistencyManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ConsistencyManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61DBAA5F19FFF64100A23A60 /* ConsistencyManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConsistencyManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };

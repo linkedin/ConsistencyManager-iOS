@@ -20,14 +20,15 @@ public protocol ConsistencyManagerUpdatesListener: class {
 
      - parameter consistencyManager: The consistency manager which has received the change.
      - parameter model: The model which has been updated (NOTE: This model may have been deleted).
-     To check if it has been deleted, check `flattenedChildren[model.modelIdentifier] == nil`.
+     To check if it has been deleted, check `flattenedChildren[model.modelIdentifier] != nil`.
      - parameter flattenedChildren: This is a flattened representation of all the children of the model that was updated.
      It is a dictionary from ID to model. If it is nil, it has been deleted.
      The value is an array because multiple models with the same ID may have been updated. This only applies if you're using projections.
      - parameter context: The context passed in with this update
      */
-    func consistencyManager(_ consistencyManager: ConsistencyManager,
-                            updatedModel model: ConsistencyManagerModel,
-                            flattenedChildren: [String: [ConsistencyManagerModel]?],
-                            context: Any?)
+    func consistencyManager(
+        _ consistencyManager: ConsistencyManager,
+        updatedModel model: ConsistencyManagerModel,
+        flattenedChildren: [String: [ConsistencyManagerModel]?],
+        context: Any?)
 }
