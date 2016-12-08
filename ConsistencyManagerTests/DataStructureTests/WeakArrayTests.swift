@@ -35,7 +35,7 @@ class TestWeakArrayClassTwo {
 
 class WeakArrayTests: ConsistencyManagerTestCase {
 
-    // MARK: Basic Functionality
+    // MARK: - Basic Functionality
 
     func testWeakArrayBasic() {
         var array: WeakArray<TestWeakArrayClass> = {
@@ -64,7 +64,7 @@ class WeakArrayTests: ConsistencyManagerTestCase {
         XCTAssertNil(weakArray[1])
     }
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     func testCapacityCount() {
         for count in 0..<100 {
@@ -121,7 +121,7 @@ class WeakArrayTests: ConsistencyManagerTestCase {
         }
     }
 
-    // MARK: Properties
+    // MARK: - Properties
 
     func testCount() {
         for count in 0..<100 {
@@ -133,7 +133,9 @@ class WeakArrayTests: ConsistencyManagerTestCase {
         }
     }
 
-    // MARK: Public Methods
+    // MARK: - Public Methods
+
+    // MARK: Prune
 
     func testPruneAllNil() {
         for count in 0..<100 {
@@ -198,6 +200,8 @@ class WeakArrayTests: ConsistencyManagerTestCase {
         }
     }
 
+    // MARK: Map
+
     func testMapSameClass() {
         for count in 0..<100 {
             var strongArray = [TestWeakArrayClass]()
@@ -256,7 +260,213 @@ class WeakArrayTests: ConsistencyManagerTestCase {
         }
     }
 
-    // MARK: MutableCollectionType Tests
+    func testMapDoesntPrune() {
+        for count in 0..<100 {
+            var outerStrongArray = [TestWeakArrayClass]()
+            let weakArray: WeakArray<TestWeakArrayClass> = {
+                var strongArray = [TestWeakArrayClass]()
+                var weakArray = WeakArray<TestWeakArrayClass>()
+
+                for i in 0..<count {
+                    let testObject = TestWeakArrayClass(value: i)
+                    strongArray.append(testObject)
+                    weakArray.append(testObject)
+                    if i % 2 == 0 {
+                        // Let's keep this around until the end
+                        // So here, we're keeping all the odd values
+                        outerStrongArray.append(testObject)
+                    }
+                }
+
+                // Nothing should be pruned because everything is still here
+                XCTAssertEqual(weakArray.prune().count, count)
+                XCTAssertEqual(weakArray.count, count)
+
+                return weakArray
+            }()
+
+            var mapCount = 0
+
+            let mappedWeakArray: WeakArray<TestWeakArrayClass> = weakArray.map { element in
+                mapCount += 1
+                let newElement = element.flatMap { element in
+                    TestWeakArrayClass(value: element.value + 1)
+                }
+                newElement.flatMap { element in
+                    outerStrongArray.append(element)
+                }
+                return newElement
+            }
+
+            // Map shouldn't remove any elements
+            XCTAssertEqual(mapCount, count)
+
+            let sequence = mappedWeakArray.enumerated()
+            for (index, element) in sequence {
+                if let element = element {
+                    XCTAssertEqual(index + 1, element.value)
+                }
+                // There should be some nil elements
+            }
+        }
+    }
+
+    // MARK: FlatMap
+
+    func testFlatMapSameClass() {
+        for count in 0..<100 {
+            var strongArray = [TestWeakArrayClass]()
+            var weakArray = WeakArray<TestWeakArrayClass>()
+
+            for i in 0..<count {
+                let testObject = TestWeakArrayClass(value: i)
+                strongArray.append(testObject)
+                weakArray.append(testObject)
+            }
+
+            let mappedWeakArray: WeakArray<TestWeakArrayClass> = weakArray.flatMap { element in
+                if element!.value % 2 == 1 {
+                    // remove these elements
+                    return nil
+                }
+                let newElement = TestWeakArrayClass(value: element!.value + 1)
+                strongArray.append(newElement)
+                return newElement
+            }
+
+            let sequence = mappedWeakArray.enumerated()
+            for (index, element) in sequence {
+                if let element = element {
+                    XCTAssertEqual((index * 2) + 1, element.value)
+                } else {
+                    XCTFail()
+                }
+            }
+        }
+    }
+
+    func testFlatMapDifferentClass() {
+        for count in 0..<100 {
+            var strongArray = [TestWeakArrayClass]()
+            var strongArrayTwo = [TestWeakArrayClassTwo]()
+
+            var weakArray = WeakArray<TestWeakArrayClass>()
+
+            for i in 0..<count {
+                let testObject = TestWeakArrayClass(value: i)
+                strongArray.append(testObject)
+                weakArray.append(testObject)
+            }
+
+            let mappedWeakArray: WeakArray<TestWeakArrayClassTwo> = weakArray.flatMap { element in
+                if element!.value % 2 == 1 {
+                    // remove these elements
+                    return nil
+                }
+                let newElement = TestWeakArrayClassTwo(data: element!.value + 1)
+                strongArrayTwo.append(newElement)
+                return newElement
+            }
+
+            let sequence = mappedWeakArray.enumerated()
+            for (index, element) in sequence {
+                if let element = element {
+                    XCTAssertEqual((index * 2) + 1, element.data)
+                } else {
+                    XCTFail()
+                }
+            }
+        }
+    }
+
+    func testFlatMapPrunes() {
+        for count in 0..<100 {
+            var outerStrongArray = [TestWeakArrayClass]()
+            let weakArray: WeakArray<TestWeakArrayClass> = {
+                var strongArray = [TestWeakArrayClass]()
+                var weakArray = WeakArray<TestWeakArrayClass>()
+
+                for i in 0..<count {
+                    let testObject = TestWeakArrayClass(value: i)
+                    strongArray.append(testObject)
+                    weakArray.append(testObject)
+                    if i % 2 == 0 {
+                        // Let's keep this around until the end
+                        // So here, we're keeping all the odd values
+                        outerStrongArray.append(testObject)
+                    }
+                }
+
+                // Nothing should be pruned because everything is still here
+                XCTAssertEqual(weakArray.prune().count, count)
+                XCTAssertEqual(weakArray.count, count)
+
+                return weakArray
+            }()
+
+            var mapCount = 0
+
+            let mappedWeakArray: WeakArray<TestWeakArrayClass> = weakArray.flatMap { element in
+                mapCount += 1
+
+                if let element = element, element.value % 4 == 2 {
+                    // remove these elements
+                    // After this, we should have 1/4 of the original elements in the array
+                    return nil
+                }
+                let newElement = element.flatMap { element in
+                    TestWeakArrayClass(value: element.value + 1)
+                }
+                newElement.flatMap { element in
+                    outerStrongArray.append(element)
+                }
+                return newElement
+            }
+
+            // Flatmap should still call on every element, even though we've now removed 3/4 of them
+            XCTAssertEqual(mapCount, count)
+            XCTAssertEqual(mappedWeakArray.count, (count + 3) / 4)
+
+            let sequence = mappedWeakArray.enumerated()
+            for (index, element) in sequence {
+                if let element = element {
+                    XCTAssertEqual((index * 4) + 1, element.value)
+                } else {
+                    XCTFail()
+                }
+            }
+        }
+    }
+
+    // MARK: - Filter
+
+    func testFilter() {
+        for count in 0..<100 {
+            var strongArray = [TestWeakArrayClass]()
+            var weakArray = WeakArray<TestWeakArrayClass>()
+
+            for i in 0..<count {
+                let testObject = TestWeakArrayClass(value: i)
+                strongArray.append(testObject)
+                weakArray.append(testObject)
+            }
+
+            let mappedWeakArray = weakArray.filter { element in
+                return element!.value % 2 == 0
+            }
+
+            let sequence = mappedWeakArray.enumerated()
+            for (index, element) in sequence {
+                if let element = element {
+                    XCTAssertEqual((index * 2), element.value)
+                } else {
+                    XCTFail()
+                }
+            }
+        }
+    }
+
+    // MARK: - MutableCollectionType Tests
 
     func testGetterSetter() {
         for count in 0..<100 {

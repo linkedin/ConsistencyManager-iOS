@@ -179,17 +179,13 @@ open class ConsistencyManager {
         }
         dispatchTask { _ in
             for (key, listenerArray) in self.listeners {
-                // Let's map the listener array so that we remove any occurance of the listener
-                var newListeners = listenerArray.map { element in
+                let newListeners = listenerArray.filter { element in
                     if let element = element {
-                        if element === listener {
-                            return nil
-                        }
+                        return element === listener
+                    } else {
+                        return false
                     }
-                    return element
                 }
-                // Do some cleanup
-                _ = newListeners.prune()
                 self.listeners[key] = newListeners
             }
         }
