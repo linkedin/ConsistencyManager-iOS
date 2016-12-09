@@ -181,8 +181,10 @@ open class ConsistencyManager {
             for (key, listenerArray) in self.listeners {
                 let newListeners = listenerArray.filter { element in
                     if let element = element {
-                        return element === listener
+                        // Keep the element if it is not the current listener
+                        return element !== listener
                     } else {
+                        // Drop all nil values
                         return false
                     }
                 }
