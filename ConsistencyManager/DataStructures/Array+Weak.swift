@@ -84,7 +84,7 @@ extension Array where Element: WeakHolder {
      This allows you to write code like:
      ```
      var array = [WeakStruct<UIViewController>(element: UIViewController())]
-     let viewArray: [WeakStruct<UIView>] = array.flatMap { (viewController: UIViewController?) in
+     let viewArray: [WeakStruct<UIView>] = array.filter { (viewController: UIViewController?) in
         return (viewController?.view.alpha == 0) ?? false
      }
      ```
