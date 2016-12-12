@@ -34,8 +34,8 @@ extension Array where Element: WeakHolder {
      However, the `transform` function converts the inner elements (instead of the outer elements).
      This allows you to write code like:
      ```
-     var array = [WeakStruct<UIViewController>(element: UIViewController())]
-        let viewArray: [WeakStruct<UIView>] = array.map { (viewController: UIViewController?) in
+     var array = [WeakStruct<UIViewController>(element: UIViewController())]()
+     let viewArray: [WeakStruct<UIView>] = array.map { (viewController: UIViewController?) in
         return viewController?.view
      }
      ```
@@ -59,7 +59,7 @@ extension Array where Element: WeakHolder {
 
      This allows you to write code like:
      ```
-     var array = [WeakStruct<UIViewController>(element: UIViewController())]
+     var array = [WeakStruct<UIViewController>(element: UIViewController())]()
      let viewArray: [WeakStruct<UIView>] = array.flatMap { (viewController: UIViewController) in
         if viewController?.view.alpha == 0 {
             return nil
@@ -83,7 +83,7 @@ extension Array where Element: WeakHolder {
 
      This allows you to write code like:
      ```
-     var array = [WeakStruct<UIViewController>(element: UIViewController())]
+     var array = [WeakStruct<UIViewController>(element: UIViewController())]()
      let viewArray: [WeakStruct<UIView>] = array.filter { (viewController: UIViewController?) in
         return (viewController?.view.alpha == 0) ?? false
      }

@@ -67,7 +67,7 @@ public struct AnyWeakArray<T: WeakHolder>: ExpressibleByArrayLiteral {
     }
 
     /**
-     Creates an array with the inner type `[WeakBox<T>]`.
+     Creates an array with the inner type `[T]` where T is a WeakHolder.
      */
     public init(_ data: [T]) {
         self.data = data
