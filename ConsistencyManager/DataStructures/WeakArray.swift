@@ -31,7 +31,7 @@ public typealias WeakListenerArray = AnyWeakArray<WeakListenerBox>
  KNOWN BUGS
 
  You can't create a WeakArray<SomeProtocol>. This is because of an Apple bug: https://bugs.swift.org/browse/SR-1176.
- So, instead of this, it's recommended to create your own wrapper class and
+ So, instead of this, it's recommended to create your own wrapper class and create a typealias (as seen above).
 */
 
 public struct AnyWeakArray<T: WeakHolder>: ExpressibleByArrayLiteral {
@@ -141,17 +141,17 @@ extension AnyWeakArray: MutableCollection {
 
     // Required by _CollectionType
     public func index(after i: Int) -> Int {
-        return i + 1
+        return data.index(after: i)
     }
     
     // Required by _CollectionType
     public var endIndex: Int {
-        return self.count
+        return data.endIndex
     }
 
     // Required by _CollectionType
     public var startIndex: Int {
-        return 0
+        return data.startIndex
     }
 
     /**
