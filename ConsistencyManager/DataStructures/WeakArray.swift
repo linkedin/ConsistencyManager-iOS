@@ -22,6 +22,11 @@ public typealias WeakArray<T: AnyObject> = AnyWeakArray<WeakBox<T>>
 public typealias WeakListenerArray = AnyWeakArray<WeakListenerBox>
 
 /**
+ This typealias allows you to create a `WeakArray` with ConsistencyManagerUpdatesListener.
+ */
+public typealias WeakUpdatesListenerArray = AnyWeakArray<WeakUpdatesListenerBox>
+
+/**
  This class defines an array which doesn't hold strong references to its elements.
  If an element in the array gets dealloced at some point, accessing that element will just return nil.
  It takes advantage of out Array+Weak extension, so all the functions here are just pass throughs to the Array class.

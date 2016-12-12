@@ -22,3 +22,17 @@ public struct WeakListenerBox: WeakHolder {
 
     public weak var element: ConsistencyManagerListener?
 }
+
+/**
+ This defines a WeakHolder which specifically holds a ConsistencyManagerUpdatesListener.
+ This is useful because WeakBox<ConsistencyManagerUpdatesListener> is illegal in Swift. You need a concrete type like this one.
+ */
+public struct WeakUpdatesListenerBox: WeakHolder {
+
+    // Sadly, we need to declare this because by default, it's internal
+    public init(element: ConsistencyManagerUpdatesListener?) {
+        self.element = element
+    }
+
+    public weak var element: ConsistencyManagerUpdatesListener?
+}

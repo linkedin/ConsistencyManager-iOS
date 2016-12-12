@@ -98,7 +98,7 @@ open class ConsistencyManager {
      This is an array of all the model update listeners.
      These will get notified whenever anything changes in the Consistency Manager.
      */
-    var modelUpdatesListeners = WeakModelUpdatesListenerArray()
+    var modelUpdatesListeners = WeakUpdatesListenerArray()
 
     /**
      We expect fast lookup (regardless of O(n) searches) because listeners are typically view controllers
@@ -411,7 +411,7 @@ open class ConsistencyManager {
      */
     open func removeModelUpdatesListener(_ updatesListener: ConsistencyManagerUpdatesListener) {
         modelUpdatesListeners = modelUpdatesListeners.filter { currentListener in
-            currentListener === updatesListener
+            currentListener !== updatesListener
         }
     }
 
