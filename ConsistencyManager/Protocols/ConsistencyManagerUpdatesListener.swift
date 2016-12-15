@@ -26,9 +26,8 @@ public protocol ConsistencyManagerUpdatesListener: class {
      The value is an array because multiple models with the same ID may have been updated. This only applies if you're using projections.
      - parameter context: The context passed in with this update
      */
-    func consistencyManager(
-        _ consistencyManager: ConsistencyManager,
-        updatedModel model: ConsistencyManagerModel,
-        flattenedChildren: [String: [ConsistencyManagerModel]?],
-        context: Any?)
+    func consistencyManager(_ consistencyManager: ConsistencyManager,
+                            updatedModel model: ConsistencyManagerModel,
+                            flattenedChildren: [String: [ConsistencyManagerModel]?],
+                            context: Any?)
 }

@@ -37,4 +37,22 @@ class RemoveListenerTests: ConsistencyManagerTestCase {
             // Success
         }
     }
+
+    func testRemoveUpdatesListener() {
+        let consistencyManager = ConsistencyManager()
+        let listener = TestUpdatesListener()
+
+        addUpdatesListener(listener, toConsistencyManager: consistencyManager)
+
+        let zeroListener = consistencyManager.modelUpdatesListeners[0]
+        if let zeroListener = zeroListener {
+            XCTAssertTrue(zeroListener === listener)
+        } else {
+            XCTFail()
+        }
+
+        removeUpdatesListener(listener, fromConsistencyManager: consistencyManager)
+
+        XCTAssertEqual(consistencyManager.modelUpdatesListeners.count, 0)
+    }
 }

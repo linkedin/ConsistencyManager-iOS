@@ -47,8 +47,20 @@ class ConsistencyManagerTestCase: XCTestCase {
         waitOnDispatchQueue(consistencyManager)
     }
 
+    func addUpdatesListener(_ listener: ConsistencyManagerUpdatesListener, toConsistencyManager consistencyManager: ConsistencyManager) {
+        consistencyManager.addModelUpdatesListener(listener)
+
+        waitOnDispatchQueue(consistencyManager)
+    }
+
     func removeListener(_ listener: ConsistencyManagerListener, fromConsistencyManager consistencyManager: ConsistencyManager) {
         consistencyManager.removeListener(listener)
+
+        waitOnDispatchQueue(consistencyManager)
+    }
+
+    func removeUpdatesListener(_ listener: ConsistencyManagerUpdatesListener, fromConsistencyManager consistencyManager: ConsistencyManager) {
+        consistencyManager.removeModelUpdatesListener(listener)
 
         waitOnDispatchQueue(consistencyManager)
     }

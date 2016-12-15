@@ -97,6 +97,7 @@ open class ConsistencyManager {
     /**
      This is an array of all the model update listeners.
      These will get notified whenever anything changes in the Consistency Manager.
+     See `addModelUpdatesListener(_:)` for more info.
      */
     var modelUpdatesListeners = WeakUpdatesListenerArray()
 
@@ -400,6 +401,18 @@ open class ConsistencyManager {
      Adds an update listener to the consistency manager.
      This listener will get notified of ALL changes posted to the consistency manager.
      This method must be called on the main thread.
+
+     ## Use Case
+
+     This is useful if you want to filter on changes to the consistency manager. For instance, you may want to listen to all added models of a certain class.
+     If a model is added, you could add it to an existing array (similar to predicates).
+     Or you could listen on a model which you have an ID for, but the model isn't in the system yet.
+
+     ## Performance
+
+     The `ConsistencyManagerUpdatesListener` methods are called on the main thread for every model updated in the system.
+     It's recommended to do as minimal processing as possible here so you don't block the main thread.
+     It's also recommended to have a small number of global listeners.
      */
     open func addModelUpdatesListener(_ updatesListener: ConsistencyManagerUpdatesListener) {
         modelUpdatesListeners.append(updatesListener)
@@ -607,7 +620,7 @@ open class ConsistencyManager {
         withUpdatedModels updatedModels: [String: [ConsistencyManagerModel]?],
         context: Any?,
         originalModel: ConsistencyManagerModel,
-        cancelled: ()->Bool) {
+        cancelled: () -> Bool) {
 
         var currentModels: [(listener: ConsistencyManagerListener, currentModel: ConsistencyManagerModel?)] = []
 
@@ -670,8 +683,8 @@ open class ConsistencyManager {
                     listener.modelUpdated(newModel, updates: modelUpdates, context: context)
                 }
             }
-            self.modelUpdatesListeners.forEach { listener in
-                listener?.consistencyManager(
+            self.modelUpdatesListeners.forEach { updatesListener in
+                updatesListener?.consistencyManager(
                     self,
                     updatedModel: originalModel,
                     flattenedChildren: updatedModels,
