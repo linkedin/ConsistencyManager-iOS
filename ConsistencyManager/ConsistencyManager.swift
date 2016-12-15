@@ -421,6 +421,7 @@ open class ConsistencyManager {
     /**
      Removes an update listener to the consistency manager.
      This method must be called on the main thread.
+     You shouldn't need to call this in general since listeners are removed whenever the object is deallocated.
      */
     open func removeModelUpdatesListener(_ updatesListener: ConsistencyManagerUpdatesListener) {
         modelUpdatesListeners = modelUpdatesListeners.filter { currentListener in
