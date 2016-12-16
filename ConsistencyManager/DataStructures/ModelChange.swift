@@ -13,10 +13,17 @@ import Foundation
  This class is used to show which child models have changed. This object is usually in a dictionary: `[String: ModelChange]`.
  The strings represent IDs and it shows what's changed in this ID. Either the ID has been deleted or updated.
  If it's been updated, there are potentially several models that have updated if you are using projections.
- If you are not using projections, this will always have exactly one model.
  */
 public enum ModelChange: Equatable {
+    /**
+     This indicates that this ID has been updated with a new model.
+     If you are using projections, there may be multiple models that represent this change.
+     Otherwise, there will just be one model here.
+     */
     case updated([ConsistencyManagerModel])
+    /**
+     Indicates that this ID has been deleted.
+     */
     case deleted
 
     public static func ==(lhs: ModelChange, rhs: ModelChange) -> Bool {
@@ -25,12 +32,9 @@ public enum ModelChange: Equatable {
             guard l.count == r.count else {
                 return false
             }
-            for i in 0..<l.count {
-                if !l[i].isEqualToModel(r[i]) {
-                    return false
-                }
+            return zip(l, r).reduce(true) { isEqual, tuple in
+                return isEqual && tuple.0.isEqualToModel(tuple.1)
             }
-            return true
         case (.deleted, .deleted):
             return true
         default:
