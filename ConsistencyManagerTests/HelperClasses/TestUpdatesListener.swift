@@ -24,7 +24,7 @@ class TestUpdatesListener: ConsistencyManagerUpdatesListener {
 
 extension ModelChange {
     /**
-     Simple helper to get out the models from 
+     Simple helper to get out the models from a ModelChange object assuming it's .updated.
      */
     var models: [ConsistencyManagerModel] {
         switch self {
