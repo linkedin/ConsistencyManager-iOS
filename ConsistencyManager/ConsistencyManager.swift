@@ -317,12 +317,11 @@ open class ConsistencyManager {
         dispatchTask { cancelled in
             let tuple = self.childrenAndListenersForModel(model)
             let optionalModelUpdates = CollectionHelpers.optionalValueDictionaryFromDictionary(tuple.modelUpdates)
-            self.updateListeners(
-                tuple.listeners,
-                withUpdatedModels: optionalModelUpdates,
-                context: context,
-                originalModel: model,
-                cancelled: cancelled)
+            self.updateListeners(tuple.listeners,
+                                 withUpdatedModels: optionalModelUpdates,
+                                 context: context,
+                                 originalModel: model,
+                                 cancelled: cancelled)
         }
     }
 
@@ -357,12 +356,11 @@ open class ConsistencyManager {
 
                 // A simple update dictionary. We're just deleting a model with this id. Nothing else.
                 let updatesDictionary: [String: [ConsistencyManagerModel]?] = [ id: nil ]
-                self.updateListeners(
-                    listenersArray,
-                    withUpdatedModels: updatesDictionary,
-                    context: context,
-                    originalModel: model,
-                    cancelled: cancelled)
+                self.updateListeners(listenersArray,
+                                     withUpdatedModels: updatesDictionary,
+                                     context: context,
+                                     originalModel: model,
+                                     cancelled: cancelled)
             } else {
                 DispatchQueue.main.async {
                     self.delegate?.consistencyManager(self, failedWithCriticalError: CriticalError.DeleteIDFailure.rawValue)
@@ -616,15 +614,14 @@ open class ConsistencyManager {
      In the case of this listener being in a paused state, the function updates
      the listener's PausedListener struct accordingly, without notifying the delegate.
      */
-    private func updateListeners(
-        _ listeners: [ConsistencyManagerListener],
-        withUpdatedModels updatedModels: [String: [ConsistencyManagerModel]?],
-        context: Any?,
-        originalModel: ConsistencyManagerModel,
-        cancelled: () -> Bool) {
+    private func updateListeners(_ listeners: [ConsistencyManagerListener],
+                                 withUpdatedModels updatedModels: [String: [ConsistencyManagerModel]?],
+                                 context: Any?,
+                                 originalModel: ConsistencyManagerModel,
+                                 cancelled: () -> Bool) {
 
         var currentModels: [(listener: ConsistencyManagerListener, currentModel: ConsistencyManagerModel?)] = []
-
+        
         // In one dispatch_sync, we'll get all of the current models for each listener
         DispatchQueue.main.sync {
             currentModels = listeners.map { listener in
@@ -685,11 +682,10 @@ open class ConsistencyManager {
                 }
             }
             self.modelUpdatesListeners.forEach { updatesListener in
-                updatesListener?.consistencyManager(
-                    self,
-                    updatedModel: originalModel,
-                    flattenedChildren: updatedModels,
-                    context: context)
+                updatesListener?.consistencyManager(self,
+                                                    updatedModel: originalModel,
+                                                    flattenedChildren: updatedModels,
+                                                    context: context)
             }
         }
     }
