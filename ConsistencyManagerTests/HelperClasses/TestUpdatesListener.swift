@@ -12,12 +12,26 @@ import ConsistencyManager
 
 class TestUpdatesListener: ConsistencyManagerUpdatesListener {
 
-    var updateClosure: ((ConsistencyManagerModel, [String : [ConsistencyManagerModel]?], Any?) -> ())?
+    var updateClosure: ((ConsistencyManagerModel, [String : ModelChange], Any?) -> ())?
 
     func consistencyManager(_ consistencyManager: ConsistencyManager,
                             updatedModel model: ConsistencyManagerModel,
-                            flattenedChildren: [String : [ConsistencyManagerModel]?],
+                            flattenedChildren: [String : ModelChange],
                             context: Any?) {
         updateClosure?(model, flattenedChildren, context)
+    }
+}
+
+extension ModelChange {
+    /**
+     Simple helper to get out the models from 
+     */
+    var models: [ConsistencyManagerModel] {
+        switch self {
+        case .updated(let models):
+            return models
+        case .deleted:
+            return []
+        }
     }
 }

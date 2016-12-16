@@ -26,8 +26,8 @@ class ModelUpdatesListenerTests: ConsistencyManagerTestCase {
             calledUpdateClosure += 1
             XCTAssertEqual(model as? TestModel, testModel)
             XCTAssertEqual(children.count, 2)
-            XCTAssertEqual(children["0"]??[0] as? TestModel, testModel)
-            XCTAssertEqual(children["1"]??[0] as? TestRequiredModel, requiredModel)
+            XCTAssertEqual(children["0"]?.models[0] as? TestModel, testModel)
+            XCTAssertEqual(children["1"]?.models[0] as? TestRequiredModel, requiredModel)
             XCTAssertEqual(context as? String, "context")
         }
 
@@ -52,8 +52,8 @@ class ModelUpdatesListenerTests: ConsistencyManagerTestCase {
             calledUpdateClosure += 1
             XCTAssertEqual(model as? TestModel, testModel)
             XCTAssertEqual(children.count, 2)
-            XCTAssertEqual(children["0"]??[0] as? TestModel, testModel)
-            XCTAssertEqual(children["1"]??[0] as? TestRequiredModel, requiredModel)
+            XCTAssertEqual(children["0"]?.models[0] as? TestModel, testModel)
+            XCTAssertEqual(children["1"]?.models[0] as? TestRequiredModel, requiredModel)
             XCTAssertEqual(context as? String, "context")
         }
 
@@ -62,8 +62,8 @@ class ModelUpdatesListenerTests: ConsistencyManagerTestCase {
             calledUpdate2Closure += 1
             XCTAssertEqual(model as? TestModel, testModel)
             XCTAssertEqual(children.count, 2)
-            XCTAssertEqual(children["0"]??[0] as? TestModel, testModel)
-            XCTAssertEqual(children["1"]??[0] as? TestRequiredModel, requiredModel)
+            XCTAssertEqual(children["0"]?.models[0] as? TestModel, testModel)
+            XCTAssertEqual(children["1"]?.models[0] as? TestRequiredModel, requiredModel)
             XCTAssertEqual(context as? String, "context")
         }
 
@@ -87,7 +87,7 @@ class ModelUpdatesListenerTests: ConsistencyManagerTestCase {
             calledUpdateClosure += 1
             XCTAssertEqual(model as? TestModel, testModel)
             XCTAssertEqual(children.count, 1)
-            XCTAssertNil(children["0"]!)
+            XCTAssertEqual(children["0"], ModelChange.deleted)
             XCTAssertEqual(context as? String, "context")
         }
 

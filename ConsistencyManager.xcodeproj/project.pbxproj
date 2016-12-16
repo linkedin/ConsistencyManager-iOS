@@ -43,6 +43,7 @@
 		6149D1271DF9DBEA00908B8D /* WeakHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6149D1261DF9DBEA00908B8D /* WeakHolder.swift */; };
 		6149D1291DF9DD0200908B8D /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6149D1281DF9DD0200908B8D /* WeakBox.swift */; };
 		6149D12B1DF9E60400908B8D /* TypeErasedWeakHolders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6149D12A1DF9E60400908B8D /* TypeErasedWeakHolders.swift */; };
+		614E1E791E0370180063BAD1 /* ModelChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614E1E781E0370180063BAD1 /* ModelChange.swift */; };
 		615B9CA91D4FFD430091F71A /* ProjectionTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615B9CA81D4FFD430091F71A /* ProjectionTestModel.swift */; };
 		615C17631E030B80002EC200 /* ModelUpdatesListenerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615C17621E030B80002EC200 /* ModelUpdatesListenerTests.swift */; };
 		615C17651E030BA5002EC200 /* TestUpdatesListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615C17641E030BA5002EC200 /* TestUpdatesListener.swift */; };
@@ -104,6 +105,7 @@
 		6149D1261DF9DBEA00908B8D /* WeakHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakHolder.swift; sourceTree = "<group>"; };
 		6149D1281DF9DD0200908B8D /* WeakBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakBox.swift; sourceTree = "<group>"; };
 		6149D12A1DF9E60400908B8D /* TypeErasedWeakHolders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeErasedWeakHolders.swift; sourceTree = "<group>"; };
+		614E1E781E0370180063BAD1 /* ModelChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelChange.swift; sourceTree = "<group>"; };
 		615B9CA81D4FFD430091F71A /* ProjectionTestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectionTestModel.swift; sourceTree = "<group>"; };
 		615C17621E030B80002EC200 /* ModelUpdatesListenerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelUpdatesListenerTests.swift; sourceTree = "<group>"; };
 		615C17641E030BA5002EC200 /* TestUpdatesListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUpdatesListener.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				6144A7EA1CB6DED300025127 /* BatchListener.swift */,
 				6144A7EB1CB6DED300025127 /* BatchUpdateModel.swift */,
 				6144A7EC1CB6DED300025127 /* ModelUpdates.swift */,
+				614E1E781E0370180063BAD1 /* ModelChange.swift */,
 				6144A7ED1CB6DED300025127 /* WeakArray.swift */,
 				6149D1241DF9DBB300908B8D /* Array+Weak.swift */,
 				6149D1261DF9DBEA00908B8D /* WeakHolder.swift */,
@@ -379,6 +382,7 @@
 				6144A8061CB6DED300025127 /* ConsistencyManagerListener.swift in Sources */,
 				6144A7FD1CB6DED300025127 /* ModelUpdates.swift in Sources */,
 				6144A8071CB6DED300025127 /* ConsistencyManagerModel.swift in Sources */,
+				614E1E791E0370180063BAD1 /* ModelChange.swift in Sources */,
 				6144A7FE1CB6DED300025127 /* WeakArray.swift in Sources */,
 				6149D12B1DF9E60400908B8D /* TypeErasedWeakHolders.swift in Sources */,
 				6144A8011CB6DED300025127 /* ErrorManager.swift in Sources */,
