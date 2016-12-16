@@ -317,11 +317,12 @@ open class ConsistencyManager {
         dispatchTask { cancelled in
             let tuple = self.childrenAndListenersForModel(model)
             let optionalModelUpdates = CollectionHelpers.optionalValueDictionaryFromDictionary(tuple.modelUpdates)
-            self.updateListeners(tuple.listeners,
-                                 withUpdatedModels: optionalModelUpdates,
-                                 context: context,
-                                 originalModel: model,
-                                 cancelled: cancelled)
+            self.updateListeners(
+                tuple.listeners,
+                withUpdatedModels: optionalModelUpdates,
+                context: context,
+                originalModel: model,
+                cancelled: cancelled)
         }
     }
 
@@ -356,11 +357,12 @@ open class ConsistencyManager {
 
                 // A simple update dictionary. We're just deleting a model with this id. Nothing else.
                 let updatesDictionary: [String: [ConsistencyManagerModel]?] = [ id: nil ]
-                self.updateListeners(listenersArray,
-                                     withUpdatedModels: updatesDictionary,
-                                     context: context,
-                                     originalModel: model,
-                                     cancelled: cancelled)
+                self.updateListeners(
+                    listenersArray,
+                    withUpdatedModels: updatesDictionary,
+                    context: context,
+                    originalModel: model,
+                    cancelled: cancelled)
             } else {
                 DispatchQueue.main.async {
                     self.delegate?.consistencyManager(self, failedWithCriticalError: CriticalError.DeleteIDFailure.rawValue)
@@ -404,11 +406,11 @@ open class ConsistencyManager {
 
      This is useful if you want to filter on changes to the consistency manager. For instance, you may want to listen to all added models of a certain class.
      If a model is added, you could add it to an existing array (similar to predicates).
-     Or you could listen on a model which you have an ID for, but the model isn't in the system yet.
+     Or if you have an ID for a model that isn't in the system yet, you can listen for changes for it.
 
      ## Performance
 
-     The `ConsistencyManagerUpdatesListener` methods are called on the main thread for every model updated in the system.
+     The `ConsistencyManagerUpdatesListener` methods are called on the **main thread** for every model updated in the system.
      It's recommended to do as minimal processing as possible here so you don't block the main thread.
      It's also recommended to have a small number of global listeners.
      */
@@ -682,10 +684,11 @@ open class ConsistencyManager {
                 }
             }
             self.modelUpdatesListeners.forEach { updatesListener in
-                updatesListener?.consistencyManager(self,
-                                                    updatedModel: originalModel,
-                                                    flattenedChildren: updatedModels,
-                                                    context: context)
+                updatesListener?.consistencyManager(
+                    self,
+                    updatedModel: originalModel,
+                    flattenedChildren: updatedModels,
+                    context: context)
             }
         }
     }

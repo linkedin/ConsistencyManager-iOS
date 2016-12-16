@@ -14,8 +14,8 @@ import ConsistencyManager
 class TestListener: ConsistencyManagerListener {
 
     var model: ConsistencyManagerModel?
-    var updateClosure: ((ConsistencyManagerModel?, ModelUpdates) -> ())?
-    var contextClosure: ((Any?) -> ())?
+    var updateClosure: ((ConsistencyManagerModel?, ModelUpdates) -> Void)?
+    var contextClosure: ((Any?) -> Void)?
     var currentModelRequested: (()->())?
 
     init(model: ConsistencyManagerModel?) {

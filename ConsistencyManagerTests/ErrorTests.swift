@@ -70,7 +70,7 @@ class ErrorTests: ConsistencyManagerTestCase, ConsistencyManagerDelegate {
             return TestRequiredModel(id: nil, data: 0)
         }
 
-        func forEach(_ function: (ConsistencyManagerModel) -> ()) {
+        func forEach(_ function: (ConsistencyManagerModel) -> Void) {
             function(TestRequiredModel(id: "1", data: 0))
         }
 

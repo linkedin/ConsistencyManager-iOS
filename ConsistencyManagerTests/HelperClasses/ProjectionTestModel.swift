@@ -50,7 +50,7 @@ final class ProjectionTestModel: ConsistencyManagerModel, Equatable {
         }
     }
 
-    func forEach(_ function: (ConsistencyManagerModel) -> ()) {
+    func forEach(_ function: (ConsistencyManagerModel) -> Void) {
         for model in children {
             function(model)
         }

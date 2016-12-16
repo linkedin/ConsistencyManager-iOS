@@ -31,7 +31,7 @@ final class TestRequiredModel: ConsistencyManagerModel, Equatable {
         return self
     }
 
-    func forEach(_ function: (ConsistencyManagerModel) -> ()) {
+    func forEach(_ function: (ConsistencyManagerModel) -> Void) {
         // Do nothing. No child models.
     }
 }

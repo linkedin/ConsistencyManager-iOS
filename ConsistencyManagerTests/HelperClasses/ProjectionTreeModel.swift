@@ -57,7 +57,7 @@ final class ProjectionTreeModel: ConsistencyManagerModel, Equatable {
         return ProjectionTreeModel(type: type, id: id, data: data, otherData: otherData, child: newChild, otherChild: newOtherChild)
     }
 
-    func forEach(_ function: (ConsistencyManagerModel) -> ()) {
+    func forEach(_ function: (ConsistencyManagerModel) -> Void) {
         if let child = child {
             function(child)
         }
