@@ -317,12 +317,11 @@ open class ConsistencyManager {
         dispatchTask { cancelled in
             let tuple = self.childrenAndListenersForModel(model)
             let optionalModelUpdates = CollectionHelpers.optionalValueDictionaryFromDictionary(tuple.modelUpdates)
-            self.updateListeners(
-                tuple.listeners,
-                withUpdatedModels: optionalModelUpdates,
-                context: context,
-                originalModel: model,
-                cancelled: cancelled)
+            self.updateListeners(tuple.listeners,
+                                 withUpdatedModels: optionalModelUpdates,
+                                 context: context,
+                                 originalModel: model,
+                                 cancelled: cancelled)
         }
     }
 
@@ -357,12 +356,11 @@ open class ConsistencyManager {
 
                 // A simple update dictionary. We're just deleting a model with this id. Nothing else.
                 let updatesDictionary: [String: [ConsistencyManagerModel]?] = [ id: nil ]
-                self.updateListeners(
-                    listenersArray,
-                    withUpdatedModels: updatesDictionary,
-                    context: context,
-                    originalModel: model,
-                    cancelled: cancelled)
+                self.updateListeners(listenersArray,
+                                     withUpdatedModels: updatesDictionary,
+                                     context: context,
+                                     originalModel: model,
+                                     cancelled: cancelled)
             } else {
                 DispatchQueue.main.async {
                     self.delegate?.consistencyManager(self, failedWithCriticalError: CriticalError.DeleteIDFailure.rawValue)
@@ -684,11 +682,10 @@ open class ConsistencyManager {
                 }
             }
             self.modelUpdatesListeners.forEach { updatesListener in
-                updatesListener?.consistencyManager(
-                    self,
-                    updatedModel: originalModel,
-                    flattenedChildren: updatedModels,
-                    context: context)
+                updatesListener?.consistencyManager(self,
+                                                    updatedModel: originalModel,
+                                                    flattenedChildren: updatedModels,
+                                                    context: context)
             }
         }
     }
