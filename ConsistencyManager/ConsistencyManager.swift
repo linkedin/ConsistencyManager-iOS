@@ -406,7 +406,7 @@ open class ConsistencyManager {
 
      This is useful if you want to filter on changes to the consistency manager. For instance, you may want to listen to all added models of a certain class.
      If a model is added, you could add it to an existing array (similar to predicates).
-     Or if you have an ID for a model that isn't in the system yet, you can listen for changes for it.
+     Or if you have an ID for a model that isn't in the system yet, you can listen to changes on it.
 
      ## Performance
 
