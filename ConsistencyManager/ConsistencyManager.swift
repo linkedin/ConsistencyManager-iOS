@@ -315,10 +315,10 @@ open class ConsistencyManager {
     */
     open func updateModel(_ model: ConsistencyManagerModel, context: Any? = nil) {
         dispatchTask { cancelled in
-            let tuple = self.childrenAndListenersForModel(model)
+            let (modelUpdates, listeners) = self.childrenAndListenersForModel(model)
             self.updateListeners(
-                tuple.listeners,
-                withUpdatedModels: tuple.modelUpdates,
+                listeners,
+                with: modelUpdates,
                 context: context,
                 originalModel: model,
                 cancelled: cancelled)
@@ -355,10 +355,10 @@ open class ConsistencyManager {
                 }()
 
                 // A simple update dictionary. We're just deleting a model with this id. Nothing else.
-                let updatesDictionary = [ id: ModelChange.deleted ]
+                let updatesDictionary = [id: ModelChange.deleted]
                 self.updateListeners(
                     listenersArray,
-                    withUpdatedModels: updatesDictionary,
+                    with: updatesDictionary,
                     context: context,
                     originalModel: model,
                     cancelled: cancelled)
@@ -616,7 +616,7 @@ open class ConsistencyManager {
      the listener's PausedListener struct accordingly, without notifying the delegate.
      */
     private func updateListeners(_ listeners: [ConsistencyManagerListener],
-                                 withUpdatedModels updatedModels: [String: ModelChange],
+                                 with updatedModels: [String: ModelChange],
                                  context: Any?,
                                  originalModel: ConsistencyManagerModel,
                                  cancelled: () -> Bool) {
@@ -686,7 +686,7 @@ open class ConsistencyManager {
                 updatesListener?.consistencyManager(
                     self,
                     updatedModel: originalModel,
-                    flattenedChildren: updatedModels,
+                    changes: updatedModels,
                     context: context)
             }
         }

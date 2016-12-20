@@ -18,16 +18,19 @@ public protocol ConsistencyManagerUpdatesListener: class {
      This method is run on the main thread. If you have any extensive processing, it's highly recommended to do this on a background thread
      since this will be called for every single consistency update.
 
+     This method passes back a list of all the updates made as a result of this change.
+     It is a dictionary of `[modelIdentifier: change]`. All of the model's children will be in this dictionary if it was an update.
+
      - parameter consistencyManager: The consistency manager which has received the change.
      - parameter model: The model which has been updated (NOTE: This model may have been deleted).
-     To check if it has been deleted, check `flattenedChildren[model.modelIdentifier] == .deleted`.
-     - parameter flattenedChildren: This is a flattened representation of all the children of the model that was updated.
+     To check if it has been deleted, check `changes[model.modelIdentifier] == .deleted`.
+     - parameter changes: This is a flattened representation of all the children of the model that was updated.
      It is a dictionary from ID to model. If it is nil, it has been deleted.
      The value is an array because multiple models with the same ID may have been updated. This only applies if you're using projections.
      - parameter context: The context passed in with this update
      */
     func consistencyManager(_ consistencyManager: ConsistencyManager,
                             updatedModel model: ConsistencyManagerModel,
-                            flattenedChildren: [String: ModelChange],
+                            changes: [String: ModelChange],
                             context: Any?)
 }

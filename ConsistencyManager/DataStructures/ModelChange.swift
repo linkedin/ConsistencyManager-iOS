@@ -16,13 +16,13 @@ import Foundation
  */
 public enum ModelChange: Equatable {
     /**
-     This indicates that this ID has been updated with a new model.
+     This indicates a model has been updated and lists the new models.
      If you are using projections, there may be multiple models that represent this change.
      Otherwise, there will just be one model here.
      */
     case updated([ConsistencyManagerModel])
     /**
-     Indicates that this ID has been deleted.
+     This indicates a model has been deleted.
      */
     case deleted
 

@@ -12,13 +12,13 @@ import ConsistencyManager
 
 class TestUpdatesListener: ConsistencyManagerUpdatesListener {
 
-    var updateClosure: ((ConsistencyManagerModel, [String : ModelChange], Any?) -> ())?
+    var updateClosure: ((ConsistencyManagerModel, [String : ModelChange], Any?) -> Void)?
 
     func consistencyManager(_ consistencyManager: ConsistencyManager,
                             updatedModel model: ConsistencyManagerModel,
-                            flattenedChildren: [String : ModelChange],
+                            changes: [String : ModelChange],
                             context: Any?) {
-        updateClosure?(model, flattenedChildren, context)
+        updateClosure?(model, changes, context)
     }
 }
 
