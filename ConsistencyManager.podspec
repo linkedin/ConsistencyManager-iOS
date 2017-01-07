@@ -8,10 +8,13 @@ Pod::Spec.new do |spec|
   spec.source           = { :git => 'https://github.com/linkedin/ConsistencyManager-iOS.git', :tag => spec.version }
   spec.source_files     = 'ConsistencyManager/**/*.swift'
   
-  spec.ios.deployment_target = '8.0'
-  spec.ios.frameworks        = 'Foundation', 'UIKit'
+  spec.ios.deployment_target  = '8.0'
+  spec.ios.frameworks         = 'Foundation', 'UIKit'
 
-  spec.osx.deployment_target = '10.11'
-  spec.osx.frameworks        = 'Foundation'
+  spec.tvos.deployment_target = '9.0'
+  spec.tvos.frameworks        = 'Foundation', 'UIKit'
+
+  spec.osx.deployment_target  = '10.11'
+  spec.osx.frameworks         = 'Foundation'
 end
 

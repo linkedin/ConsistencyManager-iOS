@@ -7,6 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49091CA41E207480000B9B1E /* ConsistencyManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49091C9B1E20747F000B9B1E /* ConsistencyManager.framework */; };
+		49091CAB1E207480000B9B1E /* ConsistencyManager-tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 49091C9D1E207480000B9B1E /* ConsistencyManager-tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49091CB21E207497000B9B1E /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A7F11CB6DED300025127 /* ErrorManager.swift */; };
+		49091CB31E20749A000B9B1E /* CollectionHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A7F01CB6DED300025127 /* CollectionHelpers.swift */; };
+		49091CB41E20749C000B9B1E /* TypeErasedWeakHolders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6149D12A1DF9E60400908B8D /* TypeErasedWeakHolders.swift */; };
+		49091CB51E20749E000B9B1E /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6149D1281DF9DD0200908B8D /* WeakBox.swift */; };
+		49091CB61E2074A1000B9B1E /* WeakHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6149D1261DF9DBEA00908B8D /* WeakHolder.swift */; };
+		49091CB71E2074A3000B9B1E /* Array+Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6149D1241DF9DBB300908B8D /* Array+Weak.swift */; };
+		49091CB81E2074A5000B9B1E /* WeakArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A7ED1CB6DED300025127 /* WeakArray.swift */; };
+		49091CB91E2074A7000B9B1E /* ModelChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614E1E781E0370180063BAD1 /* ModelChange.swift */; };
+		49091CBA1E2074AA000B9B1E /* ModelUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A7EC1CB6DED300025127 /* ModelUpdates.swift */; };
+		49091CBB1E2074AD000B9B1E /* BatchUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A7EB1CB6DED300025127 /* BatchUpdateModel.swift */; };
+		49091CBC1E2074AF000B9B1E /* BatchListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A7EA1CB6DED300025127 /* BatchListener.swift */; };
+		49091CBD1E2074B3000B9B1E /* ConsistencyManagerUpdatesListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618096E61DF638560069E586 /* ConsistencyManagerUpdatesListener.swift */; };
+		49091CBE1E2074B7000B9B1E /* ConsistencyManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A7F81CB6DED300025127 /* ConsistencyManagerModel.swift */; };
+		49091CBF1E2074BA000B9B1E /* ConsistencyManagerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A7F71CB6DED300025127 /* ConsistencyManagerListener.swift */; };
+		49091CC01E2074BD000B9B1E /* ConsistencyManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A7F61CB6DED300025127 /* ConsistencyManagerDelegate.swift */; };
+		49091CC11E2074C0000B9B1E /* ConsistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A7E81CB6DED300025127 /* ConsistencyManager.swift */; };
+		49091CC31E207502000B9B1E /* WeakArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A8181CB6DF1B00025127 /* WeakArrayTests.swift */; };
+		49091CC41E207505000B9B1E /* ModelChangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614E1E7A1E047ABE0063BAD1 /* ModelChangeTests.swift */; };
+		49091CC51E207507000B9B1E /* ConsistencyManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A81A1CB6DF1B00025127 /* ConsistencyManagerTestCase.swift */; };
+		49091CC61E20750A000B9B1E /* TestListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A81B1CB6DF1B00025127 /* TestListener.swift */; };
+		49091CC71E20750C000B9B1E /* TestUpdatesListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615C17641E030BA5002EC200 /* TestUpdatesListener.swift */; };
+		49091CC81E20750E000B9B1E /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A81C1CB6DF1B00025127 /* TestModel.swift */; };
+		49091CC91E207510000B9B1E /* ProjectionTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615B9CA81D4FFD430091F71A /* ProjectionTestModel.swift */; };
+		49091CCA1E207512000B9B1E /* TestRequiredModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A81E1CB6DF1B00025127 /* TestRequiredModel.swift */; };
+		49091CCB1E207515000B9B1E /* ProjectionTreeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6179D1A51D5133CB00A5209E /* ProjectionTreeModel.swift */; };
+		49091CCC1E207517000B9B1E /* TestModelGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A81D1CB6DF1B00025127 /* TestModelGenerator.swift */; };
+		49091CCD1E20751A000B9B1E /* BatchListenerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A8091CB6DF1B00025127 /* BatchListenerTest.swift */; };
+		49091CCE1E20751D000B9B1E /* BatchUpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A80A1CB6DF1B00025127 /* BatchUpdateTests.swift */; };
+		49091CCF1E207520000B9B1E /* ContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A80B1CB6DF1B00025127 /* ContextTests.swift */; };
+		49091CD01E207522000B9B1E /* DeleteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A80C1CB6DF1B00025127 /* DeleteTests.swift */; };
+		49091CD11E207524000B9B1E /* ErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A80D1CB6DF1B00025127 /* ErrorTests.swift */; };
+		49091CD21E207526000B9B1E /* ListenerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A80E1CB6DF1B00025127 /* ListenerTests.swift */; };
+		49091CD31E207528000B9B1E /* MemoryWarningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A80F1CB6DF1B00025127 /* MemoryWarningTests.swift */; };
+		49091CD41E20752B000B9B1E /* PauseListenerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29D8FC61CC52EBB005DBB71 /* PauseListenerTests.swift */; };
+		49091CD51E20752E000B9B1E /* ModelUpdatesListenerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615C17621E030B80002EC200 /* ModelUpdatesListenerTests.swift */; };
+		49091CD61E207530000B9B1E /* RaceConditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A8111CB6DF1B00025127 /* RaceConditionsTests.swift */; };
+		49091CD71E207532000B9B1E /* RemoveListenerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A8121CB6DF1B00025127 /* RemoveListenerTests.swift */; };
+		49091CD81E207535000B9B1E /* ShortCurcuitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A8131CB6DF1B00025127 /* ShortCurcuitTests.swift */; };
+		49091CD91E207537000B9B1E /* UpdateFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A8141CB6DF1B00025127 /* UpdateFlowTests.swift */; };
+		49091CDA1E20753A000B9B1E /* UpdateOrderingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A8151CB6DF1B00025127 /* UpdateOrderingTests.swift */; };
+		49091CDB1E20753C000B9B1E /* UpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A8161CB6DF1B00025127 /* UpdateTests.swift */; };
+		49091CDC1E20753F000B9B1E /* ModelUpdatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A8201CB6DF1B00025127 /* ModelUpdatesTests.swift */; };
+		49091CDD1E207542000B9B1E /* ProjectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6179D1A71D5137A100A5209E /* ProjectionTests.swift */; };
+		49091CDE1E207544000B9B1E /* ClearAndCancelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6179D1C71D526C8F00A5209E /* ClearAndCancelTests.swift */; };
+		49091CDF1E207548000B9B1E /* GarbageCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D1450F1D8B6541003746D0 /* GarbageCollectionTests.swift */; };
 		6144A7FA1CB6DED300025127 /* ConsistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A7E81CB6DED300025127 /* ConsistencyManager.swift */; };
 		6144A7FB1CB6DED300025127 /* BatchListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A7EA1CB6DED300025127 /* BatchListener.swift */; };
 		6144A7FC1CB6DED300025127 /* BatchUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6144A7EB1CB6DED300025127 /* BatchUpdateModel.swift */; };
@@ -57,6 +104,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		49091CA51E207480000B9B1E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61DBAA4B19FFF64100A23A60 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49091C9A1E20747F000B9B1E;
+			remoteInfo = "ConsistencyManager-tvOS";
+		};
 		614661E41A0293B0001C9B50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 61DBAA4B19FFF64100A23A60 /* Project object */;
@@ -69,6 +123,11 @@
 /* Begin PBXFileReference section */
 		45C78FC21B3004E30032F592 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		45C78FC41B300AF10032F592 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		49091C9B1E20747F000B9B1E /* ConsistencyManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ConsistencyManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49091C9D1E207480000B9B1E /* ConsistencyManager-tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ConsistencyManager-tvOS.h"; sourceTree = "<group>"; };
+		49091C9E1E207480000B9B1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49091CA31E207480000B9B1E /* ConsistencyManager-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ConsistencyManager-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49091CAA1E207480000B9B1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6144A7E81CB6DED300025127 /* ConsistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsistencyManager.swift; sourceTree = "<group>"; };
 		6144A7EA1CB6DED300025127 /* BatchListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchListener.swift; sourceTree = "<group>"; };
 		6144A7EB1CB6DED300025127 /* BatchUpdateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchUpdateModel.swift; sourceTree = "<group>"; };
@@ -122,6 +181,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		49091C971E20747F000B9B1E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49091CA01E207480000B9B1E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49091CA41E207480000B9B1E /* ConsistencyManager.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61DBAA5019FFF64100A23A60 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -140,6 +214,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49091C9C1E207480000B9B1E /* ConsistencyManager-tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				49091C9D1E207480000B9B1E /* ConsistencyManager-tvOS.h */,
+				49091C9E1E207480000B9B1E /* Info.plist */,
+			);
+			path = "ConsistencyManager-tvOS";
+			sourceTree = "<group>";
+		};
+		49091CA71E207480000B9B1E /* ConsistencyManager-tvOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				49091CAA1E207480000B9B1E /* Info.plist */,
+			);
+			path = "ConsistencyManager-tvOSTests";
+			sourceTree = "<group>";
+		};
 		6144A7E61CB6DED300025127 /* ConsistencyManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +338,8 @@
 			children = (
 				6144A7E61CB6DED300025127 /* ConsistencyManager */,
 				6144A8081CB6DF1B00025127 /* ConsistencyManagerTests */,
+				49091C9C1E207480000B9B1E /* ConsistencyManager-tvOS */,
+				49091CA71E207480000B9B1E /* ConsistencyManager-tvOSTests */,
 				61DBAA5519FFF64100A23A60 /* Products */,
 				8C5DE57A3AE14C02B279BEB8 /* Frameworks */,
 			);
@@ -257,6 +350,8 @@
 			children = (
 				61DBAA5419FFF64100A23A60 /* ConsistencyManager.framework */,
 				61DBAA5F19FFF64100A23A60 /* ConsistencyManagerTests.xctest */,
+				49091C9B1E20747F000B9B1E /* ConsistencyManager.framework */,
+				49091CA31E207480000B9B1E /* ConsistencyManager-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -273,6 +368,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		49091C981E20747F000B9B1E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49091CAB1E207480000B9B1E /* ConsistencyManager-tvOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61DBAA5119FFF64100A23A60 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -284,6 +387,42 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		49091C9A1E20747F000B9B1E /* ConsistencyManager-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49091CB01E207480000B9B1E /* Build configuration list for PBXNativeTarget "ConsistencyManager-tvOS" */;
+			buildPhases = (
+				49091C961E20747F000B9B1E /* Sources */,
+				49091C971E20747F000B9B1E /* Frameworks */,
+				49091C981E20747F000B9B1E /* Headers */,
+				49091C991E20747F000B9B1E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ConsistencyManager-tvOS";
+			productName = "ConsistencyManager-tvOS";
+			productReference = 49091C9B1E20747F000B9B1E /* ConsistencyManager.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		49091CA21E207480000B9B1E /* ConsistencyManager-tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49091CB11E207480000B9B1E /* Build configuration list for PBXNativeTarget "ConsistencyManager-tvOSTests" */;
+			buildPhases = (
+				49091C9F1E207480000B9B1E /* Sources */,
+				49091CA01E207480000B9B1E /* Frameworks */,
+				49091CA11E207480000B9B1E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49091CA61E207480000B9B1E /* PBXTargetDependency */,
+			);
+			name = "ConsistencyManager-tvOSTests";
+			productName = "ConsistencyManager-tvOSTests";
+			productReference = 49091CA31E207480000B9B1E /* ConsistencyManager-tvOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		61DBAA5319FFF64100A23A60 /* ConsistencyManager */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61DBAA6A19FFF64200A23A60 /* Build configuration list for PBXNativeTarget "ConsistencyManager" */;
@@ -326,10 +465,20 @@
 		61DBAA4B19FFF64100A23A60 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = LinkedIn;
 				TargetAttributes = {
+					49091C9A1E20747F000B9B1E = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 2DP9335PZJ;
+						ProvisioningStyle = Automatic;
+					};
+					49091CA21E207480000B9B1E = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 2DP9335PZJ;
+						ProvisioningStyle = Automatic;
+					};
 					61DBAA5319FFF64100A23A60 = {
 						CreatedOnToolsVersion = 6.1;
 						LastSwiftMigration = 0800;
@@ -356,11 +505,27 @@
 			targets = (
 				61DBAA5319FFF64100A23A60 /* ConsistencyManager */,
 				61DBAA5E19FFF64100A23A60 /* ConsistencyManagerTests */,
+				49091C9A1E20747F000B9B1E /* ConsistencyManager-tvOS */,
+				49091CA21E207480000B9B1E /* ConsistencyManager-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		49091C991E20747F000B9B1E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49091CA11E207480000B9B1E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61DBAA5219FFF64100A23A60 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -378,6 +543,65 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		49091C961E20747F000B9B1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49091CC11E2074C0000B9B1E /* ConsistencyManager.swift in Sources */,
+				49091CB21E207497000B9B1E /* ErrorManager.swift in Sources */,
+				49091CBE1E2074B7000B9B1E /* ConsistencyManagerModel.swift in Sources */,
+				49091CB51E20749E000B9B1E /* WeakBox.swift in Sources */,
+				49091CB81E2074A5000B9B1E /* WeakArray.swift in Sources */,
+				49091CC01E2074BD000B9B1E /* ConsistencyManagerDelegate.swift in Sources */,
+				49091CB91E2074A7000B9B1E /* ModelChange.swift in Sources */,
+				49091CBA1E2074AA000B9B1E /* ModelUpdates.swift in Sources */,
+				49091CB41E20749C000B9B1E /* TypeErasedWeakHolders.swift in Sources */,
+				49091CB71E2074A3000B9B1E /* Array+Weak.swift in Sources */,
+				49091CBF1E2074BA000B9B1E /* ConsistencyManagerListener.swift in Sources */,
+				49091CBC1E2074AF000B9B1E /* BatchListener.swift in Sources */,
+				49091CB61E2074A1000B9B1E /* WeakHolder.swift in Sources */,
+				49091CB31E20749A000B9B1E /* CollectionHelpers.swift in Sources */,
+				49091CBB1E2074AD000B9B1E /* BatchUpdateModel.swift in Sources */,
+				49091CBD1E2074B3000B9B1E /* ConsistencyManagerUpdatesListener.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49091C9F1E207480000B9B1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49091CC71E20750C000B9B1E /* TestUpdatesListener.swift in Sources */,
+				49091CCE1E20751D000B9B1E /* BatchUpdateTests.swift in Sources */,
+				49091CC51E207507000B9B1E /* ConsistencyManagerTestCase.swift in Sources */,
+				49091CCD1E20751A000B9B1E /* BatchListenerTest.swift in Sources */,
+				49091CCB1E207515000B9B1E /* ProjectionTreeModel.swift in Sources */,
+				49091CCF1E207520000B9B1E /* ContextTests.swift in Sources */,
+				49091CDC1E20753F000B9B1E /* ModelUpdatesTests.swift in Sources */,
+				49091CDB1E20753C000B9B1E /* UpdateTests.swift in Sources */,
+				49091CD91E207537000B9B1E /* UpdateFlowTests.swift in Sources */,
+				49091CDF1E207548000B9B1E /* GarbageCollectionTests.swift in Sources */,
+				49091CC91E207510000B9B1E /* ProjectionTestModel.swift in Sources */,
+				49091CD71E207532000B9B1E /* RemoveListenerTests.swift in Sources */,
+				49091CC41E207505000B9B1E /* ModelChangeTests.swift in Sources */,
+				49091CD11E207524000B9B1E /* ErrorTests.swift in Sources */,
+				49091CD81E207535000B9B1E /* ShortCurcuitTests.swift in Sources */,
+				49091CD41E20752B000B9B1E /* PauseListenerTests.swift in Sources */,
+				49091CD51E20752E000B9B1E /* ModelUpdatesListenerTests.swift in Sources */,
+				49091CDA1E20753A000B9B1E /* UpdateOrderingTests.swift in Sources */,
+				49091CC81E20750E000B9B1E /* TestModel.swift in Sources */,
+				49091CC61E20750A000B9B1E /* TestListener.swift in Sources */,
+				49091CD61E207530000B9B1E /* RaceConditionsTests.swift in Sources */,
+				49091CCC1E207517000B9B1E /* TestModelGenerator.swift in Sources */,
+				49091CD01E207522000B9B1E /* DeleteTests.swift in Sources */,
+				49091CD31E207528000B9B1E /* MemoryWarningTests.swift in Sources */,
+				49091CDD1E207542000B9B1E /* ProjectionTests.swift in Sources */,
+				49091CD21E207526000B9B1E /* ListenerTests.swift in Sources */,
+				49091CCA1E207512000B9B1E /* TestRequiredModel.swift in Sources */,
+				49091CC31E207502000B9B1E /* WeakArrayTests.swift in Sources */,
+				49091CDE1E207544000B9B1E /* ClearAndCancelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61DBAA4F19FFF64100A23A60 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -440,6 +664,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		49091CA61E207480000B9B1E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49091C9A1E20747F000B9B1E /* ConsistencyManager-tvOS */;
+			targetProxy = 49091CA51E207480000B9B1E /* PBXContainerItemProxy */;
+		};
 		614661E51A0293B0001C9B50 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 61DBAA5319FFF64100A23A60 /* ConsistencyManager */;
@@ -448,6 +677,98 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		49091CAC1E207480000B9B1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2DP9335PZJ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "ConsistencyManager-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andrew.Baristable.ConsistencyManager-tvOS";
+				PRODUCT_NAME = ConsistencyManager;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+			};
+			name = Debug;
+		};
+		49091CAD1E207480000B9B1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2DP9335PZJ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "ConsistencyManager-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andrew.Baristable.ConsistencyManager-tvOS";
+				PRODUCT_NAME = ConsistencyManager;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+			};
+			name = Release;
+		};
+		49091CAE1E207480000B9B1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 2DP9335PZJ;
+				INFOPLIST_FILE = "ConsistencyManager-tvOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andrew.Baristable.ConsistencyManager-tvOSTests";
+				PRODUCT_MODULE_NAME = ConsistencyManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+			};
+			name = Debug;
+		};
+		49091CAF1E207480000B9B1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2DP9335PZJ;
+				INFOPLIST_FILE = "ConsistencyManager-tvOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andrew.Baristable.ConsistencyManager-tvOSTests";
+				PRODUCT_MODULE_NAME = ConsistencyManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+			};
+			name = Release;
+		};
 		61DBAA6819FFF64200A23A60 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -631,6 +952,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		49091CB01E207480000B9B1E /* Build configuration list for PBXNativeTarget "ConsistencyManager-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49091CAC1E207480000B9B1E /* Debug */,
+				49091CAD1E207480000B9B1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		49091CB11E207480000B9B1E /* Build configuration list for PBXNativeTarget "ConsistencyManager-tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49091CAE1E207480000B9B1E /* Debug */,
+				49091CAF1E207480000B9B1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		61DBAA4E19FFF64100A23A60 /* Build configuration list for PBXProject "ConsistencyManager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

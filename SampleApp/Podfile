@@ -4,8 +4,16 @@ target 'ConsistencyManagerDemo' do
     pod 'ConsistencyManager', :path => '..'
 end
 
+target 'ConsistencyManagerDemo-tvOS' do
+	pod 'ConsistencyManager', :path => '..'
+end
+
 target 'ConsistencyManagerDemoTests' do
     pod 'ConsistencyManager', :path => '..'
+end
+
+target 'ConsistencyManagerDemo-tvOSTests' do
+	pod 'ConsistencyManager', :path => '..'
 end
 
 # This is necessary to convert the target to swift 3

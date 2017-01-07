@@ -7,193 +7,359 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A51D87889023F52D63559B9624B15D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		2B4766559F7FACFEE5CDB0AB152BFA82 /* ConsistencyManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48F23C83E39059CF5B9E92F34C87803 /* ConsistencyManagerModel.swift */; };
-		4634C767EBD6E76069B986A6CB10504D /* CollectionHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A29A7D5E1E11EF858BCE11E48846AD /* CollectionHelpers.swift */; };
-		4B2BE5EF5BCC75C085AF6FB3DFB73BF7 /* ConsistencyManager-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 73E7C4AA7831B8534275EFD894D577F0 /* ConsistencyManager-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		51089D14D31E1F11878DACC24F040CCF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		67C6C6DAAA281DD86B4713C67A6069D2 /* Pods-ConsistencyManagerDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 440C37B569E235BC92C785E3793973D6 /* Pods-ConsistencyManagerDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7BEAE74FF1D8A510ABD12932094B4065 /* ConsistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C470B1C9FD5BBF72E685ACD69A4E5883 /* ConsistencyManager.swift */; };
-		8092A6930A3A7578C6CB9AD8DBE406B2 /* Pods-ConsistencyManagerDemoTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D89E218F2C97C64475047ECC0FACFD4B /* Pods-ConsistencyManagerDemoTests-dummy.m */; };
-		8265AE9D9D400DF1E9B06A3955F85942 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
-		946F6A686048EA441C57692609C7D832 /* BatchListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0FBA5BD8F2F85C07354AF72EEB1007 /* BatchListener.swift */; };
-		98012ABE0EB56B1CCE7CD83BB1182914 /* WeakArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0144C760EF25E554776ED5ECCA43CCEE /* WeakArray.swift */; };
-		9CF5B934F1E4C8ABAA4BEDE6D492F53B /* ConsistencyManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D765DDF0C4FF958D062CD0F903ECDC /* ConsistencyManager-dummy.m */; };
-		9EE61BA958034E978A1CD8CA267DFBB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		9F5AEBB2084E771B548021CC26158A1E /* Pods-ConsistencyManagerDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A5921CB899F5D5BC643B0FC6006ABC4A /* Pods-ConsistencyManagerDemo-dummy.m */; };
-		ABFCB533DAAA09ADE1BD0A9F1132C199 /* ConsistencyManagerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2336708DF8B35DC983A27C75A4A5E9 /* ConsistencyManagerListener.swift */; };
-		CA7256006DA0588B8ED3D7F4508E78A5 /* Pods-ConsistencyManagerDemoTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E3FCAF141FEA5F29977F73000877DC91 /* Pods-ConsistencyManagerDemoTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CCD1B4DA266FD079ED226B54CBA44B2A /* ConsistencyManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B53017F66A898670D4B0CFE72E80809 /* ConsistencyManagerDelegate.swift */; };
-		D77D2196E19893A32580FDD0485B4C52 /* ModelUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084825E98E719B864802ADC493E7901 /* ModelUpdates.swift */; };
-		ECEED617A5BCA13DEBC088D96919A256 /* BatchUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB257E3E3B3C4F54E44A4E33BAD8CB2 /* BatchUpdateModel.swift */; };
-		EE235C93D5DBAC5F8B866D42CD698BB2 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC63DDDFD77CBEE2B5BF01101035E95 /* ErrorManager.swift */; };
-		F48AFC9B00256A326D88241F8A2B0D0E /* WeakListenerArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F08CB6DE1EA371C07F5DAA84698F5DF /* WeakListenerArray.swift */; };
+		00CBF7B731092CC3F2EE4E30FA92CA7D /* Pods-ConsistencyManagerDemo-tvOSTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 420C756AAD63005CA99EB5321362E89D /* Pods-ConsistencyManagerDemo-tvOSTests-dummy.m */; };
+		0420594F1188973AF32354F6B0B5E4F6 /* ConsistencyManagerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0165A7BDE881AD662F054444749EC /* ConsistencyManagerListener.swift */; };
+		0C5A5AA70A43785C2F5A039A101455AB /* WeakArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C36DA0EA00CF92F0CE4F20C8F1DD56F /* WeakArray.swift */; };
+		0E8D1A23C4390CEA1827432CED746CE4 /* ModelUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CC1B515748CC0AF7A330357AB83523 /* ModelUpdates.swift */; };
+		1243332C9ACDFFE56B62B7F5DAB0363A /* ConsistencyManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C7ABA8CBB62CE97C5A95174011E96D /* ConsistencyManagerDelegate.swift */; };
+		138F0B251E5CCDF61530C1431C4DB2A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E121A3961E1BE3FAFE72CE5B480D1C /* Foundation.framework */; };
+		160F4AE62DAAE124E8C18BC1E2334C98 /* ConsistencyManager-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E2F78A71E9CFD08B17BB54693AA924 /* ConsistencyManager-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A138B3F6DC3DCBAD4B6267C31B86C71 /* Pods-ConsistencyManagerDemoTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EA9FA643AAF631E6CBCD0D7DCF08D16 /* Pods-ConsistencyManagerDemoTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		22F5917AF69DBCA4178BF4C12A73F326 /* ConsistencyManager-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A32D96098C1C46226EFE8B82CDF489 /* ConsistencyManager-iOS-dummy.m */; };
+		304042D4D721E11E1B3C1B84D18FCB29 /* BatchListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C130BBC63BE73CF525E48C0276B03E /* BatchListener.swift */; };
+		374D79D0B363FBACD09D3F0238A172DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25E7ABE74A9EB02B9EA922E8EEBFBDD7 /* UIKit.framework */; };
+		39AB8A1983D20670D81953DF2ECC3E78 /* ConsistencyManagerUpdatesListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D859B2765219737BB5A69C303C4130 /* ConsistencyManagerUpdatesListener.swift */; };
+		3F194E11C3843C97A4EA22FC5AC626F1 /* BatchListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C130BBC63BE73CF525E48C0276B03E /* BatchListener.swift */; };
+		45E287247BD9EB4A6973E84DEA555803 /* WeakArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C36DA0EA00CF92F0CE4F20C8F1DD56F /* WeakArray.swift */; };
+		4B7F55458FCB646A1D3F93AB154A1F23 /* ConsistencyManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C7ABA8CBB62CE97C5A95174011E96D /* ConsistencyManagerDelegate.swift */; };
+		4BA6C6007E99DF266DA21DBF34A2C19A /* ConsistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65F41B2FA349E35D84C5ADE41B23278 /* ConsistencyManager.swift */; };
+		4DD6CC9FD9F5BDAEF507857FE977544F /* CollectionHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C3B944AFF9277C487298398B5F050D /* CollectionHelpers.swift */; };
+		5131E12CBE8039FABC6F7E25EB0662D5 /* TypeErasedWeakHolders.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13653E93D6E8E6261064ED1C35F78D5 /* TypeErasedWeakHolders.swift */; };
+		820AFFC9499D36DF97F64504B50EA7DE /* TypeErasedWeakHolders.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13653E93D6E8E6261064ED1C35F78D5 /* TypeErasedWeakHolders.swift */; };
+		83A548B1D9C7AD52141DB5B2CAF6D9B1 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD39056ADAD79C0AFE3E063BF247E61 /* ErrorManager.swift */; };
+		8717D567A640EFE22FF754C8CC86FB75 /* ModelChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5377632E1664417E701F78172B36882 /* ModelChange.swift */; };
+		8C7D46C45DE9F182A77D4180D8A87451 /* Pods-ConsistencyManagerDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 49ADBAB03164A37BBDCA1711DD6F1AAF /* Pods-ConsistencyManagerDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		90A34234BBD7BE51DF33AA3C4C0665F3 /* ConsistencyManager-tvOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C314489444F752B6704A905BBEC79F92 /* ConsistencyManager-tvOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		98396D69899EB8F6E938189D743867D8 /* ConsistencyManagerUpdatesListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D859B2765219737BB5A69C303C4130 /* ConsistencyManagerUpdatesListener.swift */; };
+		9E2649CE313BD3ECAD1EDC276E799541 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA296B1A1D99FC572280360B9BE1A37F /* Foundation.framework */; };
+		9FE8AE350099E619FB6903CF136415C1 /* ConsistencyManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF00B11ED2F3CB845F92FE405F6D7D8 /* ConsistencyManagerModel.swift */; };
+		A0EBD9A2844983A8B22885B192AC3B19 /* ConsistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65F41B2FA349E35D84C5ADE41B23278 /* ConsistencyManager.swift */; };
+		A503B45CDD8F28ED7050CF977185F2D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA296B1A1D99FC572280360B9BE1A37F /* Foundation.framework */; };
+		B0C75ECB82B80DD537DCC4AD361C22F5 /* Pods-ConsistencyManagerDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9806AD096E4B7796F348C08ABA0139 /* Pods-ConsistencyManagerDemo-dummy.m */; };
+		B5B6A620AF9010E91CE9AE24ABA61E46 /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9579286C8F84A5AA064D253321F7DA8F /* WeakBox.swift */; };
+		B5F40B276D00AA6E284D28EC59DFCEB8 /* Array+Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1979DAC72FAACD8F92D484C50A62B8 /* Array+Weak.swift */; };
+		B63F0A7AA39D3A5733AC2DA928731A5A /* Pods-ConsistencyManagerDemo-tvOSTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E96BED1D7348EC4F0BAE4C7529B47DD2 /* Pods-ConsistencyManagerDemo-tvOSTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B77B9515175C24F092C03DB44F824F80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E121A3961E1BE3FAFE72CE5B480D1C /* Foundation.framework */; };
+		BBA8C6F070DE90D7DF92561756101CAC /* Pods-ConsistencyManagerDemo-tvOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 42097C01C8EF27CB0B84D0F4106EA7C3 /* Pods-ConsistencyManagerDemo-tvOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0C5AC1E2837F7DF490A3124CF2C06BD /* ConsistencyManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF00B11ED2F3CB845F92FE405F6D7D8 /* ConsistencyManagerModel.swift */; };
+		C1F52A427ECBC5F56A79B54B0F208801 /* Pods-ConsistencyManagerDemoTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 889A0345808C530CC74161ED55195FC8 /* Pods-ConsistencyManagerDemoTests-dummy.m */; };
+		C4775D1491AD418A0B420EB03E7A5A13 /* WeakHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF12AADF933B73946DA7A255213E3F9F /* WeakHolder.swift */; };
+		CC917E2F6AB580C25F63A3EAB0BA3F37 /* ModelUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CC1B515748CC0AF7A330357AB83523 /* ModelUpdates.swift */; };
+		D194A465B2A14ECA3F546C427A48CDE3 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD39056ADAD79C0AFE3E063BF247E61 /* ErrorManager.swift */; };
+		D5753A9C70C05F0D8D7AE471A4A980FF /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9579286C8F84A5AA064D253321F7DA8F /* WeakBox.swift */; };
+		DCF96B5025ACF5427344B1849099DA88 /* CollectionHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C3B944AFF9277C487298398B5F050D /* CollectionHelpers.swift */; };
+		E02C2DA7694AE165DB15E8B8ACB3F884 /* BatchUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACD97573FD5A6AA8A75624B887434BB /* BatchUpdateModel.swift */; };
+		E3B8A4C23723CA7B725B701196B2A221 /* WeakHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF12AADF933B73946DA7A255213E3F9F /* WeakHolder.swift */; };
+		EFFAC0D53AF986A2C4B172765D7832F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA296B1A1D99FC572280360B9BE1A37F /* Foundation.framework */; };
+		F10CE30FA2F4F69B867126AC8109DA60 /* ConsistencyManagerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0165A7BDE881AD662F054444749EC /* ConsistencyManagerListener.swift */; };
+		F452F76773D0619DAEF88DA1CBB76FD8 /* ConsistencyManager-tvOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7A1C24F138C67E0B05635619AAC59E /* ConsistencyManager-tvOS-dummy.m */; };
+		F65CB53AF0C2E6E847768F6885D4B64C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 651749039AA2EEC434FC875FD9A692C5 /* UIKit.framework */; };
+		F95E4EB477C9B1D855999650A201B2FF /* Pods-ConsistencyManagerDemo-tvOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D404471F676B85E06FA1BD49E789B3D /* Pods-ConsistencyManagerDemo-tvOS-dummy.m */; };
+		F9F57794EAA07AEB4C1BB9A674F4CA40 /* BatchUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACD97573FD5A6AA8A75624B887434BB /* BatchUpdateModel.swift */; };
+		FB4E37DE3EF54F3C7D03FA32B7544113 /* ModelChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5377632E1664417E701F78172B36882 /* ModelChange.swift */; };
+		FCD337720F4DC2CA7D7C28B612B105E8 /* Array+Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1979DAC72FAACD8F92D484C50A62B8 /* Array+Weak.swift */; };
+		FE3553D10CB80D7D6802F67EDC90F6F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E121A3961E1BE3FAFE72CE5B480D1C /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7013622491A77F8DFA5BA8EFE366E3BD /* PBXContainerItemProxy */ = {
+		1166C0018036D92D3D45F89568A71634 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BF143FCB0BDDCCE19A427004B80418A1;
-			remoteInfo = ConsistencyManager;
+			remoteGlobalIDString = B0169F09D11C12B901A8927CE9965EE9;
+			remoteInfo = "ConsistencyManager-iOS";
 		};
-		E4E5365944BCF8FF9103AF9C91C3BE69 /* PBXContainerItemProxy */ = {
+		35400205719CE6953F7A2640069A47FD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BF143FCB0BDDCCE19A427004B80418A1;
-			remoteInfo = ConsistencyManager;
+			remoteGlobalIDString = 4E5D933CE3753118948DE27245DD0145;
+			remoteInfo = "ConsistencyManager-tvOS";
+		};
+		AD24C4207D767DA965964AF47354D200 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E5D933CE3753118948DE27245DD0145;
+			remoteInfo = "ConsistencyManager-tvOS";
+		};
+		F7421C1726835316613C8F5DFEE8C559 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0169F09D11C12B901A8927CE9965EE9;
+			remoteInfo = "ConsistencyManager-iOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0144C760EF25E554776ED5ECCA43CCEE /* WeakArray.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WeakArray.swift; sourceTree = "<group>"; };
-		07FEC02D0D67674AC7D95ADE2CF3FBCA /* ConsistencyManager.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ConsistencyManager.modulemap; sourceTree = "<group>"; };
-		0BDC9F4AFD6145795A4651F5CADC8C63 /* Pods-ConsistencyManagerDemoTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ConsistencyManagerDemoTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		188C8EECBB0DEC67D0093A93F3C75B53 /* ConsistencyManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ConsistencyManager-prefix.pch"; sourceTree = "<group>"; };
-		2084825E98E719B864802ADC493E7901 /* ModelUpdates.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModelUpdates.swift; sourceTree = "<group>"; };
-		20C77C2EE983F9889A838B60184CA122 /* Pods-ConsistencyManagerDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ConsistencyManagerDemo-acknowledgements.plist"; sourceTree = "<group>"; };
-		3C6A32DCBC7F8D779F02A8379CEEE5E7 /* Pods-ConsistencyManagerDemoTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ConsistencyManagerDemoTests.modulemap"; sourceTree = "<group>"; };
-		3FB257E3E3B3C4F54E44A4E33BAD8CB2 /* BatchUpdateModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BatchUpdateModel.swift; sourceTree = "<group>"; };
-		43A29A7D5E1E11EF858BCE11E48846AD /* CollectionHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionHelpers.swift; sourceTree = "<group>"; };
-		440C37B569E235BC92C785E3793973D6 /* Pods-ConsistencyManagerDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ConsistencyManagerDemo-umbrella.h"; sourceTree = "<group>"; };
-		4886136AA75D4BD3F3EA7F7737666C3F /* Pods-ConsistencyManagerDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ConsistencyManagerDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		4B53017F66A898670D4B0CFE72E80809 /* ConsistencyManagerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConsistencyManagerDelegate.swift; sourceTree = "<group>"; };
-		57D765DDF0C4FF958D062CD0F903ECDC /* ConsistencyManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ConsistencyManager-dummy.m"; sourceTree = "<group>"; };
-		57E68D3081A8392BC8A463B0622FEDDB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6892BE106BBA2F1EF5018BFF3401C7F4 /* Pods-ConsistencyManagerDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ConsistencyManagerDemo.modulemap"; sourceTree = "<group>"; };
-		6C7214876AADE303DB5DBC63DBD7159C /* Pods_ConsistencyManagerDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConsistencyManagerDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		73E7C4AA7831B8534275EFD894D577F0 /* ConsistencyManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ConsistencyManager-umbrella.h"; sourceTree = "<group>"; };
-		7C852A5060BDF1BA2232CBB05171E2FA /* Pods-ConsistencyManagerDemoTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ConsistencyManagerDemoTests-resources.sh"; sourceTree = "<group>"; };
-		85C693DEC8FEE4B7D75A35E8C4E2235B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8F08CB6DE1EA371C07F5DAA84698F5DF /* WeakListenerArray.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WeakListenerArray.swift; sourceTree = "<group>"; };
-		90566CB410ECED574E5595F473A7E0CB /* Pods-ConsistencyManagerDemoTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ConsistencyManagerDemoTests-frameworks.sh"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		95FABE5E5C82E452542740630E035242 /* ConsistencyManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ConsistencyManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A2336708DF8B35DC983A27C75A4A5E9 /* ConsistencyManagerListener.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConsistencyManagerListener.swift; sourceTree = "<group>"; };
-		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A5921CB899F5D5BC643B0FC6006ABC4A /* Pods-ConsistencyManagerDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ConsistencyManagerDemo-dummy.m"; sourceTree = "<group>"; };
-		AB96173C489A506D219E0CAD5CFCF72F /* Pods-ConsistencyManagerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ConsistencyManagerDemo.release.xcconfig"; sourceTree = "<group>"; };
-		AFC63DDDFD77CBEE2B5BF01101035E95 /* ErrorManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
-		C4129D156D77AFF80AD298D10E118E7E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C470B1C9FD5BBF72E685ACD69A4E5883 /* ConsistencyManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConsistencyManager.swift; sourceTree = "<group>"; };
-		CB5425EA16CD7E7219B3B20B6A7891BE /* Pods-ConsistencyManagerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ConsistencyManagerDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		CC242C43169BAD1A0D861518AE632709 /* Pods-ConsistencyManagerDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ConsistencyManagerDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D152D8D76588A6901C02B7CAEEDD89BB /* Pods-ConsistencyManagerDemoTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ConsistencyManagerDemoTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		D48F23C83E39059CF5B9E92F34C87803 /* ConsistencyManagerModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConsistencyManagerModel.swift; sourceTree = "<group>"; };
-		D89E218F2C97C64475047ECC0FACFD4B /* Pods-ConsistencyManagerDemoTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ConsistencyManagerDemoTests-dummy.m"; sourceTree = "<group>"; };
-		E173DD931B17B0F5230EE1F25C3D464C /* Pods-ConsistencyManagerDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ConsistencyManagerDemoTests.release.xcconfig"; sourceTree = "<group>"; };
-		E35D0045037C31ACFD232FF8789ED67E /* Pods-ConsistencyManagerDemo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ConsistencyManagerDemo-resources.sh"; sourceTree = "<group>"; };
-		E3FCAF141FEA5F29977F73000877DC91 /* Pods-ConsistencyManagerDemoTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ConsistencyManagerDemoTests-umbrella.h"; sourceTree = "<group>"; };
-		E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		ED07B2160440E1B489A2F18D1180FAB7 /* Pods-ConsistencyManagerDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ConsistencyManagerDemo-frameworks.sh"; sourceTree = "<group>"; };
-		EECEF8CBAF61CF0C2988F5A14BF41D8C /* ConsistencyManager.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ConsistencyManager.xcconfig; sourceTree = "<group>"; };
-		EFAE0ADEFDD92C479B85F07AAA90E5C8 /* Pods_ConsistencyManagerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConsistencyManagerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF0FBA5BD8F2F85C07354AF72EEB1007 /* BatchListener.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BatchListener.swift; sourceTree = "<group>"; };
+		0957438D4E1D2CC8ED84CB84625B3C58 /* Pods-ConsistencyManagerDemoTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ConsistencyManagerDemoTests-frameworks.sh"; sourceTree = "<group>"; };
+		17713B350C2C58FE62D8DF7F119EB4CC /* Pods-ConsistencyManagerDemo-tvOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ConsistencyManagerDemo-tvOS-frameworks.sh"; sourceTree = "<group>"; };
+		25E7ABE74A9EB02B9EA922E8EEBFBDD7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		2EA9FA643AAF631E6CBCD0D7DCF08D16 /* Pods-ConsistencyManagerDemoTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ConsistencyManagerDemoTests-umbrella.h"; sourceTree = "<group>"; };
+		31808023ADFCC931FFFE1045CC950FAF /* ConsistencyManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ConsistencyManager.framework; path = "ConsistencyManager-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		392FF9DBFEAC629ED2C7B9250E579FCE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A1979DAC72FAACD8F92D484C50A62B8 /* Array+Weak.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Array+Weak.swift"; sourceTree = "<group>"; };
+		3C36DA0EA00CF92F0CE4F20C8F1DD56F /* WeakArray.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WeakArray.swift; sourceTree = "<group>"; };
+		3C7A1C24F138C67E0B05635619AAC59E /* ConsistencyManager-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ConsistencyManager-tvOS-dummy.m"; path = "../ConsistencyManager-tvOS/ConsistencyManager-tvOS-dummy.m"; sourceTree = "<group>"; };
+		3F740ED1673F6FBF65A7CCEF73A6A615 /* ConsistencyManager-iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ConsistencyManager-iOS.xcconfig"; sourceTree = "<group>"; };
+		3FAB704481ADF8834EDEBEF5509A25DB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41E121A3961E1BE3FAFE72CE5B480D1C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		42097C01C8EF27CB0B84D0F4106EA7C3 /* Pods-ConsistencyManagerDemo-tvOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ConsistencyManagerDemo-tvOS-umbrella.h"; sourceTree = "<group>"; };
+		420C756AAD63005CA99EB5321362E89D /* Pods-ConsistencyManagerDemo-tvOSTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ConsistencyManagerDemo-tvOSTests-dummy.m"; sourceTree = "<group>"; };
+		48C130BBC63BE73CF525E48C0276B03E /* BatchListener.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BatchListener.swift; sourceTree = "<group>"; };
+		49ADBAB03164A37BBDCA1711DD6F1AAF /* Pods-ConsistencyManagerDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ConsistencyManagerDemo-umbrella.h"; sourceTree = "<group>"; };
+		4AC9C6C6FBDA15A13427371809A48EAD /* Pods-ConsistencyManagerDemo-tvOSTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ConsistencyManagerDemo-tvOSTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		4F9EF117B01E331FEDCFE2BD354722D6 /* Pods-ConsistencyManagerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ConsistencyManagerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		56CB69128ED44377E02E393710E275A9 /* Pods-ConsistencyManagerDemo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ConsistencyManagerDemo-resources.sh"; sourceTree = "<group>"; };
+		5B75237F08E57CA952FE5D128D9FC6DC /* Pods-ConsistencyManagerDemo-tvOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ConsistencyManagerDemo-tvOS-acknowledgements.plist"; sourceTree = "<group>"; };
+		60A4DEB1A452FC3825B438C7AC2D2B96 /* Pods-ConsistencyManagerDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ConsistencyManagerDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		651749039AA2EEC434FC875FD9A692C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		67E735FE2DCF01A79002CCD835B04BE8 /* Pods-ConsistencyManagerDemo-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ConsistencyManagerDemo-tvOS.modulemap"; sourceTree = "<group>"; };
+		6AD39056ADAD79C0AFE3E063BF247E61 /* ErrorManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
+		6CCF2331166EB0D7443AD156246C3496 /* Pods-ConsistencyManagerDemo-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ConsistencyManagerDemo-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		6D2BF25E791BF2C5E819A119BCB00DBA /* Pods-ConsistencyManagerDemo-tvOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ConsistencyManagerDemo-tvOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6D404471F676B85E06FA1BD49E789B3D /* Pods-ConsistencyManagerDemo-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ConsistencyManagerDemo-tvOS-dummy.m"; sourceTree = "<group>"; };
+		70CC1B515748CC0AF7A330357AB83523 /* ModelUpdates.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModelUpdates.swift; sourceTree = "<group>"; };
+		754028E1CEE15C55F33746305CC52F46 /* Pods_ConsistencyManagerDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ConsistencyManagerDemoTests.framework; path = "Pods-ConsistencyManagerDemoTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		852A2ABBA0772857A877D053A11DB079 /* Pods-ConsistencyManagerDemoTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ConsistencyManagerDemoTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		872F9D957046C582314983943C3515A3 /* Pods-ConsistencyManagerDemoTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ConsistencyManagerDemoTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		87E376850AD79C5DA233D64C81574F0F /* Pods-ConsistencyManagerDemo-tvOSTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ConsistencyManagerDemo-tvOSTests.modulemap"; sourceTree = "<group>"; };
+		889A0345808C530CC74161ED55195FC8 /* Pods-ConsistencyManagerDemoTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ConsistencyManagerDemoTests-dummy.m"; sourceTree = "<group>"; };
+		8A9806AD096E4B7796F348C08ABA0139 /* Pods-ConsistencyManagerDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ConsistencyManagerDemo-dummy.m"; sourceTree = "<group>"; };
+		8ACD97573FD5A6AA8A75624B887434BB /* BatchUpdateModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BatchUpdateModel.swift; sourceTree = "<group>"; };
+		8D40BB1B909597A46C31C66D136D46CE /* ConsistencyManager-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; name = "ConsistencyManager-tvOS.modulemap"; path = "../ConsistencyManager-tvOS/ConsistencyManager-tvOS.modulemap"; sourceTree = "<group>"; };
+		8FAD371DF830B16357B8A37812B6E4F3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92C3B944AFF9277C487298398B5F050D /* CollectionHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionHelpers.swift; sourceTree = "<group>"; };
+		92E2F78A71E9CFD08B17BB54693AA924 /* ConsistencyManager-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ConsistencyManager-iOS-umbrella.h"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		950E32E1F3B2BA2342AC60CF86223915 /* Pods_ConsistencyManagerDemo_tvOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ConsistencyManagerDemo_tvOSTests.framework; path = "Pods-ConsistencyManagerDemo-tvOSTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9579286C8F84A5AA064D253321F7DA8F /* WeakBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WeakBox.swift; sourceTree = "<group>"; };
+		95A32D96098C1C46226EFE8B82CDF489 /* ConsistencyManager-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ConsistencyManager-iOS-dummy.m"; sourceTree = "<group>"; };
+		982697D8A603F06D21CB28C0F343D814 /* Pods-ConsistencyManagerDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ConsistencyManagerDemo-frameworks.sh"; sourceTree = "<group>"; };
+		9D57FC87CE55B1502A6C937ECCE3D814 /* Pods-ConsistencyManagerDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ConsistencyManagerDemo.modulemap"; sourceTree = "<group>"; };
+		A0F5796F373E4FB9A0FB956D16AACAFF /* Pods-ConsistencyManagerDemo-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ConsistencyManagerDemo-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A13653E93D6E8E6261064ED1C35F78D5 /* TypeErasedWeakHolders.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TypeErasedWeakHolders.swift; sourceTree = "<group>"; };
+		A18DB07C64BCD88133F36C3320981963 /* ConsistencyManager-tvOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ConsistencyManager-tvOS-prefix.pch"; path = "../ConsistencyManager-tvOS/ConsistencyManager-tvOS-prefix.pch"; sourceTree = "<group>"; };
+		A5377632E1664417E701F78172B36882 /* ModelChange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModelChange.swift; sourceTree = "<group>"; };
+		A65F41B2FA349E35D84C5ADE41B23278 /* ConsistencyManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConsistencyManager.swift; sourceTree = "<group>"; };
+		A6C7ABA8CBB62CE97C5A95174011E96D /* ConsistencyManagerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConsistencyManagerDelegate.swift; sourceTree = "<group>"; };
+		A98585EB61279BC691778243C24DE36E /* Pods_ConsistencyManagerDemo_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ConsistencyManagerDemo_tvOS.framework; path = "Pods-ConsistencyManagerDemo-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9A5FDA90A83422FE80FACDDFD222C25 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../ConsistencyManager-tvOS/Info.plist"; sourceTree = "<group>"; };
+		AC84E85B4E2E54B7482DBEBAF33E2055 /* Pods-ConsistencyManagerDemo-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ConsistencyManagerDemo-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		ACCA685A9BEDF36D36052CF751A9FBA4 /* Pods-ConsistencyManagerDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ConsistencyManagerDemo-acknowledgements.plist"; sourceTree = "<group>"; };
+		AD43027C2E91735A3F4DE392FF9BB1C4 /* Pods-ConsistencyManagerDemo-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ConsistencyManagerDemo-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		AFECFBBAAB87D534E6A3ED69FE62F7F2 /* ConsistencyManager-tvOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "ConsistencyManager-tvOS.xcconfig"; path = "../ConsistencyManager-tvOS/ConsistencyManager-tvOS.xcconfig"; sourceTree = "<group>"; };
+		B15DE47513464F98ADFFD3F1D9BA97E1 /* Pods-ConsistencyManagerDemo-tvOSTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ConsistencyManagerDemo-tvOSTests-resources.sh"; sourceTree = "<group>"; };
+		B289F28F7F50590A5799D345706A6F3B /* Pods-ConsistencyManagerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ConsistencyManagerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		B3681B11B8B4E971E0AF68A0DFE03756 /* ConsistencyManager-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ConsistencyManager-iOS-prefix.pch"; sourceTree = "<group>"; };
+		B7C7D8DFD3387138CC4AF105894D888C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2D859B2765219737BB5A69C303C4130 /* ConsistencyManagerUpdatesListener.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConsistencyManagerUpdatesListener.swift; sourceTree = "<group>"; };
+		C314489444F752B6704A905BBEC79F92 /* ConsistencyManager-tvOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ConsistencyManager-tvOS-umbrella.h"; path = "../ConsistencyManager-tvOS/ConsistencyManager-tvOS-umbrella.h"; sourceTree = "<group>"; };
+		C4ABA9431B02573EF62021BA5433B45D /* Pods-ConsistencyManagerDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ConsistencyManagerDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C564FDA75500FF55F0DACA3747262474 /* Pods-ConsistencyManagerDemo-tvOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ConsistencyManagerDemo-tvOS-resources.sh"; sourceTree = "<group>"; };
+		CBC6FFD991F145944A60EB3961DD3E7B /* Pods-ConsistencyManagerDemo-tvOSTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ConsistencyManagerDemo-tvOSTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CBF00B11ED2F3CB845F92FE405F6D7D8 /* ConsistencyManagerModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConsistencyManagerModel.swift; sourceTree = "<group>"; };
+		CEFDA7F81A5B351B871391422DB32FFA /* Pods-ConsistencyManagerDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ConsistencyManagerDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DA296B1A1D99FC572280360B9BE1A37F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		DAD8F4C3325C21BBAD4307A4EB293570 /* ConsistencyManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ConsistencyManager.framework; path = "ConsistencyManager-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC8D8CD9A8DFCE0531F37300457585F1 /* ConsistencyManager-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "ConsistencyManager-iOS.modulemap"; sourceTree = "<group>"; };
+		E7363EB990176525F0495D82885CC2CE /* Pods-ConsistencyManagerDemoTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ConsistencyManagerDemoTests-resources.sh"; sourceTree = "<group>"; };
+		E7A0165A7BDE881AD662F054444749EC /* ConsistencyManagerListener.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConsistencyManagerListener.swift; sourceTree = "<group>"; };
+		E92CCC62889725F9F421AC71E4ACE61B /* Pods-ConsistencyManagerDemo-tvOSTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ConsistencyManagerDemo-tvOSTests-frameworks.sh"; sourceTree = "<group>"; };
+		E96BED1D7348EC4F0BAE4C7529B47DD2 /* Pods-ConsistencyManagerDemo-tvOSTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ConsistencyManagerDemo-tvOSTests-umbrella.h"; sourceTree = "<group>"; };
+		E9E41D34BBF57B11C5808D55B82D2147 /* Pods_ConsistencyManagerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ConsistencyManagerDemo.framework; path = "Pods-ConsistencyManagerDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9E869D97861F9F89EFE2A7BDDB02820 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF12AADF933B73946DA7A255213E3F9F /* WeakHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WeakHolder.swift; sourceTree = "<group>"; };
+		FA16DC5AC70D2D1C62063208B94F961E /* Pods-ConsistencyManagerDemoTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ConsistencyManagerDemoTests.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5332D560A2036BAAED9FCC5603C41CAD /* Frameworks */ = {
+		4C320C6AC689D6CF07DFA96DC46583FA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51089D14D31E1F11878DACC24F040CCF /* Foundation.framework in Frameworks */,
+				9E2649CE313BD3ECAD1EDC276E799541 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8CB93A423F38BCC201D2C88FE103CDA2 /* Frameworks */ = {
+		8775128634606864B65D802AACAA2A55 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EE61BA958034E978A1CD8CA267DFBB1 /* Foundation.framework in Frameworks */,
+				EFFAC0D53AF986A2C4B172765D7832F8 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B459A5D4048DD01BA939BB3FD857D8A4 /* Frameworks */ = {
+		8AC3456E3518C58833C59BEFC8CD7D05 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A51D87889023F52D63559B9624B15D6 /* Foundation.framework in Frameworks */,
-				8265AE9D9D400DF1E9B06A3955F85942 /* UIKit.framework in Frameworks */,
+				B77B9515175C24F092C03DB44F824F80 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91623BC69530B14CBABE24923358BBFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				138F0B251E5CCDF61530C1431C4DB2A2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91C1513082A425E3A4373E84FE65E6AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A503B45CDD8F28ED7050CF977185F2D0 /* Foundation.framework in Frameworks */,
+				374D79D0B363FBACD09D3F0238A172DC /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2A39653E0074A16A69DB3ACF696162D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE3553D10CB80D7D6802F67EDC90F6F8 /* Foundation.framework in Frameworks */,
+				F65CB53AF0C2E6E847768F6885D4B64C /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		15F0D3553BEFF8755161731FFA057803 /* ConsistencyManager */ = {
+		000385D48D0EF0B60C2B96F6F57507BC /* Pods-ConsistencyManagerDemo */ = {
 			isa = PBXGroup;
 			children = (
-				C470B1C9FD5BBF72E685ACD69A4E5883 /* ConsistencyManager.swift */,
-				402434D7100D779B1A4EBE57F0534F7F /* DataStructures */,
-				172080ADE83198DA3F334137874025AE /* Helpers */,
-				1DB0F36E63222055AB8FB9A455CE3773 /* Protocols */,
+				8FAD371DF830B16357B8A37812B6E4F3 /* Info.plist */,
+				9D57FC87CE55B1502A6C937ECCE3D814 /* Pods-ConsistencyManagerDemo.modulemap */,
+				C4ABA9431B02573EF62021BA5433B45D /* Pods-ConsistencyManagerDemo-acknowledgements.markdown */,
+				ACCA685A9BEDF36D36052CF751A9FBA4 /* Pods-ConsistencyManagerDemo-acknowledgements.plist */,
+				8A9806AD096E4B7796F348C08ABA0139 /* Pods-ConsistencyManagerDemo-dummy.m */,
+				982697D8A603F06D21CB28C0F343D814 /* Pods-ConsistencyManagerDemo-frameworks.sh */,
+				56CB69128ED44377E02E393710E275A9 /* Pods-ConsistencyManagerDemo-resources.sh */,
+				49ADBAB03164A37BBDCA1711DD6F1AAF /* Pods-ConsistencyManagerDemo-umbrella.h */,
+				4F9EF117B01E331FEDCFE2BD354722D6 /* Pods-ConsistencyManagerDemo.debug.xcconfig */,
+				B289F28F7F50590A5799D345706A6F3B /* Pods-ConsistencyManagerDemo.release.xcconfig */,
 			);
-			path = ConsistencyManager;
+			name = "Pods-ConsistencyManagerDemo";
+			path = "Target Support Files/Pods-ConsistencyManagerDemo";
 			sourceTree = "<group>";
 		};
-		172080ADE83198DA3F334137874025AE /* Helpers */ = {
+		2101E732BD93145A8731628A459FAEFA /* Pods-ConsistencyManagerDemo-tvOS */ = {
 			isa = PBXGroup;
 			children = (
-				43A29A7D5E1E11EF858BCE11E48846AD /* CollectionHelpers.swift */,
-				AFC63DDDFD77CBEE2B5BF01101035E95 /* ErrorManager.swift */,
+				392FF9DBFEAC629ED2C7B9250E579FCE /* Info.plist */,
+				67E735FE2DCF01A79002CCD835B04BE8 /* Pods-ConsistencyManagerDemo-tvOS.modulemap */,
+				6D2BF25E791BF2C5E819A119BCB00DBA /* Pods-ConsistencyManagerDemo-tvOS-acknowledgements.markdown */,
+				5B75237F08E57CA952FE5D128D9FC6DC /* Pods-ConsistencyManagerDemo-tvOS-acknowledgements.plist */,
+				6D404471F676B85E06FA1BD49E789B3D /* Pods-ConsistencyManagerDemo-tvOS-dummy.m */,
+				17713B350C2C58FE62D8DF7F119EB4CC /* Pods-ConsistencyManagerDemo-tvOS-frameworks.sh */,
+				C564FDA75500FF55F0DACA3747262474 /* Pods-ConsistencyManagerDemo-tvOS-resources.sh */,
+				42097C01C8EF27CB0B84D0F4106EA7C3 /* Pods-ConsistencyManagerDemo-tvOS-umbrella.h */,
+				AD43027C2E91735A3F4DE392FF9BB1C4 /* Pods-ConsistencyManagerDemo-tvOS.debug.xcconfig */,
+				AC84E85B4E2E54B7482DBEBAF33E2055 /* Pods-ConsistencyManagerDemo-tvOS.release.xcconfig */,
 			);
-			path = Helpers;
+			name = "Pods-ConsistencyManagerDemo-tvOS";
+			path = "Target Support Files/Pods-ConsistencyManagerDemo-tvOS";
 			sourceTree = "<group>";
 		};
-		1DB0F36E63222055AB8FB9A455CE3773 /* Protocols */ = {
+		27A8F071CF6D4A4BEEA42E86E8700C3E /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				4B53017F66A898670D4B0CFE72E80809 /* ConsistencyManagerDelegate.swift */,
-				9A2336708DF8B35DC983A27C75A4A5E9 /* ConsistencyManagerListener.swift */,
-				D48F23C83E39059CF5B9E92F34C87803 /* ConsistencyManagerModel.swift */,
+				DA296B1A1D99FC572280360B9BE1A37F /* Foundation.framework */,
+				25E7ABE74A9EB02B9EA922E8EEBFBDD7 /* UIKit.framework */,
 			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		28AA624F401BE15C88CA7B78A37C4247 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A6C7ABA8CBB62CE97C5A95174011E96D /* ConsistencyManagerDelegate.swift */,
+				E7A0165A7BDE881AD662F054444749EC /* ConsistencyManagerListener.swift */,
+				CBF00B11ED2F3CB845F92FE405F6D7D8 /* ConsistencyManagerModel.swift */,
+				C2D859B2765219737BB5A69C303C4130 /* ConsistencyManagerUpdatesListener.swift */,
+			);
+			name = Protocols;
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		402434D7100D779B1A4EBE57F0534F7F /* DataStructures */ = {
+		4374A29C3F01238F285FB66FA819E423 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FF0FBA5BD8F2F85C07354AF72EEB1007 /* BatchListener.swift */,
-				3FB257E3E3B3C4F54E44A4E33BAD8CB2 /* BatchUpdateModel.swift */,
-				2084825E98E719B864802ADC493E7901 /* ModelUpdates.swift */,
-				0144C760EF25E554776ED5ECCA43CCEE /* WeakArray.swift */,
-				8F08CB6DE1EA371C07F5DAA84698F5DF /* WeakListenerArray.swift */,
-			);
-			path = DataStructures;
-			sourceTree = "<group>";
-		};
-		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		578A87766815CCE33587B12BFA2836EB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				95FABE5E5C82E452542740630E035242 /* ConsistencyManager.framework */,
-				EFAE0ADEFDD92C479B85F07AAA90E5C8 /* Pods_ConsistencyManagerDemo.framework */,
-				6C7214876AADE303DB5DBC63DBD7159C /* Pods_ConsistencyManagerDemoTests.framework */,
+				DAD8F4C3325C21BBAD4307A4EB293570 /* ConsistencyManager.framework */,
+				31808023ADFCC931FFFE1045CC950FAF /* ConsistencyManager.framework */,
+				E9E41D34BBF57B11C5808D55B82D2147 /* Pods_ConsistencyManagerDemo.framework */,
+				A98585EB61279BC691778243C24DE36E /* Pods_ConsistencyManagerDemo_tvOS.framework */,
+				950E32E1F3B2BA2342AC60CF86223915 /* Pods_ConsistencyManagerDemo_tvOSTests.framework */,
+				754028E1CEE15C55F33746305CC52F46 /* Pods_ConsistencyManagerDemoTests.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		70C22A7A298EE0C8B13EF4E9BB903EB5 /* Support Files */ = {
+		47E3ED35058B4D197E850E5669ECB182 /* ConsistencyManager */ = {
 			isa = PBXGroup;
 			children = (
-				07FEC02D0D67674AC7D95ADE2CF3FBCA /* ConsistencyManager.modulemap */,
-				EECEF8CBAF61CF0C2988F5A14BF41D8C /* ConsistencyManager.xcconfig */,
-				57D765DDF0C4FF958D062CD0F903ECDC /* ConsistencyManager-dummy.m */,
-				188C8EECBB0DEC67D0093A93F3C75B53 /* ConsistencyManager-prefix.pch */,
-				73E7C4AA7831B8534275EFD894D577F0 /* ConsistencyManager-umbrella.h */,
-				57E68D3081A8392BC8A463B0622FEDDB /* Info.plist */,
+				813FBD717D339884D13E4BB5B78DF7B2 /* ConsistencyManager */,
+				A1AA3DBFF5988795013ED2D7E12167DF /* Support Files */,
 			);
-			name = "Support Files";
-			path = "SampleApp/Pods/Target Support Files/ConsistencyManager";
+			name = ConsistencyManager;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		4BB166185866D178BC518F3A0FCC547B /* Pods-ConsistencyManagerDemo-tvOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				E9E869D97861F9F89EFE2A7BDDB02820 /* Info.plist */,
+				87E376850AD79C5DA233D64C81574F0F /* Pods-ConsistencyManagerDemo-tvOSTests.modulemap */,
+				CBC6FFD991F145944A60EB3961DD3E7B /* Pods-ConsistencyManagerDemo-tvOSTests-acknowledgements.markdown */,
+				4AC9C6C6FBDA15A13427371809A48EAD /* Pods-ConsistencyManagerDemo-tvOSTests-acknowledgements.plist */,
+				420C756AAD63005CA99EB5321362E89D /* Pods-ConsistencyManagerDemo-tvOSTests-dummy.m */,
+				E92CCC62889725F9F421AC71E4ACE61B /* Pods-ConsistencyManagerDemo-tvOSTests-frameworks.sh */,
+				B15DE47513464F98ADFFD3F1D9BA97E1 /* Pods-ConsistencyManagerDemo-tvOSTests-resources.sh */,
+				E96BED1D7348EC4F0BAE4C7529B47DD2 /* Pods-ConsistencyManagerDemo-tvOSTests-umbrella.h */,
+				A0F5796F373E4FB9A0FB956D16AACAFF /* Pods-ConsistencyManagerDemo-tvOSTests.debug.xcconfig */,
+				6CCF2331166EB0D7443AD156246C3496 /* Pods-ConsistencyManagerDemo-tvOSTests.release.xcconfig */,
+			);
+			name = "Pods-ConsistencyManagerDemo-tvOSTests";
+			path = "Target Support Files/Pods-ConsistencyManagerDemo-tvOSTests";
+			sourceTree = "<group>";
+		};
+		4E1C6F507D7991E028ABB4AB267E0120 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				41E121A3961E1BE3FAFE72CE5B480D1C /* Foundation.framework */,
+				651749039AA2EEC434FC875FD9A692C5 /* UIKit.framework */,
+			);
+			name = tvOS;
+			sourceTree = "<group>";
+		};
+		6C7B1C28AE1D91CA8FD18B4EB922EC4F /* DataStructures */ = {
+			isa = PBXGroup;
+			children = (
+				3A1979DAC72FAACD8F92D484C50A62B8 /* Array+Weak.swift */,
+				48C130BBC63BE73CF525E48C0276B03E /* BatchListener.swift */,
+				8ACD97573FD5A6AA8A75624B887434BB /* BatchUpdateModel.swift */,
+				A5377632E1664417E701F78172B36882 /* ModelChange.swift */,
+				70CC1B515748CC0AF7A330357AB83523 /* ModelUpdates.swift */,
+				A13653E93D6E8E6261064ED1C35F78D5 /* TypeErasedWeakHolders.swift */,
+				3C36DA0EA00CF92F0CE4F20C8F1DD56F /* WeakArray.swift */,
+				9579286C8F84A5AA064D253321F7DA8F /* WeakBox.swift */,
+				EF12AADF933B73946DA7A255213E3F9F /* WeakHolder.swift */,
+			);
+			name = DataStructures;
+			path = DataStructures;
+			sourceTree = "<group>";
+		};
+		708254123DB6E5FF19ECED8ED52FDDE5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				92C3B944AFF9277C487298398B5F050D /* CollectionHelpers.swift */,
+				6AD39056ADAD79C0AFE3E063BF247E61 /* ErrorManager.swift */,
+			);
+			name = Helpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -201,165 +367,248 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				A23F02848403E61DB9A23F6BF9A56D3D /* Development Pods */,
-				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				578A87766815CCE33587B12BFA2836EB /* Products */,
-				C5DC5848CE0FCAD092F49081196F8EF1 /* Targets Support Files */,
+				884D502095129379EF5BB132EEA4E18E /* Frameworks */,
+				4374A29C3F01238F285FB66FA819E423 /* Products */,
+				F4987B55CD5EA2E81521792954FB6D4F /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8A22E529FEE93CA2A529819424385060 /* Pods-ConsistencyManagerDemoTests */ = {
+		813FBD717D339884D13E4BB5B78DF7B2 /* ConsistencyManager */ = {
 			isa = PBXGroup;
 			children = (
-				C4129D156D77AFF80AD298D10E118E7E /* Info.plist */,
-				3C6A32DCBC7F8D779F02A8379CEEE5E7 /* Pods-ConsistencyManagerDemoTests.modulemap */,
-				0BDC9F4AFD6145795A4651F5CADC8C63 /* Pods-ConsistencyManagerDemoTests-acknowledgements.markdown */,
-				D152D8D76588A6901C02B7CAEEDD89BB /* Pods-ConsistencyManagerDemoTests-acknowledgements.plist */,
-				D89E218F2C97C64475047ECC0FACFD4B /* Pods-ConsistencyManagerDemoTests-dummy.m */,
-				90566CB410ECED574E5595F473A7E0CB /* Pods-ConsistencyManagerDemoTests-frameworks.sh */,
-				7C852A5060BDF1BA2232CBB05171E2FA /* Pods-ConsistencyManagerDemoTests-resources.sh */,
-				E3FCAF141FEA5F29977F73000877DC91 /* Pods-ConsistencyManagerDemoTests-umbrella.h */,
-				4886136AA75D4BD3F3EA7F7737666C3F /* Pods-ConsistencyManagerDemoTests.debug.xcconfig */,
-				E173DD931B17B0F5230EE1F25C3D464C /* Pods-ConsistencyManagerDemoTests.release.xcconfig */,
+				A65F41B2FA349E35D84C5ADE41B23278 /* ConsistencyManager.swift */,
+				6C7B1C28AE1D91CA8FD18B4EB922EC4F /* DataStructures */,
+				708254123DB6E5FF19ECED8ED52FDDE5 /* Helpers */,
+				28AA624F401BE15C88CA7B78A37C4247 /* Protocols */,
 			);
-			name = "Pods-ConsistencyManagerDemoTests";
-			path = "Target Support Files/Pods-ConsistencyManagerDemoTests";
+			name = ConsistencyManager;
+			path = ConsistencyManager;
+			sourceTree = "<group>";
+		};
+		884D502095129379EF5BB132EEA4E18E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27A8F071CF6D4A4BEEA42E86E8700C3E /* iOS */,
+				4E1C6F507D7991E028ABB4AB267E0120 /* tvOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A1AA3DBFF5988795013ED2D7E12167DF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC8D8CD9A8DFCE0531F37300457585F1 /* ConsistencyManager-iOS.modulemap */,
+				3F740ED1673F6FBF65A7CCEF73A6A615 /* ConsistencyManager-iOS.xcconfig */,
+				95A32D96098C1C46226EFE8B82CDF489 /* ConsistencyManager-iOS-dummy.m */,
+				B3681B11B8B4E971E0AF68A0DFE03756 /* ConsistencyManager-iOS-prefix.pch */,
+				92E2F78A71E9CFD08B17BB54693AA924 /* ConsistencyManager-iOS-umbrella.h */,
+				8D40BB1B909597A46C31C66D136D46CE /* ConsistencyManager-tvOS.modulemap */,
+				AFECFBBAAB87D534E6A3ED69FE62F7F2 /* ConsistencyManager-tvOS.xcconfig */,
+				3C7A1C24F138C67E0B05635619AAC59E /* ConsistencyManager-tvOS-dummy.m */,
+				A18DB07C64BCD88133F36C3320981963 /* ConsistencyManager-tvOS-prefix.pch */,
+				C314489444F752B6704A905BBEC79F92 /* ConsistencyManager-tvOS-umbrella.h */,
+				B7C7D8DFD3387138CC4AF105894D888C /* Info.plist */,
+				A9A5FDA90A83422FE80FACDDFD222C25 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "SampleApp/Pods/Target Support Files/ConsistencyManager-iOS";
 			sourceTree = "<group>";
 		};
 		A23F02848403E61DB9A23F6BF9A56D3D /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FA178EC95EFB5649C8D68DD92B755192 /* ConsistencyManager */,
+				47E3ED35058B4D197E850E5669ECB182 /* ConsistencyManager */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		AB906E0AE5F98FC805E1F448FC7543FA /* Pods-ConsistencyManagerDemo */ = {
+		A9F70F4FA3AAFF43531991CAC31A34E4 /* Pods-ConsistencyManagerDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				85C693DEC8FEE4B7D75A35E8C4E2235B /* Info.plist */,
-				6892BE106BBA2F1EF5018BFF3401C7F4 /* Pods-ConsistencyManagerDemo.modulemap */,
-				CC242C43169BAD1A0D861518AE632709 /* Pods-ConsistencyManagerDemo-acknowledgements.markdown */,
-				20C77C2EE983F9889A838B60184CA122 /* Pods-ConsistencyManagerDemo-acknowledgements.plist */,
-				A5921CB899F5D5BC643B0FC6006ABC4A /* Pods-ConsistencyManagerDemo-dummy.m */,
-				ED07B2160440E1B489A2F18D1180FAB7 /* Pods-ConsistencyManagerDemo-frameworks.sh */,
-				E35D0045037C31ACFD232FF8789ED67E /* Pods-ConsistencyManagerDemo-resources.sh */,
-				440C37B569E235BC92C785E3793973D6 /* Pods-ConsistencyManagerDemo-umbrella.h */,
-				CB5425EA16CD7E7219B3B20B6A7891BE /* Pods-ConsistencyManagerDemo.debug.xcconfig */,
-				AB96173C489A506D219E0CAD5CFCF72F /* Pods-ConsistencyManagerDemo.release.xcconfig */,
+				3FAB704481ADF8834EDEBEF5509A25DB /* Info.plist */,
+				FA16DC5AC70D2D1C62063208B94F961E /* Pods-ConsistencyManagerDemoTests.modulemap */,
+				872F9D957046C582314983943C3515A3 /* Pods-ConsistencyManagerDemoTests-acknowledgements.markdown */,
+				852A2ABBA0772857A877D053A11DB079 /* Pods-ConsistencyManagerDemoTests-acknowledgements.plist */,
+				889A0345808C530CC74161ED55195FC8 /* Pods-ConsistencyManagerDemoTests-dummy.m */,
+				0957438D4E1D2CC8ED84CB84625B3C58 /* Pods-ConsistencyManagerDemoTests-frameworks.sh */,
+				E7363EB990176525F0495D82885CC2CE /* Pods-ConsistencyManagerDemoTests-resources.sh */,
+				2EA9FA643AAF631E6CBCD0D7DCF08D16 /* Pods-ConsistencyManagerDemoTests-umbrella.h */,
+				CEFDA7F81A5B351B871391422DB32FFA /* Pods-ConsistencyManagerDemoTests.debug.xcconfig */,
+				60A4DEB1A452FC3825B438C7AC2D2B96 /* Pods-ConsistencyManagerDemoTests.release.xcconfig */,
 			);
-			name = "Pods-ConsistencyManagerDemo";
-			path = "Target Support Files/Pods-ConsistencyManagerDemo";
+			name = "Pods-ConsistencyManagerDemoTests";
+			path = "Target Support Files/Pods-ConsistencyManagerDemoTests";
 			sourceTree = "<group>";
 		};
-		C5DC5848CE0FCAD092F49081196F8EF1 /* Targets Support Files */ = {
+		F4987B55CD5EA2E81521792954FB6D4F /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				AB906E0AE5F98FC805E1F448FC7543FA /* Pods-ConsistencyManagerDemo */,
-				8A22E529FEE93CA2A529819424385060 /* Pods-ConsistencyManagerDemoTests */,
+				000385D48D0EF0B60C2B96F6F57507BC /* Pods-ConsistencyManagerDemo */,
+				2101E732BD93145A8731628A459FAEFA /* Pods-ConsistencyManagerDemo-tvOS */,
+				4BB166185866D178BC518F3A0FCC547B /* Pods-ConsistencyManagerDemo-tvOSTests */,
+				A9F70F4FA3AAFF43531991CAC31A34E4 /* Pods-ConsistencyManagerDemoTests */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */,
-				E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		FA178EC95EFB5649C8D68DD92B755192 /* ConsistencyManager */ = {
-			isa = PBXGroup;
-			children = (
-				15F0D3553BEFF8755161731FFA057803 /* ConsistencyManager */,
-				70C22A7A298EE0C8B13EF4E9BB903EB5 /* Support Files */,
-			);
-			name = ConsistencyManager;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		1771499526FC1CF6F6134BBC1520E80D /* Headers */ = {
+		046DD2BF3F97A0B5986784293CF13B17 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA7256006DA0588B8ED3D7F4508E78A5 /* Pods-ConsistencyManagerDemoTests-umbrella.h in Headers */,
+				BBA8C6F070DE90D7DF92561756101CAC /* Pods-ConsistencyManagerDemo-tvOS-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1ACD512C51176E464B79D551AB61119C /* Headers */ = {
+		2A704DD98691483179C573CA386B740D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67C6C6DAAA281DD86B4713C67A6069D2 /* Pods-ConsistencyManagerDemo-umbrella.h in Headers */,
+				8C7D46C45DE9F182A77D4180D8A87451 /* Pods-ConsistencyManagerDemo-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CC52059BEC70B517452CDFA876D48AD0 /* Headers */ = {
+		984DFD5F0CE840B69AD54E6997694156 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B2BE5EF5BCC75C085AF6FB3DFB73BF7 /* ConsistencyManager-umbrella.h in Headers */,
+				160F4AE62DAAE124E8C18BC1E2334C98 /* ConsistencyManager-iOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C856B192D55D30815E4920FE56A9FCCB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B63F0A7AA39D3A5733AC2DA928731A5A /* Pods-ConsistencyManagerDemo-tvOSTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBD18C591FEE6B185FAB42231BEA65AF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90A34234BBD7BE51DF33AA3C4C0665F3 /* ConsistencyManager-tvOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F61F2F5C2AF51E260C6090E863D7F5D3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A138B3F6DC3DCBAD4B6267C31B86C71 /* Pods-ConsistencyManagerDemoTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		BCB5A2783D9A42AF3EFA9CBFC410483B /* Pods-ConsistencyManagerDemo */ = {
+		0DE86DAB9B067E6E42C5ACE2615ECF4E /* Pods-ConsistencyManagerDemo-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FEFD42CA6E51E5D6757BDBCDF4E3D570 /* Build configuration list for PBXNativeTarget "Pods-ConsistencyManagerDemo" */;
+			buildConfigurationList = FE468FADE1817577588CB5F933669D7A /* Build configuration list for PBXNativeTarget "Pods-ConsistencyManagerDemo-tvOSTests" */;
 			buildPhases = (
-				B0C887B85A28718400C4FE39E3BFC640 /* Sources */,
-				5332D560A2036BAAED9FCC5603C41CAD /* Frameworks */,
-				1ACD512C51176E464B79D551AB61119C /* Headers */,
+				4D78862A3684C6D81FE5718A3C0E1D82 /* Sources */,
+				91623BC69530B14CBABE24923358BBFB /* Frameworks */,
+				C856B192D55D30815E4920FE56A9FCCB /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D31C9CDBA02A78CD909475D8E4EBD0FD /* PBXTargetDependency */,
+				1581F3623D7E71C597F0AE2685243DBA /* PBXTargetDependency */,
 			);
-			name = "Pods-ConsistencyManagerDemo";
-			productName = "Pods-ConsistencyManagerDemo";
-			productReference = EFAE0ADEFDD92C479B85F07AAA90E5C8 /* Pods_ConsistencyManagerDemo.framework */;
+			name = "Pods-ConsistencyManagerDemo-tvOSTests";
+			productName = "Pods-ConsistencyManagerDemo-tvOSTests";
+			productReference = 950E32E1F3B2BA2342AC60CF86223915 /* Pods_ConsistencyManagerDemo_tvOSTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		BF143FCB0BDDCCE19A427004B80418A1 /* ConsistencyManager */ = {
+		4E5D933CE3753118948DE27245DD0145 /* ConsistencyManager-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4860273489427FA3BC8FD45AEB05BD3 /* Build configuration list for PBXNativeTarget "ConsistencyManager" */;
+			buildConfigurationList = F7AFED1C6820CD9ED45BD94BBCABF153 /* Build configuration list for PBXNativeTarget "ConsistencyManager-tvOS" */;
 			buildPhases = (
-				119F3BF3CCA32D4BB089FF917ECD5C13 /* Sources */,
-				B459A5D4048DD01BA939BB3FD857D8A4 /* Frameworks */,
-				CC52059BEC70B517452CDFA876D48AD0 /* Headers */,
+				67CAA14BEA5CB7CB96E6E5A2F066DE32 /* Sources */,
+				B2A39653E0074A16A69DB3ACF696162D /* Frameworks */,
+				EBD18C591FEE6B185FAB42231BEA65AF /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = ConsistencyManager;
-			productName = ConsistencyManager;
-			productReference = 95FABE5E5C82E452542740630E035242 /* ConsistencyManager.framework */;
+			name = "ConsistencyManager-tvOS";
+			productName = "ConsistencyManager-tvOS";
+			productReference = 31808023ADFCC931FFFE1045CC950FAF /* ConsistencyManager.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		FE788E61EAC5C03897FF0A17846577D1 /* Pods-ConsistencyManagerDemoTests */ = {
+		6B6120A49A3F5F84EB775E3993974177 /* Pods-ConsistencyManagerDemo-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 94C1E1EC610117D3962969B1A36C7561 /* Build configuration list for PBXNativeTarget "Pods-ConsistencyManagerDemoTests" */;
+			buildConfigurationList = A95D616C71CF7C789EE485A3BC8ED3D1 /* Build configuration list for PBXNativeTarget "Pods-ConsistencyManagerDemo-tvOS" */;
 			buildPhases = (
-				D7482DDF39898860D355ED68968745B3 /* Sources */,
-				8CB93A423F38BCC201D2C88FE103CDA2 /* Frameworks */,
-				1771499526FC1CF6F6134BBC1520E80D /* Headers */,
+				41361340F6DBC9A7EF27A57BBD87B94C /* Sources */,
+				8AC3456E3518C58833C59BEFC8CD7D05 /* Frameworks */,
+				046DD2BF3F97A0B5986784293CF13B17 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5BEE203327B0FC1C958E966EA41A0515 /* PBXTargetDependency */,
+				25B3516638CBC43A4034E6165F40C5E2 /* PBXTargetDependency */,
+			);
+			name = "Pods-ConsistencyManagerDemo-tvOS";
+			productName = "Pods-ConsistencyManagerDemo-tvOS";
+			productReference = A98585EB61279BC691778243C24DE36E /* Pods_ConsistencyManagerDemo_tvOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B0169F09D11C12B901A8927CE9965EE9 /* ConsistencyManager-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CD9DA9A264102723E9B1C09F0E6AB39 /* Build configuration list for PBXNativeTarget "ConsistencyManager-iOS" */;
+			buildPhases = (
+				BB3E32A40EDC6DFCD53D79A7D7012B1E /* Sources */,
+				91C1513082A425E3A4373E84FE65E6AB /* Frameworks */,
+				984DFD5F0CE840B69AD54E6997694156 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ConsistencyManager-iOS";
+			productName = "ConsistencyManager-iOS";
+			productReference = DAD8F4C3325C21BBAD4307A4EB293570 /* ConsistencyManager.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E963A4B043E69C882C8F473C3DFC1ECB /* Pods-ConsistencyManagerDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89CE1DB41B15807E0DCECB1D2501785F /* Build configuration list for PBXNativeTarget "Pods-ConsistencyManagerDemoTests" */;
+			buildPhases = (
+				6333DA1968D731E357316AD4253B534C /* Sources */,
+				8775128634606864B65D802AACAA2A55 /* Frameworks */,
+				F61F2F5C2AF51E260C6090E863D7F5D3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8230048511F621D364200B75DEFBB817 /* PBXTargetDependency */,
 			);
 			name = "Pods-ConsistencyManagerDemoTests";
 			productName = "Pods-ConsistencyManagerDemoTests";
-			productReference = 6C7214876AADE303DB5DBC63DBD7159C /* Pods_ConsistencyManagerDemoTests.framework */;
+			productReference = 754028E1CEE15C55F33746305CC52F46 /* Pods_ConsistencyManagerDemoTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EB36CF6316E521DA5DCC5051FEE5BDF5 /* Pods-ConsistencyManagerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24A7D9D4033030B9A8FB84426B110FDD /* Build configuration list for PBXNativeTarget "Pods-ConsistencyManagerDemo" */;
+			buildPhases = (
+				A0804AA5DF366BE869D17154F111CDED /* Sources */,
+				4C320C6AC689D6CF07DFA96DC46583FA /* Frameworks */,
+				2A704DD98691483179C573CA386B740D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FE0E1F6EB8D5B2CFEB872F7BEC603856 /* PBXTargetDependency */,
+			);
+			name = "Pods-ConsistencyManagerDemo";
+			productName = "Pods-ConsistencyManagerDemo";
+			productReference = E9E41D34BBF57B11C5808D55B82D2147 /* Pods_ConsistencyManagerDemo.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -379,74 +628,134 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 578A87766815CCE33587B12BFA2836EB /* Products */;
+			productRefGroup = 4374A29C3F01238F285FB66FA819E423 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BF143FCB0BDDCCE19A427004B80418A1 /* ConsistencyManager */,
-				BCB5A2783D9A42AF3EFA9CBFC410483B /* Pods-ConsistencyManagerDemo */,
-				FE788E61EAC5C03897FF0A17846577D1 /* Pods-ConsistencyManagerDemoTests */,
+				B0169F09D11C12B901A8927CE9965EE9 /* ConsistencyManager-iOS */,
+				4E5D933CE3753118948DE27245DD0145 /* ConsistencyManager-tvOS */,
+				EB36CF6316E521DA5DCC5051FEE5BDF5 /* Pods-ConsistencyManagerDemo */,
+				6B6120A49A3F5F84EB775E3993974177 /* Pods-ConsistencyManagerDemo-tvOS */,
+				0DE86DAB9B067E6E42C5ACE2615ECF4E /* Pods-ConsistencyManagerDemo-tvOSTests */,
+				E963A4B043E69C882C8F473C3DFC1ECB /* Pods-ConsistencyManagerDemoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		119F3BF3CCA32D4BB089FF917ECD5C13 /* Sources */ = {
+		41361340F6DBC9A7EF27A57BBD87B94C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				946F6A686048EA441C57692609C7D832 /* BatchListener.swift in Sources */,
-				ECEED617A5BCA13DEBC088D96919A256 /* BatchUpdateModel.swift in Sources */,
-				4634C767EBD6E76069B986A6CB10504D /* CollectionHelpers.swift in Sources */,
-				9CF5B934F1E4C8ABAA4BEDE6D492F53B /* ConsistencyManager-dummy.m in Sources */,
-				7BEAE74FF1D8A510ABD12932094B4065 /* ConsistencyManager.swift in Sources */,
-				CCD1B4DA266FD079ED226B54CBA44B2A /* ConsistencyManagerDelegate.swift in Sources */,
-				ABFCB533DAAA09ADE1BD0A9F1132C199 /* ConsistencyManagerListener.swift in Sources */,
-				2B4766559F7FACFEE5CDB0AB152BFA82 /* ConsistencyManagerModel.swift in Sources */,
-				EE235C93D5DBAC5F8B866D42CD698BB2 /* ErrorManager.swift in Sources */,
-				D77D2196E19893A32580FDD0485B4C52 /* ModelUpdates.swift in Sources */,
-				98012ABE0EB56B1CCE7CD83BB1182914 /* WeakArray.swift in Sources */,
-				F48AFC9B00256A326D88241F8A2B0D0E /* WeakListenerArray.swift in Sources */,
+				F95E4EB477C9B1D855999650A201B2FF /* Pods-ConsistencyManagerDemo-tvOS-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B0C887B85A28718400C4FE39E3BFC640 /* Sources */ = {
+		4D78862A3684C6D81FE5718A3C0E1D82 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F5AEBB2084E771B548021CC26158A1E /* Pods-ConsistencyManagerDemo-dummy.m in Sources */,
+				00CBF7B731092CC3F2EE4E30FA92CA7D /* Pods-ConsistencyManagerDemo-tvOSTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D7482DDF39898860D355ED68968745B3 /* Sources */ = {
+		6333DA1968D731E357316AD4253B534C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8092A6930A3A7578C6CB9AD8DBE406B2 /* Pods-ConsistencyManagerDemoTests-dummy.m in Sources */,
+				C1F52A427ECBC5F56A79B54B0F208801 /* Pods-ConsistencyManagerDemoTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67CAA14BEA5CB7CB96E6E5A2F066DE32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCD337720F4DC2CA7D7C28B612B105E8 /* Array+Weak.swift in Sources */,
+				3F194E11C3843C97A4EA22FC5AC626F1 /* BatchListener.swift in Sources */,
+				F9F57794EAA07AEB4C1BB9A674F4CA40 /* BatchUpdateModel.swift in Sources */,
+				4DD6CC9FD9F5BDAEF507857FE977544F /* CollectionHelpers.swift in Sources */,
+				F452F76773D0619DAEF88DA1CBB76FD8 /* ConsistencyManager-tvOS-dummy.m in Sources */,
+				A0EBD9A2844983A8B22885B192AC3B19 /* ConsistencyManager.swift in Sources */,
+				1243332C9ACDFFE56B62B7F5DAB0363A /* ConsistencyManagerDelegate.swift in Sources */,
+				F10CE30FA2F4F69B867126AC8109DA60 /* ConsistencyManagerListener.swift in Sources */,
+				9FE8AE350099E619FB6903CF136415C1 /* ConsistencyManagerModel.swift in Sources */,
+				98396D69899EB8F6E938189D743867D8 /* ConsistencyManagerUpdatesListener.swift in Sources */,
+				83A548B1D9C7AD52141DB5B2CAF6D9B1 /* ErrorManager.swift in Sources */,
+				FB4E37DE3EF54F3C7D03FA32B7544113 /* ModelChange.swift in Sources */,
+				CC917E2F6AB580C25F63A3EAB0BA3F37 /* ModelUpdates.swift in Sources */,
+				5131E12CBE8039FABC6F7E25EB0662D5 /* TypeErasedWeakHolders.swift in Sources */,
+				0C5A5AA70A43785C2F5A039A101455AB /* WeakArray.swift in Sources */,
+				D5753A9C70C05F0D8D7AE471A4A980FF /* WeakBox.swift in Sources */,
+				E3B8A4C23723CA7B725B701196B2A221 /* WeakHolder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0804AA5DF366BE869D17154F111CDED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0C75ECB82B80DD537DCC4AD361C22F5 /* Pods-ConsistencyManagerDemo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB3E32A40EDC6DFCD53D79A7D7012B1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5F40B276D00AA6E284D28EC59DFCEB8 /* Array+Weak.swift in Sources */,
+				304042D4D721E11E1B3C1B84D18FCB29 /* BatchListener.swift in Sources */,
+				E02C2DA7694AE165DB15E8B8ACB3F884 /* BatchUpdateModel.swift in Sources */,
+				DCF96B5025ACF5427344B1849099DA88 /* CollectionHelpers.swift in Sources */,
+				22F5917AF69DBCA4178BF4C12A73F326 /* ConsistencyManager-iOS-dummy.m in Sources */,
+				4BA6C6007E99DF266DA21DBF34A2C19A /* ConsistencyManager.swift in Sources */,
+				4B7F55458FCB646A1D3F93AB154A1F23 /* ConsistencyManagerDelegate.swift in Sources */,
+				0420594F1188973AF32354F6B0B5E4F6 /* ConsistencyManagerListener.swift in Sources */,
+				C0C5AC1E2837F7DF490A3124CF2C06BD /* ConsistencyManagerModel.swift in Sources */,
+				39AB8A1983D20670D81953DF2ECC3E78 /* ConsistencyManagerUpdatesListener.swift in Sources */,
+				D194A465B2A14ECA3F546C427A48CDE3 /* ErrorManager.swift in Sources */,
+				8717D567A640EFE22FF754C8CC86FB75 /* ModelChange.swift in Sources */,
+				0E8D1A23C4390CEA1827432CED746CE4 /* ModelUpdates.swift in Sources */,
+				820AFFC9499D36DF97F64504B50EA7DE /* TypeErasedWeakHolders.swift in Sources */,
+				45E287247BD9EB4A6973E84DEA555803 /* WeakArray.swift in Sources */,
+				B5B6A620AF9010E91CE9AE24ABA61E46 /* WeakBox.swift in Sources */,
+				C4775D1491AD418A0B420EB03E7A5A13 /* WeakHolder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5BEE203327B0FC1C958E966EA41A0515 /* PBXTargetDependency */ = {
+		1581F3623D7E71C597F0AE2685243DBA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = ConsistencyManager;
-			target = BF143FCB0BDDCCE19A427004B80418A1 /* ConsistencyManager */;
-			targetProxy = 7013622491A77F8DFA5BA8EFE366E3BD /* PBXContainerItemProxy */;
+			name = "ConsistencyManager-tvOS";
+			target = 4E5D933CE3753118948DE27245DD0145 /* ConsistencyManager-tvOS */;
+			targetProxy = AD24C4207D767DA965964AF47354D200 /* PBXContainerItemProxy */;
 		};
-		D31C9CDBA02A78CD909475D8E4EBD0FD /* PBXTargetDependency */ = {
+		25B3516638CBC43A4034E6165F40C5E2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = ConsistencyManager;
-			target = BF143FCB0BDDCCE19A427004B80418A1 /* ConsistencyManager */;
-			targetProxy = E4E5365944BCF8FF9103AF9C91C3BE69 /* PBXContainerItemProxy */;
+			name = "ConsistencyManager-tvOS";
+			target = 4E5D933CE3753118948DE27245DD0145 /* ConsistencyManager-tvOS */;
+			targetProxy = 35400205719CE6953F7A2640069A47FD /* PBXContainerItemProxy */;
+		};
+		8230048511F621D364200B75DEFBB817 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ConsistencyManager-iOS";
+			target = B0169F09D11C12B901A8927CE9965EE9 /* ConsistencyManager-iOS */;
+			targetProxy = 1166C0018036D92D3D45F89568A71634 /* PBXContainerItemProxy */;
+		};
+		FE0E1F6EB8D5B2CFEB872F7BEC603856 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ConsistencyManager-iOS";
+			target = B0169F09D11C12B901A8927CE9965EE9 /* ConsistencyManager-iOS */;
+			targetProxy = F7421C1726835316613C8F5DFEE8C559 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0AFBD76B0457D94C7BC77474AA39204D /* Release */ = {
+		017A2D8EC43DC37922B203AB6BE03092 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E173DD931B17B0F5230EE1F25C3D464C /* Pods-ConsistencyManagerDemoTests.release.xcconfig */;
+			baseConfigurationReference = 6CCF2331166EB0D7443AD156246C3496 /* Pods-ConsistencyManagerDemo-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -459,171 +768,28 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-ConsistencyManagerDemoTests/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-ConsistencyManagerDemo-tvOSTests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ConsistencyManagerDemoTests/Pods-ConsistencyManagerDemoTests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-ConsistencyManagerDemo-tvOSTests/Pods-ConsistencyManagerDemo-tvOSTests.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_ConsistencyManagerDemoTests;
-				SDKROOT = iphoneos;
+				PRODUCT_NAME = Pods_ConsistencyManagerDemo_tvOSTests;
+				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		72469CBF2CC105B1D59E86EBA9C7715B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4886136AA75D4BD3F3EA7F7737666C3F /* Pods-ConsistencyManagerDemoTests.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-ConsistencyManagerDemoTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ConsistencyManagerDemoTests/Pods-ConsistencyManagerDemoTests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_ConsistencyManagerDemoTests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		7492D528FEDCA4E49E96A7723C51F482 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EECEF8CBAF61CF0C2988F5A14BF41D8C /* ConsistencyManager.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/ConsistencyManager/ConsistencyManager-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ConsistencyManager/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ConsistencyManager/ConsistencyManager.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = ConsistencyManager;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		9F3BB3F0CE76191B0945D535973C1373 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB5425EA16CD7E7219B3B20B6A7891BE /* Pods-ConsistencyManagerDemo.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-ConsistencyManagerDemo/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ConsistencyManagerDemo/Pods-ConsistencyManagerDemo.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_ConsistencyManagerDemo;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		AA33B34841CFF098650A47586DA8E6EE /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB96173C489A506D219E0CAD5CFCF72F /* Pods-ConsistencyManagerDemo.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-ConsistencyManagerDemo/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ConsistencyManagerDemo/Pods-ConsistencyManagerDemo.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_ConsistencyManagerDemo;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		AADB9822762AD81BBAE83335B2AB1EB0 /* Release */ = {
+		0623525EE3622680A18A3FD1E9071A9E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -659,11 +825,256 @@
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 10.1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		B1B5EB0850F98CB5AECDB015B690777F /* Debug */ = {
+		1EF9ECC7FE57FA73E265DBA054C57025 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFECFBBAAB87D534E6A3ED69FE62F7F2 /* ConsistencyManager-tvOS.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ConsistencyManager-tvOS/ConsistencyManager-tvOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ConsistencyManager-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ConsistencyManager-tvOS/ConsistencyManager-tvOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = ConsistencyManager;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		236D6A1E6EAE9BB701E1D14E0B6DE6B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B289F28F7F50590A5799D345706A6F3B /* Pods-ConsistencyManagerDemo.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ConsistencyManagerDemo/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ConsistencyManagerDemo/Pods-ConsistencyManagerDemo.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ConsistencyManagerDemo;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		46994290EB2035C8E6018668FF0B125D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F740ED1673F6FBF65A7CCEF73A6A615 /* ConsistencyManager-iOS.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ConsistencyManager-iOS/ConsistencyManager-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ConsistencyManager-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ConsistencyManager-iOS/ConsistencyManager-iOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = ConsistencyManager;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		61EF8D8B083628E75A00F8597802A87A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD43027C2E91735A3F4DE392FF9BB1C4 /* Pods-ConsistencyManagerDemo-tvOS.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ConsistencyManagerDemo-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ConsistencyManagerDemo-tvOS/Pods-ConsistencyManagerDemo-tvOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ConsistencyManagerDemo_tvOS;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7149C907A430ADA96A265F81BAFA7FB1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFECFBBAAB87D534E6A3ED69FE62F7F2 /* ConsistencyManager-tvOS.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ConsistencyManager-tvOS/ConsistencyManager-tvOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ConsistencyManager-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ConsistencyManager-tvOS/ConsistencyManager-tvOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = ConsistencyManager;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8111AE99938E20E911DB159F5A7BAEE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60A4DEB1A452FC3825B438C7AC2D2B96 /* Pods-ConsistencyManagerDemoTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ConsistencyManagerDemoTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ConsistencyManagerDemoTests/Pods-ConsistencyManagerDemoTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ConsistencyManagerDemoTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		92B9C4EFC871EAE96CE05DDA9B0AA471 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0F5796F373E4FB9A0FB956D16AACAFF /* Pods-ConsistencyManagerDemo-tvOSTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ConsistencyManagerDemo-tvOSTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ConsistencyManagerDemo-tvOSTests/Pods-ConsistencyManagerDemo-tvOSTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ConsistencyManagerDemo_tvOSTests;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B3914FDD4663838A71A01F94203E3457 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -704,12 +1115,87 @@
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
-		DADE78EE9F187306B1A7CFD1189BC2B8 /* Release */ = {
+		CFC21737F2116FA5D9B133B8516FA5E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EECEF8CBAF61CF0C2988F5A14BF41D8C /* ConsistencyManager.xcconfig */;
+			baseConfigurationReference = CEFDA7F81A5B351B871391422DB32FFA /* Pods-ConsistencyManagerDemoTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ConsistencyManagerDemoTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ConsistencyManagerDemoTests/Pods-ConsistencyManagerDemoTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ConsistencyManagerDemoTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D9B9A3DFA90F676656B23AFA10EDE4D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F9EF117B01E331FEDCFE2BD354722D6 /* Pods-ConsistencyManagerDemo.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ConsistencyManagerDemo/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ConsistencyManagerDemo/Pods-ConsistencyManagerDemo.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ConsistencyManagerDemo;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F47AD8BD28C43F108D4C8CEC07743EFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC84E85B4E2E54B7482DBEBAF33E2055 /* Pods-ConsistencyManagerDemo-tvOS.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -722,12 +1208,48 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/ConsistencyManager/ConsistencyManager-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ConsistencyManager/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-ConsistencyManagerDemo-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ConsistencyManagerDemo-tvOS/Pods-ConsistencyManagerDemo-tvOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ConsistencyManagerDemo_tvOS;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F49B3BF58023D5A0247092B44DE9CE37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F740ED1673F6FBF65A7CCEF73A6A615 /* ConsistencyManager-iOS.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ConsistencyManager-iOS/ConsistencyManager-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ConsistencyManager-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ConsistencyManager/ConsistencyManager.modulemap";
+				MODULEMAP_FILE = "Target Support Files/ConsistencyManager-iOS/ConsistencyManager-iOS.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = ConsistencyManager;
 				SDKROOT = iphoneos;
@@ -742,38 +1264,65 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		24A7D9D4033030B9A8FB84426B110FDD /* Build configuration list for PBXNativeTarget "Pods-ConsistencyManagerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9B9A3DFA90F676656B23AFA10EDE4D6 /* Debug */,
+				236D6A1E6EAE9BB701E1D14E0B6DE6B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B1B5EB0850F98CB5AECDB015B690777F /* Debug */,
-				AADB9822762AD81BBAE83335B2AB1EB0 /* Release */,
+				B3914FDD4663838A71A01F94203E3457 /* Debug */,
+				0623525EE3622680A18A3FD1E9071A9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		94C1E1EC610117D3962969B1A36C7561 /* Build configuration list for PBXNativeTarget "Pods-ConsistencyManagerDemoTests" */ = {
+		89CE1DB41B15807E0DCECB1D2501785F /* Build configuration list for PBXNativeTarget "Pods-ConsistencyManagerDemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				72469CBF2CC105B1D59E86EBA9C7715B /* Debug */,
-				0AFBD76B0457D94C7BC77474AA39204D /* Release */,
+				CFC21737F2116FA5D9B133B8516FA5E7 /* Debug */,
+				8111AE99938E20E911DB159F5A7BAEE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4860273489427FA3BC8FD45AEB05BD3 /* Build configuration list for PBXNativeTarget "ConsistencyManager" */ = {
+		9CD9DA9A264102723E9B1C09F0E6AB39 /* Build configuration list for PBXNativeTarget "ConsistencyManager-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7492D528FEDCA4E49E96A7723C51F482 /* Debug */,
-				DADE78EE9F187306B1A7CFD1189BC2B8 /* Release */,
+				46994290EB2035C8E6018668FF0B125D /* Debug */,
+				F49B3BF58023D5A0247092B44DE9CE37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FEFD42CA6E51E5D6757BDBCDF4E3D570 /* Build configuration list for PBXNativeTarget "Pods-ConsistencyManagerDemo" */ = {
+		A95D616C71CF7C789EE485A3BC8ED3D1 /* Build configuration list for PBXNativeTarget "Pods-ConsistencyManagerDemo-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9F3BB3F0CE76191B0945D535973C1373 /* Debug */,
-				AA33B34841CFF098650A47586DA8E6EE /* Release */,
+				61EF8D8B083628E75A00F8597802A87A /* Debug */,
+				F47AD8BD28C43F108D4C8CEC07743EFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7AFED1C6820CD9ED45BD94BBCABF153 /* Build configuration list for PBXNativeTarget "ConsistencyManager-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1EF9ECC7FE57FA73E265DBA054C57025 /* Debug */,
+				7149C907A430ADA96A265F81BAFA7FB1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE468FADE1817577588CB5F933669D7A /* Build configuration list for PBXNativeTarget "Pods-ConsistencyManagerDemo-tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92B9C4EFC871EAE96CE05DDA9B0AA471 /* Debug */,
+				017A2D8EC43DC37922B203AB6BE03092 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
