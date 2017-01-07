@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name             = 'ConsistencyManager'
-  spec.version          = '5.0.0'
+  spec.version          = '5.1.0'
   spec.license          = { :type => 'Apache License, Version 2.0' }
   spec.homepage         = 'https://linkedin.github.io/ConsistencyManager-iOS'
   spec.authors          = 'LinkedIn'
