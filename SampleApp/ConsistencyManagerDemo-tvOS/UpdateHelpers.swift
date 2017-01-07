@@ -1,4 +1,4 @@
-// © 2016 LinkedIn Corp. All rights reserved.
+// © 2017 LinkedIn Corp. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0
@@ -10,18 +10,12 @@
 import UIKit
 import ConsistencyManager
 
-class ViewController: UIViewController {
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+class UpdateHelper: NSObject {
+	
+	class func likeUpdate(_ update:  UpdateModel, like: Bool) {
+		// Here is where you would also send a network request
+		// Note: These helper classes can shared across multiple view controller easily since all they need is an Update object
+		let newUpdate = UpdateModel(id: update.id, liked: like)
+		ConsistencyManager.sharedInstance.updateModel(newUpdate)
 	}
-
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-
-
 }
-

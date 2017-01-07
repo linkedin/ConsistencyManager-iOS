@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import ConsistencyManager
 @testable import ConsistencyManagerDemo_tvOS
 
 class ConsistencyManagerDemo_tvOSTests: XCTestCase {

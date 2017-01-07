@@ -10,7 +10,6 @@
 import UIKit
 import ConsistencyManager
 
-
 class DetailViewController: UIViewController, ConsistencyManagerListener {
 
     var update: UpdateModel
