@@ -1,5 +1,5 @@
 PODS:
-  - ConsistencyManager (5.0.0)
+  - ConsistencyManager (5.1.0)
 
 DEPENDENCIES:
   - ConsistencyManager (from `..`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ..
 
 SPEC CHECKSUMS:
-  ConsistencyManager: 51327c1edb1c6c6b68c1daba0c257b187d59ee0c
+  ConsistencyManager: 6154365317e68f344e6b13cc33b0e9040fcd2648
 
 PODFILE CHECKSUM: 1f2715d30b616296e26fe591313d901b9d1adc5f
 
