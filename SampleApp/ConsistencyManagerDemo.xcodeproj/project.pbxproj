@@ -12,14 +12,13 @@
 		49091CE71E2079A0000B9B1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49091CE61E2079A0000B9B1E /* AppDelegate.swift */; };
 		49091CEC1E2079A0000B9B1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49091CEA1E2079A0000B9B1E /* Main.storyboard */; };
 		49091CEE1E2079A0000B9B1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49091CED1E2079A0000B9B1E /* Assets.xcassets */; };
-		49091CF91E2079A1000B9B1E /* ConsistencyManagerDemo_tvOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49091CF81E2079A1000B9B1E /* ConsistencyManagerDemo_tvOSTests.swift */; };
 		49091D141E2096BB000B9B1E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49091D131E2096BB000B9B1E /* MainViewController.swift */; };
-		49091D161E2096F5000B9B1E /* UpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49091D151E2096F5000B9B1E /* UpdateModel.swift */; };
-		49091D181E209729000B9B1E /* StreamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49091D171E209729000B9B1E /* StreamModel.swift */; };
 		49091D1C1E209766000B9B1E /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49091D1B1E209766000B9B1E /* TableViewCell.xib */; };
-		49091D1E1E2098EB000B9B1E /* NetworkStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49091D1D1E2098EB000B9B1E /* NetworkStack.swift */; };
-		49091D201E2098FE000B9B1E /* UpdateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49091D1F1E2098FE000B9B1E /* UpdateHelpers.swift */; };
 		49091D241E209C5C000B9B1E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49091D231E209C5C000B9B1E /* TableViewCell.swift */; };
+		4944505B1E230A8300986C71 /* StreamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DB68721CBC5A1A00BD1F65 /* StreamModel.swift */; };
+		4944505C1E230B1900986C71 /* UpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DB68731CBC5A1A00BD1F65 /* UpdateModel.swift */; };
+		4944505D1E230B1C00986C71 /* NetworkStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DB68751CBC5A1A00BD1F65 /* NetworkStack.swift */; };
+		4944505E1E230B1E00986C71 /* UpdateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DB68761CBC5A1A00BD1F65 /* UpdateHelpers.swift */; };
 		494A0B411E21758900F7FAAB /* TVDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49091D211E20992D000B9B1E /* TVDetailViewController.swift */; };
 		494A0B431E21960100F7FAAB /* ConsistencyManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611562CE1CC06B810001F5CE /* ConsistencyManagerTestCase.swift */; };
 		494A0B441E21960500F7FAAB /* TestListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611562CF1CC06B810001F5CE /* TestListener.swift */; };
@@ -79,16 +78,9 @@
 		49091CED1E2079A0000B9B1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49091CEF1E2079A0000B9B1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49091CF41E2079A0000B9B1E /* ConsistencyManagerDemo-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ConsistencyManagerDemo-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		49091CF81E2079A1000B9B1E /* ConsistencyManagerDemo_tvOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsistencyManagerDemo_tvOSTests.swift; sourceTree = "<group>"; };
 		49091CFA1E2079A1000B9B1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		49091D031E2079A1000B9B1E /* ConsistencyManagerDemo_tvOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsistencyManagerDemo_tvOSUITests.swift; sourceTree = "<group>"; };
-		49091D051E2079A1000B9B1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49091D131E2096BB000B9B1E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		49091D151E2096F5000B9B1E /* UpdateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateModel.swift; sourceTree = "<group>"; };
-		49091D171E209729000B9B1E /* StreamModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamModel.swift; sourceTree = "<group>"; };
 		49091D1B1E209766000B9B1E /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
-		49091D1D1E2098EB000B9B1E /* NetworkStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStack.swift; sourceTree = "<group>"; };
-		49091D1F1E2098FE000B9B1E /* UpdateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateHelpers.swift; sourceTree = "<group>"; };
 		49091D211E20992D000B9B1E /* TVDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVDetailViewController.swift; sourceTree = "<group>"; };
 		49091D231E209C5C000B9B1E /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		611562CE1CC06B810001F5CE /* ConsistencyManagerTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsistencyManagerTestCase.swift; path = ../../ConsistencyManagerTests/HelperClasses/ConsistencyManagerTestCase.swift; sourceTree = "<group>"; };
@@ -183,8 +175,6 @@
 			children = (
 				49091CE61E2079A0000B9B1E /* AppDelegate.swift */,
 				49091D0F1E209689000B9B1E /* Cells */,
-				49091D101E20968F000B9B1E /* Models */,
-				49091D111E209697000B9B1E /* Network */,
 				49091D121E20969E000B9B1E /* ViewControllers */,
 				49091CED1E2079A0000B9B1E /* Assets.xcassets */,
 				49091CEF1E2079A0000B9B1E /* Info.plist */,
@@ -195,46 +185,18 @@
 		49091CF71E2079A1000B9B1E /* ConsistencyManagerDemo-tvOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				49091CF81E2079A1000B9B1E /* ConsistencyManagerDemo_tvOSTests.swift */,
 				49091CFA1E2079A1000B9B1E /* Info.plist */,
 			);
 			path = "ConsistencyManagerDemo-tvOSTests";
 			sourceTree = "<group>";
 		};
-		49091D021E2079A1000B9B1E /* ConsistencyManagerDemo-tvOSUITests */ = {
-			isa = PBXGroup;
-			children = (
-				49091D031E2079A1000B9B1E /* ConsistencyManagerDemo_tvOSUITests.swift */,
-				49091D051E2079A1000B9B1E /* Info.plist */,
-			);
-			path = "ConsistencyManagerDemo-tvOSUITests";
-			sourceTree = "<group>";
-		};
 		49091D0F1E209689000B9B1E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				49091D1B1E209766000B9B1E /* TableViewCell.xib */,
 				49091D231E209C5C000B9B1E /* TableViewCell.swift */,
+				49091D1B1E209766000B9B1E /* TableViewCell.xib */,
 			);
 			name = Cells;
-			sourceTree = "<group>";
-		};
-		49091D101E20968F000B9B1E /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				49091D151E2096F5000B9B1E /* UpdateModel.swift */,
-				49091D171E209729000B9B1E /* StreamModel.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		49091D111E209697000B9B1E /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				49091D1D1E2098EB000B9B1E /* NetworkStack.swift */,
-				49091D1F1E2098FE000B9B1E /* UpdateHelpers.swift */,
-			);
-			name = Network;
 			sourceTree = "<group>";
 		};
 		49091D121E20969E000B9B1E /* ViewControllers */ = {
@@ -245,6 +207,15 @@
 				49091D211E20992D000B9B1E /* TVDetailViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4944505A1E230A5900986C71 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				61DB68711CBC5A1A00BD1F65 /* Models */,
+				61DB68741CBC5A1A00BD1F65 /* Network */,
+			);
+			name = Shared;
 			sourceTree = "<group>";
 		};
 		611562CD1CC06B710001F5CE /* HelperClasses */ = {
@@ -263,11 +234,11 @@
 		61DB68421CBC596F00BD1F65 = {
 			isa = PBXGroup;
 			children = (
+				4944505A1E230A5900986C71 /* Shared */,
 				61DB684D1CBC596F00BD1F65 /* ConsistencyManagerDemo */,
 				61DB68621CBC596F00BD1F65 /* ConsistencyManagerDemoTests */,
 				49091CE51E2079A0000B9B1E /* ConsistencyManagerDemo-tvOS */,
 				49091CF71E2079A1000B9B1E /* ConsistencyManagerDemo-tvOSTests */,
-				49091D021E2079A1000B9B1E /* ConsistencyManagerDemo-tvOSUITests */,
 				61DB684C1CBC596F00BD1F65 /* Products */,
 				F315C729CD095388D8AE0B52 /* Frameworks */,
 				4003325896F3F42FE43A086C /* Pods */,
@@ -290,8 +261,6 @@
 			children = (
 				61DB684E1CBC596F00BD1F65 /* AppDelegate.swift */,
 				61DB686E1CBC5A1A00BD1F65 /* Cells */,
-				61DB68711CBC5A1A00BD1F65 /* Models */,
-				61DB68741CBC5A1A00BD1F65 /* Network */,
 				61DB68771CBC5A1A00BD1F65 /* ViewControllers */,
 				61DB68551CBC596F00BD1F65 /* Assets.xcassets */,
 				61DB68571CBC596F00BD1F65 /* LaunchScreen.storyboard */,
@@ -325,7 +294,8 @@
 				61DB68721CBC5A1A00BD1F65 /* StreamModel.swift */,
 				61DB68731CBC5A1A00BD1F65 /* UpdateModel.swift */,
 			);
-			path = Models;
+			name = Models;
+			path = ConsistencyManagerDemo/Models;
 			sourceTree = "<group>";
 		};
 		61DB68741CBC5A1A00BD1F65 /* Network */ = {
@@ -334,7 +304,8 @@
 				61DB68751CBC5A1A00BD1F65 /* NetworkStack.swift */,
 				61DB68761CBC5A1A00BD1F65 /* UpdateHelpers.swift */,
 			);
-			path = Network;
+			name = Network;
+			path = ConsistencyManagerDemo/Network;
 			sourceTree = "<group>";
 		};
 		61DB68771CBC5A1A00BD1F65 /* ViewControllers */ = {
@@ -724,13 +695,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4944505B1E230A8300986C71 /* StreamModel.swift in Sources */,
 				49091D241E209C5C000B9B1E /* TableViewCell.swift in Sources */,
-				49091D181E209729000B9B1E /* StreamModel.swift in Sources */,
-				49091D161E2096F5000B9B1E /* UpdateModel.swift in Sources */,
 				49091D141E2096BB000B9B1E /* MainViewController.swift in Sources */,
-				49091D201E2098FE000B9B1E /* UpdateHelpers.swift in Sources */,
-				49091D1E1E2098EB000B9B1E /* NetworkStack.swift in Sources */,
 				49091CE71E2079A0000B9B1E /* AppDelegate.swift in Sources */,
+				4944505E1E230B1E00986C71 /* UpdateHelpers.swift in Sources */,
+				4944505C1E230B1900986C71 /* UpdateModel.swift in Sources */,
+				4944505D1E230B1C00986C71 /* NetworkStack.swift in Sources */,
 				494A0B411E21758900F7FAAB /* TVDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -743,7 +714,6 @@
 				494A0B481E21961000F7FAAB /* ProjectionTestModel.swift in Sources */,
 				494A0B441E21960500F7FAAB /* TestListener.swift in Sources */,
 				494A0B461E21960A00F7FAAB /* TestModelGenerator.swift in Sources */,
-				49091CF91E2079A1000B9B1E /* ConsistencyManagerDemo_tvOSTests.swift in Sources */,
 				494A0B471E21960D00F7FAAB /* TestRequiredModel.swift in Sources */,
 				494A0B491E21961200F7FAAB /* PerformanceTests.swift in Sources */,
 				494A0B451E21960800F7FAAB /* TestModel.swift in Sources */,

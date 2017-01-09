@@ -11,7 +11,7 @@ import UIKit
 import ConsistencyManager
 
 
-class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate, ConsistencyManagerListener {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ConsistencyManagerListener {
 	
 	var stream: StreamModel?
 	
@@ -45,7 +45,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 		let update = stream?.updates[(indexPath as NSIndexPath).row]
 		if let update = update {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-			cell.delegate = self
+
 			cell.idLabel.text = update.id
 			if update.liked {
 				cell.textLabel?.text = "Unlike"

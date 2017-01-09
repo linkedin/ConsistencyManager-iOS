@@ -1,4 +1,4 @@
-// © 2016 LinkedIn Corp. All rights reserved.
+// © 2017 LinkedIn Corp. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0
@@ -10,17 +10,5 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-	
-	weak var delegate: TableViewCellDelegate?
-	
 	@IBOutlet var idLabel: UILabel!
-	@IBOutlet var tapGesture: UIGestureRecognizer!
-	
-	@IBAction func gestureTapped() {
-		delegate?.gestureWasTappedOnCell(self)
-	}
-}
-
-protocol TableViewCellDelegate: class {
-	func gestureWasTappedOnCell(_ cell: TableViewCell)
 }

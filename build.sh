@@ -24,5 +24,14 @@ time xcodebuild clean build \
     -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.0' \
     | tee build.log \
     | xcpretty &&
+rm -rf $DERIVED_DATA &&
+    time xcodebuild clean build \
+    -project ConsistencyManager.xcodeproj \
+    -scheme ConsistencyManager \
+    -sdk appletvsimulator10.0 \
+    -derivedDataPath $DERIVED_DATA \
+    -destination 'platform=tvOS Simulator,name=Apple TV 1080p,OS=10.0' \
+    | tee build.log \
+    | xcpretty &&
 cat build.log
 
