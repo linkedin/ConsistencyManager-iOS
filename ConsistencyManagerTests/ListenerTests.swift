@@ -117,6 +117,7 @@ class ListenerTests: ConsistencyManagerTestCase {
                     listener = strongListener
 
                     addListener(strongListener, toConsistencyManager: consistencyManager)
+                    waitOnDispatchQueue(consistencyManager)
                     flushMainQueueOperations()
                 }
 
