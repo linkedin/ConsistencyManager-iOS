@@ -38,7 +38,7 @@ class WeakArrayTests: ConsistencyManagerTestCase {
     // MARK: - Basic Functionality
 
     func testWeakArrayBasic() {
-        var array: WeakArray<TestWeakArrayClass> = {
+        let array: WeakArray<TestWeakArrayClass> = {
             var array = WeakArray<TestWeakArrayClass>()
             let test = TestWeakArrayClass(value: 0)
             array.append(test)
@@ -80,7 +80,7 @@ class WeakArrayTests: ConsistencyManagerTestCase {
 
     func testArrayLiteralFull() {
         let array: WeakArray<TestWeakArrayClass> = {
-            var strongArray = [TestWeakArrayClass(value: 0), TestWeakArrayClass(value: 1), TestWeakArrayClass(value: 2)]
+            let strongArray = [TestWeakArrayClass(value: 0), TestWeakArrayClass(value: 1), TestWeakArrayClass(value: 2)]
             let array: WeakArray<TestWeakArrayClass> = [strongArray[0], strongArray[1], strongArray[2]]
             for i in 0..<3 {
                 XCTAssertTrue(array[i] === strongArray[i])
@@ -103,7 +103,7 @@ class WeakArrayTests: ConsistencyManagerTestCase {
 
     func testArrayLiteralPartial() {
         let array: WeakArray<TestWeakArrayClass> = {
-            var strongArray = [TestWeakArrayClass(value: 0), TestWeakArrayClass(value: 1), TestWeakArrayClass(value: 2)]
+            let strongArray = [TestWeakArrayClass(value: 0), TestWeakArrayClass(value: 1), TestWeakArrayClass(value: 2)]
             let array: WeakArray<TestWeakArrayClass> = [strongArray[0], nil, strongArray[1], nil, strongArray[2], nil]
             for i in 0..<6 {
                 if i % 2 == 0 {

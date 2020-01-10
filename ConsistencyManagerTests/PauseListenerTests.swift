@@ -126,7 +126,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
      */
     func testMultipleListenersWithPausingAndResuming() {
         for testProjections in [true, false] {
-            var (listeners, consistencyManager) = setUpListeners(2, projectionModel: testProjections)
+            let (listeners, consistencyManager) = setUpListeners(2, projectionModel: testProjections)
             let activeListener = listeners[0]
             let pausedListener = listeners[1]
 
