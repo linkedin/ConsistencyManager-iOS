@@ -15,8 +15,8 @@ time xcodebuild clean test \
 rm -rf $DERIVED_DATA &&
 time xcodebuild clean test \
     -scheme ConsistencyManager \
-    -derivedDataPath $DERIVED_DATA \
     -sdk iphonesimulator \
+    -disable-concurrent-destination-testing \
     -derivedDataPath $DERIVED_DATA \
     -destination 'platform=iOS Simulator,name=iPhone 6,OS=10.3.1' \
     -destination 'platform=iOS Simulator,name=iPhone 7,OS=11.4' \
@@ -25,9 +25,10 @@ time xcodebuild clean test \
     | tee build.log \
     | xcpretty &&
 rm -rf $DERIVED_DATA &&
-    time xcodebuild clean test \
+time xcodebuild clean test \
     -scheme ConsistencyManager \
     -sdk appletvsimulator \
+    -derivedDataPath $DERIVED_DATA \
     -destination 'platform=tvOS Simulator,name=Apple TV,OS=13.3' \
     | tee build.log \
     | xcpretty &&
