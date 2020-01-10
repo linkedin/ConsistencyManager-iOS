@@ -5,6 +5,11 @@ DerivedData
 *.pbxuser
 xcuserdata
 
+# SwiftPackageManager
+Packages
+.build/
+*.xcodeproj
+
 # Docs
 docs/_build/**
 docs/sphinx_rtd_theme/**
