@@ -53,11 +53,6 @@
                BlueprintName = "ConsistencyManagerTests"
                ReferencedContainer = "container:">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "ListenerTests/testRetainCycle()">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>
