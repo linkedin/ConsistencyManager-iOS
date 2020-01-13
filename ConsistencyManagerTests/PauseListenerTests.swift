@@ -661,7 +661,7 @@ class PauseListenerTests: ConsistencyManagerTestCase {
             pauseListener(strongListener, consistencyManager: consistencyManager)
         }
 
-        XCTAssertNil(listener)
+        wait(for: listener == nil, timeout: 3, description: "Listener is deallocated")
     }
 
     /**

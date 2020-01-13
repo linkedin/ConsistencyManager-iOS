@@ -108,7 +108,8 @@ class ModelUpdatesListenerTests: ConsistencyManagerTestCase {
             flushMainQueueOperations()
         }
 
-        XCTAssertNil(listener)
+        wait(for: listener == nil, timeout: 3, description: "Listener is deallocated")
+
         // Shouldn't be listening anymore
         let listeners = consistencyManager.modelUpdatesListeners.prune()
         XCTAssertEqual(listeners.count, 0)
