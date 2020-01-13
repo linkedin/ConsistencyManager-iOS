@@ -9,7 +9,7 @@ rm -rf $DERIVED_DATA &&
 time xcodebuild clean test \
     -scheme ConsistencyManager \
     -sdk macosx \
-    -enableCodeCoverage YES
+    -enableCodeCoverage YES \
     -derivedDataPath $DERIVED_DATA \
     | tee build.log \
     | xcpretty &&
