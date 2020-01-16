@@ -4,11 +4,11 @@
   "license": {
     "type": "Apache License, Version 2.0"
   },
-  "homepage": "https://plivesey.github.io/ConsistencyManager-iOS",
+  "homepage": "https://plivesey.github.io/ConsistencyManager",
   "authors": "plivesey",
   "summary": "Manages the consistency of immutable models.",
   "source": {
-    "git": "https://github.com/plivesey/ConsistencyManager-iOS.git",
+    "git": "https://github.com/plivesey/ConsistencyManager.git",
     "tag": "7.0.0"
   },
   "source_files": "ConsistencyManager/**/*.swift",

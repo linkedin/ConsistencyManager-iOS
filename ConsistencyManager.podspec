@@ -2,10 +2,10 @@ Pod::Spec.new do |spec|
   spec.name             = 'ConsistencyManager'
   spec.version          = '8.0.0'
   spec.license          = { :type => 'Apache License, Version 2.0' }
-  spec.homepage         = 'https://plivesey.github.io/ConsistencyManager-iOS'
+  spec.homepage         = 'https://plivesey.github.io/ConsistencyManager'
   spec.authors          = 'plivesey'
   spec.summary          = 'Manages the consistency of immutable models.' 
-  spec.source           = { :git => 'https://github.com/plivesey/ConsistencyManager-iOS.git', :tag => spec.version }
+  spec.source           = { :git => 'https://github.com/plivesey/ConsistencyManager.git', :tag => spec.version }
   spec.source_files     = 'ConsistencyManager/**/*.swift'
   
   spec.ios.deployment_target  = '8.0'

@@ -182,7 +182,7 @@ public protocol ConsistencyManagerModel {
     /**
      Optional
      Most setups don't need to implement this method. You only need to implement this if you are using projections.
-     For more information on projections, see https://linkedin.github.io/ConsistencyManager-iOS/pages/055_projections.html.
+     For more information on projections, see https://plivesey.github.io/ConsistencyManager/pages/055_projections.html.
 
      This should take another model and merge it into the current model.
      If you have two models with the same id but different data, this should merge one model into the other.

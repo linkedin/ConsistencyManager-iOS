@@ -1,8 +1,8 @@
 # Overview
 
-[![Build Status](https://travis-ci.org/plivesey/ConsistencyManager-iOS.svg?branch=master)](https://travis-ci.org/plivesey/ConsistencyManager-iOS)
-[![codecov](https://codecov.io/gh/plivesey/ConsistencyManager-iOS/branch/master/graph/badge.svg)](https://codecov.io/gh/plivesey/ConsistencyManager-iOS)
-[![GitHub release](https://img.shields.io/github/release/plivesey/ConsistencyManager-iOS.svg?maxAge=86400)](https://github.com/plivesey/ConsistencyManager-iOS/releases)
+[![Build Status](https://travis-ci.org/plivesey/ConsistencyManager.svg?branch=master)](https://travis-ci.org/plivesey/ConsistencyManager)
+[![codecov](https://codecov.io/gh/plivesey/ConsistencyManager/branch/master/graph/badge.svg)](https://codecov.io/gh/plivesey/ConsistencyManager)
+[![GitHub release](https://img.shields.io/github/release/plivesey/ConsistencyManager.svg?maxAge=86400)](https://github.com/plivesey/ConsistencyManager/releases)
 ![Platforms](https://img.shields.io/badge/platforms-iOS%20%7C%20tvOS%20%7C%20macOS-blue.svg)
 
 This library provides a way of keeping immutable models consistent. First, listeners listen to an immutable model. Whenever this model (or any child model) is updated, the Consistency Manager will generate a new model and notify its listeners.
@@ -29,7 +29,7 @@ Immutable models have many advantages including thread-safety, performance, and 
 
 Immutable models can be visualized as trees. Each model has fields representing data (strings, ints, etc.) and pointers to other immutable models. Each model also may have an id to uniquely identify themselves. For instance, a messaging application could have these two models:
 
-<div align="center"><img src="https://raw.githubusercontent.com/plivesey/ConsistencyManager-iOS/master/docs/images/treeOriginal.png" height="320px" /></div>
+<div align="center"><img src="https://raw.githubusercontent.com/plivesey/ConsistencyManager/master/docs/images/treeOriginal.png" height="320px" /></div>
 
 In the application, two view controllers would register with the Consistency Manager that they are listening on these models.
 
@@ -40,7 +40,7 @@ ConsistencyManager.sharedInstance.listenForUpdates(self)
 
 Later in the application, some source, like a network request, push notification, or user action, indicates that a person with id = 12 has come online. The application can then create a new person model which looks like this:
 
-<div align="center"><img src="https://raw.githubusercontent.com/plivesey/ConsistencyManager-iOS/master/docs/images/nodeUpdate.png" height="150px" /></div>
+<div align="center"><img src="https://raw.githubusercontent.com/plivesey/ConsistencyManager/master/docs/images/nodeUpdate.png" height="150px" /></div>
 
 Then, the application would update this model in the consistency manager.
 
@@ -50,7 +50,7 @@ ConsistencyManager.sharedInstance.updateWithNewModel(personModel)
 
 The Consistency Manager finds that two models, Message and Contacts, need updating and creates new copies of these models with the updated Person model:
 
-<div align="center"><img src="https://raw.githubusercontent.com/plivesey/ConsistencyManager-iOS/master/docs/images/treeUpdate.png" height="320px" /></div>
+<div align="center"><img src="https://raw.githubusercontent.com/plivesey/ConsistencyManager/master/docs/images/treeUpdate.png" height="320px" /></div>
 
 The Consistency Manager then delivers the updated models to the subscribed listeners (view controllers in this case) via delegate callbacks. The view controller simply needs to set the new data and refresh its view.
 
@@ -58,7 +58,7 @@ The Consistency Manager then delivers the updated models to the subscribed liste
 
 To get started, you should take a look at the docs:
 
-https://plivesey.github.io/ConsistencyManager-iOS
+https://plivesey.github.io/ConsistencyManager
 
 ## Swift Version
 
